@@ -25,6 +25,28 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - m_From: Cinemachine FreeLook Frog
+    m_To: Cinemachine FreeLook Shark
+    m_Blend:
+      m_Style: 1
+      m_Time: 2
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: Cinemachine FreeLook Shark
+    m_To: Cinemachine FreeLook Firefly
+    m_Blend:
+      m_Style: 1
+      m_Time: 2
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: Cinemachine FreeLook Firefly
     m_To: Cinemachine FreeLook MC
     m_Blend:
       m_Style: 1
