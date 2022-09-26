@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
         //CLIMBING
         WallCheck();
-        StateMachine();
+        //StateMachine();
         if (_isClimbing) ClimbingMovement();
     }
 
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
 
     //CLIMBING
-    private void StateMachine()
+    /*private void StateMachine()
     {
         //state 1 - climbing
         if (WallFront && Input.GetKey(KeyCode.Q) && _wallLookAngle < _maxWallLookAngle)
@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
         {
             if (_isClimbing) StopClimbing();
         }
-    }
+    }*/
 
     private void WallCheck()
     {
