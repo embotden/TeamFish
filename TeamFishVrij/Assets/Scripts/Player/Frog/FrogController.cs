@@ -10,6 +10,7 @@ public class FrogController : MonoBehaviour
     public float _turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
 
+
     [Header("Jumping")]
     [SerializeField] private float _jumpForce = 200;
     [SerializeField] private float _fallMultiplier = 7;
@@ -17,37 +18,36 @@ public class FrogController : MonoBehaviour
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _canDoubleJump;
 
+
     [Header("Sprinting")]
     [SerializeField] private bool _isSprinting = false;
     [SerializeField] private float _sprintingSpeed = 6f;
     [SerializeField] private float _walkingSpeed = 2f;
 
-    [Header("Climbing")]
-    public Transform _orientation;
-    public LayerMask _whatIsWall;
 
-    public float _climbSpeed;
-    public float _maxClimbTime;
-    private float _climbTimer;
+    [Header("Grappling")]
+    public Transform _cam;
+    public Transform _mouth;
 
-    private bool _isClimbing;
+    public LayerMask _whatIsGrappleable;
+    public float _maxGrappleDistance;
+    public float _grappleDelayTime;
+    private Vector3 _tonguetip;
 
-    public float _detectionLength;
-    public float _sphereCastRadius;
-    public float _maxWallLookAngle;
-    private float _wallLookAngle;
+    public float _grCooldown;
+    private float _grCooldownTimer;
 
-    private RaycastHit frontWallHit;
-    private bool WallFront;
+    public KeyCode _grappleKey = KeyCode.P;
 
+    private bool _isGrappling;
 
 
+    //------------------------------------------------
 
     private void Awake()
     {
         _speed = _walkingSpeed;
     }
-
 
 
 
@@ -115,15 +115,7 @@ public class FrogController : MonoBehaviour
         {
             _speed = _walkingSpeed;
         }
-
-        //CLIMBING
-        WallCheck();
-        //StateMachine();
-        if (_isClimbing) ClimbingMovement();
     }
-
-
-
 
     //IS THE PLAYER STANDING ON THE FLOOR?
     public void OnCollisionEnter(Collision collision)
@@ -133,6 +125,7 @@ public class FrogController : MonoBehaviour
             _isGrounded = true;
         }
     }
+
     public void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Floor")
@@ -142,49 +135,6 @@ public class FrogController : MonoBehaviour
     }
 
 
-    //CLIMBING
-    /*private void StateMachine()
-    {
-        //state 1 - climbing
-        if (WallFront && Input.GetKey(KeyCode.Q) && _wallLookAngle < _maxWallLookAngle)
-        {
-            if (!_isClimbing && _climbTimer > 0) StartClimbing();
+    
 
-            //timer
-            if (_climbTimer > 0) _climbTimer -= Time.deltaTime;
-            if (_climbTimer < 0) StopClimbing();
-        }
-
-        //state 3 - None
-        else
-        {
-            if (_isClimbing) StopClimbing();
-        }
-    }*/
-
-    private void WallCheck()
-    {
-        WallFront = Physics.SphereCast(transform.position, _sphereCastRadius, _orientation.forward, out frontWallHit, _detectionLength, _whatIsWall);
-        _wallLookAngle = Vector3.Angle(_orientation.forward, -frontWallHit.normal);
-
-        if (_isGrounded)
-        {
-            _climbTimer = _maxClimbTime;
-        }
-    }
-
-    private void StartClimbing()
-    {
-        _isClimbing = true;
-    }
-
-    private void ClimbingMovement()
-    {
-        _rb.velocity = new Vector3(_rb.velocity.x, _climbSpeed, _rb.velocity.z);
-    }
-
-    private void StopClimbing()
-    {
-        _isClimbing = false;
-    }
 }
