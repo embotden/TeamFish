@@ -57,6 +57,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (DialogueManager.GetInstance()._isDialoguePlaying)
+        {
+            return;
+        }
+
         //WALKING
         var vel = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized * _speed; //walking around
         vel.y = _rb.velocity.y;
