@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - water source
+  - Fhinn
   layers:
   - Default
   - TransparentFX

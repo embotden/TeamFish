@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     private RaycastHit frontWallHit;
     private bool WallFront;
 
+  
+
 
 
 
@@ -124,14 +126,7 @@ public class PlayerController : MonoBehaviour
         {
             _speed = _walkingSpeed;
         }
-
-        //CLIMBING
-        WallCheck();
-        //StateMachine();
-        if (_isClimbing) ClimbingMovement();
     }
-
-
 
 
     //IS THE PLAYER STANDING ON THE FLOOR?
@@ -141,7 +136,9 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = true;
         }
+
     }
+
     public void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Floor")
@@ -149,27 +146,6 @@ public class PlayerController : MonoBehaviour
             _isGrounded = false;
         }
     }
-
-
-    //CLIMBING
-    /*private void StateMachine()
-    {
-        //state 1 - climbing
-        if (WallFront && Input.GetKey(KeyCode.Q) && _wallLookAngle < _maxWallLookAngle)
-        {
-            if (!_isClimbing && _climbTimer > 0) StartClimbing();
-
-            //timer
-            if (_climbTimer > 0) _climbTimer -= Time.deltaTime;
-            if (_climbTimer < 0) StopClimbing();
-        }
-
-        //state 3 - None
-        else
-        {
-            if (_isClimbing) StopClimbing();
-        }
-    }*/
 
     private void WallCheck()
     {
@@ -182,18 +158,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void StartClimbing()
-    {
-        _isClimbing = true;
-    }
-
-    private void ClimbingMovement()
-    {
-        _rb.velocity = new Vector3(_rb.velocity.x, _climbSpeed, _rb.velocity.z);
-    }
-
-    private void StopClimbing()
-    {
-        _isClimbing = false;
-    }
 }
