@@ -36,7 +36,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Fhinn")
         {
             _isPlayerInRange = true;
         }
