@@ -7,6 +7,7 @@ public class WaterAbility : MonoBehaviour
     [Header("Water ability")]
     public GameObject _waterEffect;
     public GameObject _splashEffect;
+    public GameObject _waterSpawn;
     [SerializeField] private GameObject _fhinn;
     [SerializeField] private bool _isNearWater = false;
     [SerializeField] private bool _canPickupWater = true;
@@ -71,7 +72,7 @@ public class WaterAbility : MonoBehaviour
         _canPickupWater = false;
 
         //Animation raise water
-        var cloneWater = Instantiate(_waterEffect, transform.position, Quaternion.identity);
+        var cloneWater = Instantiate(_waterEffect, _waterSpawn.transform.position, Quaternion.identity);
 
         //Time water lasts
         yield return new WaitForSeconds(_duration);

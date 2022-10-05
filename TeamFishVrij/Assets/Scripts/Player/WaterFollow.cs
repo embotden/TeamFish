@@ -20,8 +20,9 @@ public class WaterFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-
+        Debug.Log(_target.position);
         nav.SetDestination(_target.position);
+        //transform.position = _target;
     }
 
 
