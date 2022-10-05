@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - water source
+  - Fhinn
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - 
   - _whatIsWall
-  - 
+  - _whatIsGrappleable
   - 
   - 
   - 
