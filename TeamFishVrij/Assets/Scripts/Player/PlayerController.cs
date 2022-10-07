@@ -26,35 +26,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _sprintingSpeed = 6f;
     [SerializeField] private float _walkingSpeed = 2f;
 
-    [Header("Climbing")]
-    public Transform _orientation;
-    public LayerMask _whatIsWall;
-
-    public float _climbSpeed;
-    public float _maxClimbTime;
-    private float _climbTimer;
-
-    private bool _isClimbing;
-
-    public float _detectionLength;
-    public float _sphereCastRadius;
-    public float _maxWallLookAngle;
-    private float _wallLookAngle;
-
+    [Header("Raycast")]
     private RaycastHit frontWallHit;
-    private bool WallFront;
-
-  
-
-
 
 
     private void Awake()
     {
         _speed = _walkingSpeed;
     }
-
-
 
 
     void Update()
@@ -69,12 +48,17 @@ public class PlayerController : MonoBehaviour
         vel.y = _rb.velocity.y;
         _rb.velocity = vel;
 
-        //TURNING CHARACTER
-        if(vel != Vector3.zero)
+
+            //TURNING CHARACTER
+            if (vel != Vector3.zero) //If we're not standing still
         {
             float targetAngle = Mathf.Atan2(vel.x, vel.z) *Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            //Walking animation
+
+
         }
 
         //JUMPING + DOUBLE JUMP
@@ -85,6 +69,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
             _rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & on ground: jump
+
+
+                //Jumping animation
+
             }
 
         }
@@ -94,6 +82,10 @@ public class PlayerController : MonoBehaviour
             {
                 _rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & in air: jump
                 _canDoubleJump = false;
+
+                //Double jump animation
+
+
             } 
         }
 
@@ -108,23 +100,32 @@ public class PlayerController : MonoBehaviour
 
             if (_rb.velocity.y < 0) _rb.velocity += Vector3.up * Physics.gravity.y * _fallMultiplier * Time.deltaTime;
 
+
         //SPRINTING
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _isSprinting = true;
+
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             _isSprinting = false;
+
         }
 
         if(_isSprinting)
         {
             _speed = _sprintingSpeed;
+
+            //Sprinting animation
+
         }
         else
         {
             _speed = _walkingSpeed;
+
+            //Sprinting animation stop
+
         }
     }
 
@@ -136,7 +137,6 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = true;
         }
-
     }
 
     public void OnCollisionExit(Collision collision)
@@ -144,17 +144,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             _isGrounded = false;
-        }
-    }
-
-    private void WallCheck()
-    {
-        WallFront = Physics.SphereCast(transform.position, _sphereCastRadius, _orientation.forward, out frontWallHit, _detectionLength, _whatIsWall);
-        _wallLookAngle = Vector3.Angle(_orientation.forward, -frontWallHit.normal);
-
-        if (_isGrounded)
-        {
-            _climbTimer = _maxClimbTime;
         }
     }
 

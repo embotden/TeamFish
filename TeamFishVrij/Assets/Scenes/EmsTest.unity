@@ -1137,6 +1137,7 @@ GameObject:
   - component: {fileID: 236744318}
   - component: {fileID: 236744321}
   - component: {fileID: 236744322}
+  - component: {fileID: 236744323}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1151,7 +1152,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236744317}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &236744319
 Camera:
   m_ObjectHideFlags: 0
@@ -1277,6 +1278,42 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &236744323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236744317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1427964141
+      Data2: 1334854727
+      Data3: 2051169695
+      Data4: 1991561798
+    Path: event:/MUSIC/Area1MusicPrototype
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Song1CHORDS
+    Value: 0.637
+  - Name: Song1MELODY
+    Value: 1
+  - Name: Song1VOICES
+    Value: 0.782
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &285864602
 GameObject:
   m_ObjectHideFlags: 0
@@ -13546,7 +13583,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719692572}
-  m_LocalRotation: {x: 0.22804141, y: 0.00000003453723, z: -0.000000008089056, w: 0.9736514}
+  m_LocalRotation: {x: 0.22804143, y: -0.00000003453723, z: 0.0000000080890565, w: 0.9736514}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
