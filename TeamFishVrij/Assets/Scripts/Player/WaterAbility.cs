@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class WaterAbility : MonoBehaviour
 {
-    [Header("Water ability")]
+    [Header("Assets")]
     public GameObject _waterEffect;
     public GameObject _splashEffect;
     public GameObject _waterSpawn;
     [SerializeField] private GameObject _fhinn;
-    [SerializeField] private bool _isNearWater = false;
-    [SerializeField] private bool _canPickupWater = true;
-    [SerializeField] private float _duration;
     [SerializeField] private GameObject _visualCue;
     public WaterFollow _waterAbilityScript;
+
+    [Header("Conditions")]
+    [SerializeField] private bool _isNearWater = false;
+    [SerializeField] private bool _canPickupWater = true;
+    public bool _hitObject = false;
+
+    [SerializeField] private float _duration;
+
     
 
     private void Awake()
@@ -63,7 +68,7 @@ public class WaterAbility : MonoBehaviour
         }
     }
 
-    private IEnumerator Pickup()
+    public IEnumerator Pickup()
     {
 
         Debug.Log("Picking up Water");
@@ -84,9 +89,11 @@ public class WaterAbility : MonoBehaviour
         //DroppingWater();
 
         Destroy(cloneWater);
-    }
 
-    private void DroppingWater()
+        _canPickupWater = true;
+    }
+    
+    public void DroppingWater()
     {
 
         //remove water
