@@ -5,12 +5,19 @@ using UnityEngine.AI;
 
 public class WaterFollow : MonoBehaviour
 {
+    [Header("Water location")]
     public Transform _target;
     NavMeshAgent nav;
 
     public float _smoothSpeed = 10f;
 
     public Vector3 offset;
+
+    [Header("Destruction")]
+    public PlantReaction _plantDestructionScript;
+    public WaterAbility _waterLifeScript;
+    public bool _hitObject;
+    public bool _hitPlant;
 
     private void Start()
     {
@@ -25,5 +32,17 @@ public class WaterFollow : MonoBehaviour
         //transform.position = _target;
     }
 
+    private void OnCollisionEnter(Collision collidor)
+    {
+        _hitObject = true;
+        Debug.Log("I hit something");
 
+        if(collidor.gameObject.tag == "plant hitpoint")
+        {
+            //Make plant react
+            _hitPlant = true;
+            _plantDestructionScript.plantReaction();
+            Debug.Log("That was a plant");
+        }
+    }
 }

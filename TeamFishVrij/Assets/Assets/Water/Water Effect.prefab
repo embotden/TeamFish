@@ -9672,9 +9672,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef048fc8f403404fbe1fc2f4faafc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {x: 0, y: 0, z: 0}
+  _target: {fileID: 0}
   _smoothSpeed: 50
   offset: {x: 0, y: 0, z: 0}
+  _plantDestructionScript: {fileID: 0}
+  _waterLifeScript: {fileID: 0}
+  _hitObject: 0
+  _hitPlant: 0
 --- !u!195 &3742165168562156264
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9709,6 +9713,7 @@ GameObject:
   - component: {fileID: 3742165168842156349}
   - component: {fileID: 3742165168842156350}
   - component: {fileID: 3742165168842156351}
+  - component: {fileID: 7934798845833053257}
   m_Layer: 0
   m_Name: Waterbubble
   m_TagString: Untagged
@@ -9789,8 +9794,20 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3742165168842156345}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7934798845833053257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742165168842156345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8f205f9528f4b13992a9967f1dedae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
