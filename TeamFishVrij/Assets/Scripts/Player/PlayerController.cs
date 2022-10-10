@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     public float _turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
+    private Animator animator;
 
     [Header("Jumping")]
     [SerializeField] private float _jumpForce = 200;
@@ -20,41 +21,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _lowJumpMultiplier = 5f;
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _canDoubleJump;
+    [SerializeField] private bool _isJumping;
 
     [Header("Sprinting")]
     [SerializeField] private bool _isSprinting = false;
     [SerializeField] private float _sprintingSpeed = 6f;
     [SerializeField] private float _walkingSpeed = 2f;
 
-    [Header("Climbing")]
-    public Transform _orientation;
-    public LayerMask _whatIsWall;
-
-    public float _climbSpeed;
-    public float _maxClimbTime;
-    private float _climbTimer;
-
-    private bool _isClimbing;
-
-    public float _detectionLength;
-    public float _sphereCastRadius;
-    public float _maxWallLookAngle;
-    private float _wallLookAngle;
-
+    [Header("Raycast")]
     private RaycastHit frontWallHit;
-    private bool WallFront;
-
-  
-
-
 
 
     private void Awake()
     {
         _speed = _walkingSpeed;
+        animator = GetComponent<Animator>();
     }
-
-
 
 
     void Update()
@@ -69,12 +51,22 @@ public class PlayerController : MonoBehaviour
         vel.y = _rb.velocity.y;
         _rb.velocity = vel;
 
-        //TURNING CHARACTER
-        if(vel != Vector3.zero)
+
+            //TURNING CHARACTER
+            if (vel != Vector3.zero) //If we're not standing still
         {
             float targetAngle = Mathf.Atan2(vel.x, vel.z) *Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            //Walking animation
+            animator.SetBool("IsWalking", true);
+
+
+        }
+            else
+        {
+            animator.SetBool("IsWalking", false);
         }
 
         //JUMPING + DOUBLE JUMP
@@ -85,6 +77,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
             _rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & on ground: jump
+
+                _isJumping = true;
+                //Jumping animation
+                animator.SetBool("IsJumping", true);
             }
 
         }
@@ -94,6 +90,9 @@ public class PlayerController : MonoBehaviour
             {
                 _rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & in air: jump
                 _canDoubleJump = false;
+
+                //Double jump animation
+
             } 
         }
 
@@ -108,23 +107,34 @@ public class PlayerController : MonoBehaviour
 
             if (_rb.velocity.y < 0) _rb.velocity += Vector3.up * Physics.gravity.y * _fallMultiplier * Time.deltaTime;
 
+
         //SPRINTING
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _isSprinting = true;
+
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             _isSprinting = false;
+
         }
 
         if(_isSprinting)
         {
             _speed = _sprintingSpeed;
+
+            //Sprinting animation
+            animator.SetBool("IsSprinting", true);
+
         }
         else
         {
             _speed = _walkingSpeed;
+
+            //Sprinting animation stop
+            animator.SetBool("IsSprinting", false);
+
         }
     }
 
@@ -135,6 +145,10 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Floor")
         {
             _isGrounded = true;
+            _isJumping = false;
+            animator.SetBool("IsGrounded", true);
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", false);
         }
 
     }
@@ -144,17 +158,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             _isGrounded = false;
-        }
-    }
+            animator.SetBool("IsGrounded", false);
+           
 
-    private void WallCheck()
-    {
-        WallFront = Physics.SphereCast(transform.position, _sphereCastRadius, _orientation.forward, out frontWallHit, _detectionLength, _whatIsWall);
-        _wallLookAngle = Vector3.Angle(_orientation.forward, -frontWallHit.normal);
-
-        if (_isGrounded)
-        {
-            _climbTimer = _maxClimbTime;
+            if((_isJumping ))
+            {
+                animator.SetBool("IsFalling", true);
+            }
         }
     }
 

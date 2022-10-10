@@ -61,8 +61,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-# Never ignore DLLs in the FMOD subfolder.
-!/[Aa]ssets/Plugins/FMOD/**/lib/*
+# If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
+# Log files can be ignored.
+fmod_editor.log# Never ignore DLLs in the FMOD subfolder.
+!/[Aa]ssets/Plugins/FMOD//lib/*
 
 # Don't ignore images and gizmos used by FMOD in the Unity Editor.
 !/[Aa]ssets/Gizmos/FMOD/*
