@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     public float _turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
+    private Animator animator;
 
     [Header("Jumping")]
     [SerializeField] private float _jumpForce = 200;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _lowJumpMultiplier = 5f;
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _canDoubleJump;
+    [SerializeField] private bool _isJumping;
 
     [Header("Sprinting")]
     [SerializeField] private bool _isSprinting = false;
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _speed = _walkingSpeed;
+        animator = GetComponent<Animator>();
     }
 
 
@@ -57,8 +60,13 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             //Walking animation
+            animator.SetBool("IsWalking", true);
 
 
+        }
+            else
+        {
+            animator.SetBool("IsWalking", false);
         }
 
         //JUMPING + DOUBLE JUMP
@@ -70,9 +78,9 @@ public class PlayerController : MonoBehaviour
             {
             _rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & on ground: jump
 
-
+                _isJumping = true;
                 //Jumping animation
-
+                animator.SetBool("IsJumping", true);
             }
 
         }
@@ -84,7 +92,6 @@ public class PlayerController : MonoBehaviour
                 _canDoubleJump = false;
 
                 //Double jump animation
-
 
             } 
         }
@@ -118,6 +125,7 @@ public class PlayerController : MonoBehaviour
             _speed = _sprintingSpeed;
 
             //Sprinting animation
+            animator.SetBool("IsSprinting", true);
 
         }
         else
@@ -125,6 +133,7 @@ public class PlayerController : MonoBehaviour
             _speed = _walkingSpeed;
 
             //Sprinting animation stop
+            animator.SetBool("IsSprinting", false);
 
         }
     }
@@ -136,7 +145,12 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Floor")
         {
             _isGrounded = true;
+            _isJumping = false;
+            animator.SetBool("IsGrounded", true);
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", false);
         }
+
     }
 
     public void OnCollisionExit(Collision collision)
@@ -144,6 +158,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             _isGrounded = false;
+            animator.SetBool("IsGrounded", false);
+           
+
+            if((_isJumping ))
+            {
+                animator.SetBool("IsFalling", true);
+            }
         }
     }
 
