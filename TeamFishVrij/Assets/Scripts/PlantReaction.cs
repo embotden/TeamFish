@@ -12,12 +12,25 @@ public class PlantReaction : MonoBehaviour
     public GameObject _destructionReaction;
     //private GameObject _thisVine;
 
+    public bool _plantIsHit = false;
 
-    public void plantReaction()
+    private void Update()
+    {
+        if (_plantIsHit) plantReacting();
+    }
+
+
+    public void plantReacting()
     {
         _destructionReaction.SetActive(true);
 
         gameObject.SetActive(false);
-        
+    }
+
+    public void plantGrow()
+    {
+        //Plant grows taller - Collider moves with it.
+
+        Destroy(gameObject);
     }
 }

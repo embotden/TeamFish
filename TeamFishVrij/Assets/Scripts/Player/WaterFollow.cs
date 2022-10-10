@@ -16,8 +16,8 @@ public class WaterFollow : MonoBehaviour
     [Header("Destruction")]
     public PlantReaction _plantDestructionScript;
     public WaterAbility _waterLifeScript;
-    public bool _hitObject;
-    public bool _hitPlant;
+    //public bool _hitObject;
+    //public bool _hitPlant;
 
     private void Start()
     {
@@ -25,23 +25,21 @@ public class WaterFollow : MonoBehaviour
         _target = GameObject.Find("/Characters/MC/Temporary MC Object/Ability Position").transform;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        Debug.Log(_target.position);
         nav.SetDestination(_target.position);
-        //transform.position = _target;
+        //transform.position = _target.transform.position * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collidor)
+    private void OnTriggerEnter(Collider other)
     {
-        _hitObject = true;
+        //_waterMovementScript._hitObject = true;
         Debug.Log("I hit something");
 
-        if(collidor.gameObject.tag == "plant hitpoint")
+        if (other.gameObject.tag == "plant hitpoint")
         {
             //Make plant react
-            _hitPlant = true;
-            _plantDestructionScript.plantReaction();
+            _plantDestructionScript._plantIsHit = true;
             Debug.Log("That was a plant");
         }
     }
