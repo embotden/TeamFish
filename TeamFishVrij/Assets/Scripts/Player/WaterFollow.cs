@@ -22,8 +22,7 @@ public class WaterFollow : MonoBehaviour
     private void Start()
     {
         nav = GetComponent<NavMeshAgent>();
-        _target = GameObject.Find("/Characters/MC/Temporary MC Object/Ability Position").transform;
-    }
+        _target = GameObject.Find("/Characters/MC/Temporary MC Object/Ability Position").transform;    }
 
     private void Update()
     {
@@ -39,7 +38,7 @@ public class WaterFollow : MonoBehaviour
         if (other.gameObject.tag == "plant hitpoint")
         {
             //Make plant react
-            _plantDestructionScript._plantIsHit = true;
+            //_plantDestructionScript._plantIsHit = true;
             Debug.Log("That was a plant");
         }
     }

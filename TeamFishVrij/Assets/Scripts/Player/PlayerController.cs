@@ -28,9 +28,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _sprintingSpeed = 6f;
     [SerializeField] private float _walkingSpeed = 2f;
 
-    [Header("Raycast")]
-    private RaycastHit frontWallHit;
-
 
     private void Awake()
     {
@@ -51,9 +48,8 @@ public class PlayerController : MonoBehaviour
         vel.y = _rb.velocity.y;
         _rb.velocity = vel;
 
-
-            //TURNING CHARACTER
-            if (vel != Vector3.zero) //If we're not standing still
+        //TURNING CHARACTER
+        if (vel != Vector3.zero) //If we're not standing still
         {
             float targetAngle = Mathf.Atan2(vel.x, vel.z) *Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnSmoothTime);
@@ -61,10 +57,8 @@ public class PlayerController : MonoBehaviour
 
             //Walking animation
             animator.SetBool("IsWalking", true);
-
-
         }
-            else
+        else
         {
             animator.SetBool("IsWalking", false);
         }
@@ -126,7 +120,6 @@ public class PlayerController : MonoBehaviour
 
             //Sprinting animation
             animator.SetBool("IsSprinting", true);
-
         }
         else
         {
@@ -150,7 +143,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsFalling", false);
         }
-
     }
 
     public void OnCollisionExit(Collision collision)
