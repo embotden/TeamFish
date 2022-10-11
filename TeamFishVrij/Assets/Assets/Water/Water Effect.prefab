@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 3742165167404422320}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 8.51
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9689,7 +9689,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.75
-  m_Speed: 3.5
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
