@@ -10,15 +10,17 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float _speed; //movement speed
-    [SerializeField] private Rigidbody _rb;
+    //[SerializeField] private Rigidbody _rb;
     public float _turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
     private Animator animator;
 
+    private CharacterController _characterController;
+
     [Header("Jumping")]
     [SerializeField] private float _jumpForce = 200;
-    [SerializeField] private float _fallMultiplier = 7;
-    [SerializeField] private float _lowJumpMultiplier = 5f;
+    //[SerializeField] private float _fallMultiplier = 7;
+    //[SerializeField] private float _lowJumpMultiplier = 5f;
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _canDoubleJump;
     [SerializeField] private bool _isJumping;
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         _speed = _walkingSpeed;
         animator = GetComponent<Animator>();
+        _characterController = GetComponent<CharacterController>();
     }
 
 
@@ -44,9 +47,14 @@ public class PlayerController : MonoBehaviour
         }
 
         //WALKING
-        var vel = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized * _speed; //walking around
-        vel.y = _rb.velocity.y;
-        _rb.velocity = vel;
+        //var vel = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized * _speed; //walking around
+        var vel = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //walking around
+        //vel.y = _rb.velocity.y;
+        //_rb.velocity = vel;
+
+        _characterController.Move(vel * Time.deltaTime * _speed);
+
+        
 
         //TURNING CHARACTER
         if (vel != Vector3.zero) //If we're not standing still
@@ -70,7 +78,10 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-            _rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & on ground: jump
+                var _jumpMovement = new Vector3(0f, _jumpForce, 0f);
+                _characterController.Move(_jumpMovement);
+
+            //_rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & on ground: jump
 
                 _isJumping = true;
                 //Jumping animation
@@ -82,7 +93,10 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && _canDoubleJump)
             {
-                _rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & in air: jump
+                var _jumpMovement = new Vector3(0f, _jumpForce, 0f);
+                _characterController.Move(_jumpMovement);
+
+                //_rb.AddForce(Vector3.up * _jumpForce); //if player press spacebar & in air: jump
                 _canDoubleJump = false;
 
                 //Double jump animation
@@ -90,7 +104,7 @@ public class PlayerController : MonoBehaviour
             } 
         }
 
-            if (_rb.velocity.y < 0)
+            /*if (_rb.velocity.y < 0)
             {
                 _rb.velocity += Vector3.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
             }
@@ -99,7 +113,7 @@ public class PlayerController : MonoBehaviour
                 _rb.velocity += Vector3.up * Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
             }
 
-            if (_rb.velocity.y < 0) _rb.velocity += Vector3.up * Physics.gravity.y * _fallMultiplier * Time.deltaTime;
+            if (_rb.velocity.y < 0) _rb.velocity += Vector3.up * Physics.gravity.y * _fallMultiplier * Time.deltaTime;*/
 
 
         //SPRINTING
