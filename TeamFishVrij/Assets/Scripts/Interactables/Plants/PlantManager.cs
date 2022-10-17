@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class PlantManager : MonoBehaviour
 {
+    [Header("Plant state")]
     public float _damage;
     public float _revival;
     [SerializeField] private float _planteState;
     [SerializeField] private float _maxHealth = 10f;
 
-    public GameObject _triggerEvent;
-    public GameObject _continueButton;
+    [Header("Succes feedback")]
     [SerializeField] private float _waitingTime;
+    private ImageTrigger _imageInteraction;
+    public GameObject _succesFeedback;
+
+    [SerializeField] private bool _succesFeedbackTriggered = false;
 
 
     private void Update()
     {
-        if (_planteState >= _maxHealth) Invoke("PlantMaxedOut", _waitingTime);
+        if (_planteState >= _maxHealth && !_succesFeedbackTriggered) Invoke("PlantMaxedOut", _waitingTime);
     }
 
     public void PlantGrowing()
@@ -26,7 +30,10 @@ public class PlantManager : MonoBehaviour
 
     private void PlantMaxedOut()
     {
-        _triggerEvent.SetActive(true);
+        _imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
+        _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
+
+        _succesFeedbackTriggered = true;
     }
 
     public void PlantShrinking()

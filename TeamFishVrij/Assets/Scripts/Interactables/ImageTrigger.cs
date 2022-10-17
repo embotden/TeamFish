@@ -9,12 +9,11 @@ public class ImageTrigger : MonoBehaviour
 
     [Header("image")]
     [SerializeField] private GameObject _painting;
-    [SerializeField] private bool _isPlayerInRange;
     [SerializeField] private bool _waitingTimeOver;
     [SerializeField] private float _waitingTime;
 
-    [Header("Trigger")]
-    [SerializeField] private GameObject _trigger;
+    public bool _isImageClosed = false;
+    
 
     private void Awake()
     {
@@ -23,21 +22,10 @@ public class ImageTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (_isPlayerInRange) StartCoroutine(StoryPainting());
-
         if (_waitingTimeOver && Input.GetKeyDown(KeyCode.B)) CloseImage();
     }
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.tag == "Fhinn")
-        {
-            Debug.Log("Incoming!");
-            _isPlayerInRange = true;
-        }
-    }
-
-    private IEnumerator StoryPainting()
+    public IEnumerator StoryPainting()
     {
         //Play image animation
         _painting.SetActive(true);
@@ -53,9 +41,10 @@ public class ImageTrigger : MonoBehaviour
 
     private void CloseImage()
     {
-        _visualCue.SetActive(false);
+        gameObject.SetActive(false);
+        /*_visualCue.SetActive(false);
         _painting.SetActive(false);
-        _trigger.SetActive(false);
+        _isImageClosed = true;*/
 
     }
 }
