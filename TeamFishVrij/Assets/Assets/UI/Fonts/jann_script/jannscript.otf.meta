@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 63b5bd998da634af884d3f88c453247e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Jann Script
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 81c3f999ebee540cc8576cb4a2fe48cf, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
