@@ -19,13 +19,11 @@ public class CameraTriggerVolume : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fhinn")) SwitchState();
-        Debug.Log("Look out point");
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Fhinn")) SwitchState();
-        Debug.Log("player camera");
     }
 
     private void SwitchState()

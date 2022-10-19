@@ -17404,7 +17404,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941152718}
-  m_LocalRotation: {x: 0.14586212, y: 0.12315813, z: -0.018303856, w: 0.9814384}
+  m_LocalRotation: {x: 0.1458621, y: 0.12315815, z: -0.018303854, w: 0.9814384}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18681,40 +18681,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 943461996}
     m_Modifications:
-    - target: {fileID: 7881319671649659557, guid: f14a6f01592651b489715e82d05c7bb4,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 26224daaecd4c6047b43d0e408005efb, type: 2}
     - target: {fileID: 8530079428663200624, guid: f14a6f01592651b489715e82d05c7bb4,
         type: 3}
       propertyPath: m_Name
       value: Blockout_B_Boulder01
       objectReference: {fileID: 0}
-    - target: {fileID: 8530079428663200624, guid: f14a6f01592651b489715e82d05c7bb4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: 9019371567094043082, guid: f14a6f01592651b489715e82d05c7bb4,
         type: 3}
       propertyPath: m_RootOrder
       value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 9019371567094043082, guid: f14a6f01592651b489715e82d05c7bb4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 17.905735
-      objectReference: {fileID: 0}
-    - target: {fileID: 9019371567094043082, guid: f14a6f01592651b489715e82d05c7bb4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 17.905737
-      objectReference: {fileID: 0}
-    - target: {fileID: 9019371567094043082, guid: f14a6f01592651b489715e82d05c7bb4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 17.905737
       objectReference: {fileID: 0}
     - target: {fileID: 9019371567094043082, guid: f14a6f01592651b489715e82d05c7bb4,
         type: 3}
@@ -19281,21 +19256,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1102096677537557151, guid: e7987443c95a33d4ba14c948bb4cb790,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102096677537557151, guid: e7987443c95a33d4ba14c948bb4cb790,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102096677537557151, guid: e7987443c95a33d4ba14c948bb4cb790,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102096677537557151, guid: e7987443c95a33d4ba14c948bb4cb790,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.93
       objectReference: {fileID: 0}
@@ -19344,16 +19304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5743659165888933475, guid: e7987443c95a33d4ba14c948bb4cb790,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8935728629712385236, guid: e7987443c95a33d4ba14c948bb4cb790,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 26224daaecd4c6047b43d0e408005efb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7987443c95a33d4ba14c948bb4cb790, type: 3}
 --- !u!1001 &4121033494737204228
