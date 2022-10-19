@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour
 
     private Story _currentStory;
 
+    public bool _isDialogueFinished = false;
+
 
     [Header("Flowing text effect")]
 
@@ -42,7 +44,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(_instance != null)
         {
-            Debug.LogWarning("Found ore than one Dialogue Manager in the scene");
+            Debug.LogWarning("Found more than one Dialogue Manager in the scene");
         }
         _instance = this;
     }
@@ -60,6 +62,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(_isDialogueFinished);
+
         //return right away if dialogue isn't playing
         if(!_isDialoguePlaying)
         {
@@ -67,7 +71,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         //hanndle continuing to the next line in the dialogue when submit is pressed
-        if(_canContinueToNextLine && Input.GetKeyDown(KeyCode.Space))
+        if(_canContinueToNextLine && Input.GetKeyDown(KeyCode.B))
         {
             ContinueStory();
         }
@@ -88,6 +92,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         _isDialoguePlaying = false;
+        _isDialogueFinished = true;
         _dialoguePanel.SetActive(false);
         _dialogueText.text = "";
     }
@@ -129,7 +134,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             //if the submit button is pressed, finish up displaying the line right away
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.B))
             {
                 _dialogueText.text = line;
                 break;

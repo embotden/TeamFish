@@ -1,12 +1,24 @@
-VAR frogger_name = ""
+...
+//Fhinn jumps
+Why... am I not floating?
 
--> FhinnWakesUp
+//More jumping
+Seriously? Not even a magical leap?
 
-=== FhinnWakesUp ===
-//Fhinn wakes up in the temple. He is confused as to why he is in the temple and why he looks different.
-=stitch1
-Why am I awake?
-    * [Karma.]
+//Camera pans towards the sky
+...
+
+Am I not on the moon?
+Is my faith a lie? Am I not dead?
+
+Well, I don't feel alive...
+But...
+I've definetly seen things more dead than I am right now...
+->END
+
+
+
+    /** [Karma.]
         I guess I don't deserve to go to the moon...
     * [It's my final journey]
         I must have unfinished business left...
@@ -20,6 +32,5 @@ Hey, who is that goofy guy?
             **Ehm...
     * His majesty von McFrogerston
     
-- It's nice to meet you!
+- It's nice to meet you!*/
 
--> END
