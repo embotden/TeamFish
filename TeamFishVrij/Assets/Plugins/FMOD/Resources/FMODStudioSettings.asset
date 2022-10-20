@@ -348,10 +348,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: Assets/Systems/FMODbanks/TeamFishVrij_FMOD/TeamFishVrij_FMOD.fspro
-  sourceBankPath: Assets/Systems/FMODbanks/TeamFishVrij_FMOD/Build
+  sourceBankPath: Assets/Systems/FMODbanks/Banks/Desktop
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -469,6 +469,7 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
+  - 0f8eb3f400726694eb47beb1a9f94ce8
   - c88d16e5272a4e241b0ef0ac2e53b73d
   - e7a046c753c3c3d4aacc91f6597f310d
   - 46fbfdf3fc43db0458918377fd40293e
@@ -477,7 +478,6 @@ MonoBehaviour:
   - 2c5177b11d81d824dbb064f9ac8527da
   - fd7c55dab0fce234b8c25f6ffca523c1
   - 52eb9df5db46521439908db3a29a1bbb
-  - 0f8eb3f400726694eb47beb1a9f94ce8
   codecChannels:
     Value: []
     HasValue: 0
