@@ -62,7 +62,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_isDialogueFinished);
 
         //return right away if dialogue isn't playing
         if(!_isDialoguePlaying)
