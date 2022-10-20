@@ -76,6 +76,57 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-7714428750190541431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Area1MusicPrototype/Song1VOICES
+  m_EditorClassIdentifier: 
+  Name: Song1VOICES
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2957160905
+    data2: 4220308541
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-6003451996275961040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps/Footsteps
+  Guid:
+    Data1: 1504319710
+    Data2: 1103781099
+    Data3: -2060387453
+    Data4: 52413461
+  Banks:
+  - {fileID: 637331555301496322}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 559
 --- !u!114 &-5674827441532783199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +201,36 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4444578222280885785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Area1MusicPrototype
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/Area1MusicPrototype
+  Guid:
+    Data1: 1427964141
+    Data2: 1334854727
+    Data3: 2051169695
+    Data4: 1991561798
+  Banks:
+  - {fileID: 4122534644600953068}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8258993425367797098}
+  - {fileID: 216846850688006624}
+  - {fileID: -7714428750190541431}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 81715
 --- !u!114 &-2986624132814450752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +250,26 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 1036
+  Exists: 1
+--- !u!114 &-1982840861206075221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/TEST.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Systems/FMODbanks/TeamFishVrij_FMOD/Build/Desktop/TEST.bank
+  Name: TEST
+  StudioPath: bank:/TEST/TEST
+  lastModified: 638018724311601222
+  FileSizes:
+  - Name: Desktop
+    Value: 1644256
   Exists: 1
 --- !u!114 &-1003864897736212842
 MonoBehaviour:
@@ -207,24 +308,115 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 2808842196899713986}
-  - {fileID: 6696102039036268890}
-  - {fileID: -2986624132814450752}
-  - {fileID: -5674827441532783199}
-  - {fileID: 6987416978166734724}
+  - {fileID: 2886069590541285205}
+  - {fileID: 637331555301496322}
+  - {fileID: 999368324789116052}
+  - {fileID: 4122534644600953068}
+  - {fileID: -1982840861206075221}
   EditorEvents:
-  - {fileID: -5116063122383110164}
-  - {fileID: 3839114480214713401}
-  - {fileID: 8654131356815803018}
-  - {fileID: -7868067276043682283}
-  - {fileID: -5174753957167426536}
+  - {fileID: 4838004069498730439}
+  - {fileID: -6003451996275961040}
+  - {fileID: -4444578222280885785}
+  - {fileID: 3684537230057340535}
+  - {fileID: 234153330351884204}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2986624132814450752}
+  - {fileID: 999368324789116052}
   StringsBanks:
-  - {fileID: 2808842196899713986}
-  cacheTime: 638005718140000000
+  - {fileID: 2886069590541285205}
+  cacheTime: 638018724311601222
   cacheVersion: 131592
+--- !u!114 &216846850688006624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Area1MusicPrototype/Song1MELODY
+  m_EditorClassIdentifier: 
+  Name: Song1MELODY
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2306904397
+    data2: 3501631912
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &234153330351884204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TEST/TEST music
+  m_EditorClassIdentifier: 
+  Path: event:/TEST/TEST music
+  Guid:
+    Data1: 1115371361
+    Data2: 1170540710
+    Data3: -1265344361
+    Data4: -1530718842
+  Banks:
+  - {fileID: -1982840861206075221}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 136615
+--- !u!114 &637331555301496322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Fhlin.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Systems/FMODbanks/TeamFishVrij_FMOD/Build/Desktop/Fhlin.bank
+  Name: Fhlin
+  StudioPath: bank:/Characters/Fhlin
+  lastModified: 638018724244705112
+  FileSizes:
+  - Name: Desktop
+    Value: 10624
+  Exists: 1
+--- !u!114 &999368324789116052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Systems/FMODbanks/TeamFishVrij_FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638018724240780676
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
 --- !u!114 &2808842196899713986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +433,26 @@ MonoBehaviour:
   Name: Master.strings
   StudioPath: bank:/Master.strings
   lastModified: 638005718140000000
+  FileSizes:
+  - Name: Desktop
+    Value: 1330
+  Exists: 1
+--- !u!114 &2886069590541285205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Systems/FMODbanks/TeamFishVrij_FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638018724240850541
   FileSizes:
   - Name: Desktop
     Value: 1330
@@ -269,6 +481,58 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &3621334608699470840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TEST sound/TEST parameter 1
+  m_EditorClassIdentifier: 
+  Name: TEST parameter 1
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3306911660
+    data2: 3598472112
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3684537230057340535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TEST/TEST sound
+  m_EditorClassIdentifier: 
+  Path: event:/TEST/TEST sound
+  Guid:
+    Data1: 114297402
+    Data2: 1309143750
+    Data3: -1708013937
+    Data4: 43358680
+  Banks:
+  - {fileID: -1982840861206075221}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3621334608699470840}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &3839114480214713401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +560,53 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 559
+--- !u!114 &4122534644600953068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Prototype01.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Systems/FMODbanks/TeamFishVrij_FMOD/Build/Desktop/Prototype01.bank
+  Name: Prototype01
+  StudioPath: bank:/Music/Prototype01
+  lastModified: 638018724266366111
+  FileSizes:
+  - Name: Desktop
+    Value: 1701312
+  Exists: 1
+--- !u!114 &4838004069498730439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps/Footsteps2
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps/Footsteps2
+  Guid:
+    Data1: -1972364511
+    Data2: 1295631189
+    Data3: 1279115429
+    Data4: 1600314053
+  Banks:
+  - {fileID: 637331555301496322}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6696102039036268890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +646,30 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 1644256
+  Exists: 1
+--- !u!114 &8258993425367797098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Area1MusicPrototype/Song1CHORDS
+  m_EditorClassIdentifier: 
+  Name: Song1CHORDS
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1406901270
+    data2: 3438023084
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &8654131356815803018
 MonoBehaviour:
