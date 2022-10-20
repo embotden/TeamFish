@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{df5ac7de-8025-4d6e-bf5a-c26c109fcd8c}">
+		<property name="color">
+			<value>Red</value>
+		</property>
+		<property name="assetPath">
+			<value>1MELODY_94bpm_Vrij3Spoons_musicTryout03_Piano&amp;voices.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>82.992000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1fb3694a-d644-4587-bfd1-e1f8796919a7}</destination>
+		</relationship>
+	</object>
+</objects>
