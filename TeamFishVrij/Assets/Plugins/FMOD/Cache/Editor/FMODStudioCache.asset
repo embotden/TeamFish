@@ -266,7 +266,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Fhlin.bank
   Name: Fhlin
   StudioPath: bank:/Characters/Fhlin
-  lastModified: 638018742459500876
+  lastModified: 638018744743358827
   FileSizes: []
   Exists: 1
 --- !u!114 &-1112133450707545550
@@ -284,7 +284,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Prototype01.bank
   Name: Prototype01
   StudioPath: bank:/Music/Prototype01
-  lastModified: 638018742459584382
+  lastModified: 638018744743478861
   FileSizes: []
   Exists: 1
 --- !u!114 &-1003864897736212842
@@ -326,7 +326,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/TEST.bank
   Name: TEST
   StudioPath: bank:/TEST/TEST
-  lastModified: 638018742459661329
+  lastModified: 638018744743598884
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -358,7 +358,7 @@ MonoBehaviour:
   - {fileID: 7615165252003226173}
   StringsBanks:
   - {fileID: 8290892069487024680}
-  cacheTime: 638018742459661329
+  cacheTime: 638018744743598884
   cacheVersion: 131592
 --- !u!114 &216846850688006624
 MonoBehaviour:
@@ -616,7 +616,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638018742459503736
+  lastModified: 638018744743358827
   FileSizes: []
   Exists: 1
 --- !u!114 &8258993425367797098
@@ -658,7 +658,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638018742459507099
+  lastModified: 638018744743358827
   FileSizes:
   - Name: 
     Value: 1330
