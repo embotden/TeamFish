@@ -103,7 +103,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FloatHeight: 0.6
+    - _FloatHeight: 0.4
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -117,17 +117,17 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StarSize: 150
+    - _StarSize: 143.9
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _stars: 1.89
+    - _stars: 7.7
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Bottom: {r: 0.16147569, g: 0.105820596, b: 0.7735849, a: 0}
+    - _Bottom: {r: 0.12893334, g: 0.0485938, b: 0.49056602, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Top: {r: 0.8018868, g: 0.32117885, b: 0.056737266, a: 0}
+    - _Top: {r: 0.8, g: 0.054901935, b: 0.35928708, a: 0}
     - _tiling: {r: 8, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []

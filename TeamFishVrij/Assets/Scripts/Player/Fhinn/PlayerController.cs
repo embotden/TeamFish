@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _gravity = -5f;
 
     [Header("Sprinting")]
-    [SerializeField] private bool _isSprinting = false;
+    public bool _isSprinting = false;
     [SerializeField] private float _sprintingSpeed = 6f;
     [SerializeField] private float _walkingSpeed = 2f;
 
@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
 
         //WALKING
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //walking around
-        _characterController.Move(move * Time.deltaTime * _speed);
+
+        if(!DialogueManager.GetInstance()._isDialoguePlaying) _characterController.Move(move * Time.deltaTime * _speed);
 
 
 

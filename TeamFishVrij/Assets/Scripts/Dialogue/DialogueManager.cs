@@ -88,10 +88,11 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ExitDialogueMode()
     {
+        _isDialogueFinished = true;
+
         yield return new WaitForSeconds(0.2f);
 
         _isDialoguePlaying = false;
-        _isDialogueFinished = true;
         _dialoguePanel.SetActive(false);
         _dialogueText.text = "";
     }

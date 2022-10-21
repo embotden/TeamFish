@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: RenderObjects
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: RenderObjects
     Event: 1000
@@ -104,7 +104,7 @@ MonoBehaviour:
         m_Bits: 3079
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 291ef9aea2f3f406baa7236f384db35e, type: 2}
-    overrideMaterialPassIndex: 0
+    overrideMaterialPassIndex: 30
     overrideDepthState: 0
     depthCompareFunction: 4
     enableWrite: 1
