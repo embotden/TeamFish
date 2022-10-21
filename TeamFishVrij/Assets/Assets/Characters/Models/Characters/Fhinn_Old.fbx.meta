@@ -1,12 +1,19 @@
 fileFormatVersion: 2
-guid: 7535127aae5138247977f1cf64916d37
+guid: e52a8fdc6000d3543a2b7664d93d0cb2
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: -203655887218126122
-    second: mixamo.com
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Body
+    second: {fileID: 2100000, guid: 99535f9971ff84699b0c9f040c6cc061, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye
+    second: {fileID: 2100000, guid: 5907fcf37b8724dfda27ef1b29e3f3df, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,7 +57,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
