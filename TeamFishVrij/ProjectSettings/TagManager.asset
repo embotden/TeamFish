@@ -8,6 +8,9 @@ TagManager:
   - water source
   - Fhinn
   - plant hitpoint
+  - Lookout
+  - Door
+  - Shark
   layers:
   - Default
   - TransparentFX
