@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaterAbility : MonoBehaviour
 {
     [Header("Assets")]
     public GameObject _waterEffect;
-    public GameObject _splashEffect;
+    //public GameObject _splashEffect;
     public GameObject _waterSpawn;
-    [SerializeField] private GameObject _fhinn;
-    [SerializeField] private GameObject _visualCue;
-    public WaterFollow _waterAbilityScript;
+    //[SerializeField] private GameObject _fhinn;
+    public GameObject _visualCue;
+    //public WaterFollow _waterAbilityScript;
+    //public PlayerInteractables _visualCueScript;
 
-    [Header("Conditions")]
-    [SerializeField] private bool _isNearWater = false;
-    [SerializeField] private bool _canPickupWater = true;
+    [Header("Start")]
+    [SerializeField] private bool _isNearWater;
+    [SerializeField] private bool _canPickupWater;
+
+
+    [Header("Duration")]
     public bool _hitObject = false;
-
     [SerializeField] private float _duration;
 
     
@@ -24,7 +28,14 @@ public class WaterAbility : MonoBehaviour
     private void Awake()
     {
         //_waterEffect.SetActive(false);
+        //_visualCue.SetActive(false);
+        _canPickupWater = true;
+        _isNearWater = false;
+
         _visualCue.SetActive(false);
+
+        //GameObject _player = GameObject.FindWithTag("Fhinn");
+        //_visualCueScript = _player.GetComponent<PlayerInteractables>();
 
     }
 
@@ -39,12 +50,29 @@ public class WaterAbility : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        _isNearWater = false;
+        if (other.gameObject.tag == "Fhinn")
+        {
+            _isNearWater = false;
+        }
     }
 
     private void Update()
     {
-        if(_isNearWater && Input.GetKeyDown(KeyCode.Q))
+
+        if(_isNearWater && _canPickupWater)
+        {
+            //_visualCueScript._canUseWater = true;
+            _visualCue.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.Q)) StartCoroutine(Pickup());
+        }
+        else
+        {
+            //_visualCueScript._canUseWater = false;
+            _visualCue.SetActive(false);
+        }
+
+        /*if(_isNearWater && Input.GetKeyDown(KeyCode.Q))
         {
             if (_canPickupWater)
             {
@@ -56,16 +84,8 @@ public class WaterAbility : MonoBehaviour
                 //DroppingWater();
 
             }
-        }
+        }*/
 
-        if(_isNearWater && _canPickupWater)
-        {
-            _visualCue.SetActive(true);
-        }
-        else
-        {
-            _visualCue.SetActive(false);
-        }
     }
 
     public IEnumerator Pickup()
@@ -87,17 +107,8 @@ public class WaterAbility : MonoBehaviour
 
         Destroy(cloneWater);
 
-        _canPickupWater = true;
-    }
-    
-    public void DroppingWater()
-    {
+        yield return new WaitForSeconds(2f);
 
-        //remove water
-        //_waterEffect.SetActive(false);
-        Destroy(_waterEffect);
-
-        //Reset
         _canPickupWater = true;
     }
 }
