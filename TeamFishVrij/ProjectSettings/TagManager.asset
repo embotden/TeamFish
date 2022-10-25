@@ -11,6 +11,10 @@ TagManager:
   - Lookout
   - Door
   - Shark
+  - Options
+  - Story
+  - Collection
+  - Bath
   layers:
   - Default
   - TransparentFX
