@@ -103,8 +103,13 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 3079
       PassNames: []
+<<<<<<< Updated upstream
     overrideMaterial: {fileID: 2100000, guid: 9e13bf4985a8b4bc5b513591dac1ff3e, type: 2}
     overrideMaterialPassIndex: 30
+=======
+    overrideMaterial: {fileID: 2100000, guid: 291ef9aea2f3f406baa7236f384db35e, type: 2}
+    overrideMaterialPassIndex: 16
+>>>>>>> Stashed changes
     overrideDepthState: 0
     depthCompareFunction: 4
     enableWrite: 1
