@@ -46,6 +46,5 @@ public class CameraTriggerVolume : MonoBehaviour
     private void SwitchToMainState()
     {
         _animator.Play("Player camera");
-        Debug.Log("Switching to player");
     }
 }
