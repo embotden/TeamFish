@@ -955,6 +955,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1170666695}
+  - {fileID: 1849599028}
   - {fileID: 347029203}
   m_Father: {fileID: 838554480}
   m_RootOrder: 5
@@ -1459,7 +1461,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220063912}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &347029204
 BoxCollider:
@@ -2528,6 +2530,8 @@ MonoBehaviour:
   _headerOption: {fileID: 1912200715}
   _visualCue: {fileID: 1448981747}
   _menuAnimator: {fileID: 74088684}
+  _canExit: 0
+  _canSwitch: 0
 --- !u!1 &666635537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &666635538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2820,6 +2824,8 @@ MonoBehaviour:
   _headerOption: {fileID: 2072399047}
   _visualCue: {fileID: 1448981747}
   _menuAnimator: {fileID: 74088684}
+  _canExit: 0
+  _canSwitch: 0
 --- !u!1 &762365777
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,8 +3300,6 @@ Transform:
   - {fileID: 220063912}
   - {fileID: 2102230982}
   - {fileID: 762365778}
-  - {fileID: 1170666695}
-  - {fileID: 1849599028}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8854,11 +8858,11 @@ Transform:
   m_GameObject: {fileID: 1170666694}
   m_LocalRotation: {x: -0, y: 0.10476625, z: -0, w: 0.99449694}
   m_LocalPosition: {x: 4.99, y: 3.43, z: 10.57}
-  m_LocalScale: {x: 10.619, y: 7.2781, z: 1}
+  m_LocalScale: {x: 10.6189995, y: 7.2781, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 838554480}
-  m_RootOrder: 8
+  m_Father: {fileID: 220063912}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 12.027, z: 0}
 --- !u!65 &1170666696
 BoxCollider:
@@ -12246,6 +12250,8 @@ MonoBehaviour:
   _headerOption: {fileID: 528554676}
   _visualCue: {fileID: 1448981747}
   _menuAnimator: {fileID: 74088684}
+  _canExit: 0
+  _canSwitch: 0
 --- !u!1 &1673660892
 GameObject:
   m_ObjectHideFlags: 0
@@ -12513,13 +12519,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849599027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5.97, z: -8.44}
   m_LocalScale: {x: 38.67444, y: 21.525, z: 6.6557}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 838554480}
-  m_RootOrder: 9
+  m_Father: {fileID: 220063912}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1849599029
 BoxCollider:
@@ -16798,6 +16804,8 @@ MonoBehaviour:
   _headerOption: {fileID: 174970006}
   _visualCue: {fileID: 1448981747}
   _menuAnimator: {fileID: 74088684}
+  _canExit: 0
+  _canSwitch: 0
 --- !u!1 &2072399047
 GameObject:
   m_ObjectHideFlags: 0
