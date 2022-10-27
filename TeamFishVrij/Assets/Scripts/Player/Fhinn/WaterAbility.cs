@@ -86,8 +86,6 @@ public class WaterAbility : MonoBehaviour
 
         Destroy(cloneWater);
 
-        _targetHint.SetActive(false);
-
         yield return new WaitForSeconds(2f);
 
         _canPickupWater = true;
