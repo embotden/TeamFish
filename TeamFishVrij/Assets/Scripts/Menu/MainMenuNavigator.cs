@@ -1,107 +1,121 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuNavigator : MonoBehaviour
 {
-    public GameObject _headerOption;
+    [Header("Visual Cues")]
     public GameObject _visualCue;
-    
 
+    [Header("Transition")]
     public Animator _menuAnimator;
+    [SerializeField] private float _setupTime = 2f;
 
-    public bool _isWatching { get; private set; }
-    [SerializeField] private bool _canExit;
-    [SerializeField] private bool _canSwitch;
+    [Header("Conditions")]
+    private bool _isWatching;
+    //public bool _canExit;
+    private bool _mainCamera;
 
-    // Start is called before the first frame update
-    void Awake()
+    [Header("Player")]
+    public GameObject _Fhinn;
+
+    [Header("Options")]
+    [SerializeField] private bool _isOptions;
+    private bool _isCollection;
+    private bool _isStory;
+    private bool _isStart;
+    private bool _reset;
+
+
+
+    void Start()
     {
-        _headerOption.SetActive(false);
         _visualCue.SetActive(false);
         _isWatching = false;
-        _canExit = true;
-        _canSwitch = false;
+        _reset = false;
     }
 
     private void Update()
     {
-        if(_canSwitch && Input.GetKeyDown(KeyCode.Q))
-        {
-            SwitchState();
-        }
+        Debug.Log(_isWatching);
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(_isOptions || _isCollection || _isStory)
         {
-            if(_canExit)
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                //Turn on are you sure UI
-
-                Debug.Log("Suggesting quit game");
-            }
-            else
-            {
-                SwitchToMainState();
+                StartCoroutine(SwitchToMainState());
             }
         }
 
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Fhinn"))
+        if (_isWatching && Input.GetKeyDown(KeyCode.Escape))
         {
-            _headerOption.SetActive(true);
-            _visualCue.SetActive(true);
-
-            _canSwitch = true;
+            Debug.Log("quit options button");
         }
     }
+    
 
-    private void OnTriggerExit(Collider other)
+    public void StoryViewState()
     {
-        if (other.CompareTag("Fhinn"))
-        {
-            _headerOption.SetActive(false);
-            _visualCue.SetActive(false);
+        _isStory = true;
 
-            _canSwitch = false;
-        }
+        _menuAnimator.Play("Exposition camera");
+        _mainCamera = !_mainCamera;
+
+        _isWatching = true;
     }
 
-    private void SwitchState()
+    public void CollectionViewState()
     {
-        //Debug.Log("Switching state...");
-                
-        if (gameObject.CompareTag("Options"))
-        {
-            _menuAnimator.Play("Window camera");
-            _isWatching = true;
-        }
-        else if (gameObject.CompareTag("Story"))
-        {
-            _menuAnimator.Play("Exposition camera");
-            _isWatching = true;
-        }
-        else if (gameObject.CompareTag("Collection"))
-        {
-            _menuAnimator.Play("Memories camera");
-            _isWatching = true;
-        }
-        else if (gameObject.CompareTag("Bath"))
-        {
-            _menuAnimator.Play("Start camera");
-            _isWatching = true;
-        }
-        else
-        {
-            SwitchToMainState();
-        }
+        _isCollection = true;
+
+        _menuAnimator.Play("Memories camera");
+        _mainCamera = !_mainCamera;
+
+        _isWatching = true;
+
     }
 
-    private void SwitchToMainState()
+    public void StartGame()
     {
+        _isStart = true;
+
+        _menuAnimator.Play("Start camera");
+        _mainCamera = !_mainCamera;
+
+        _isWatching = true;
+    }
+
+
+    public IEnumerator OptionsState()
+    {
+        _isOptions = true;
+        Time.timeScale = 0f;
+
+        _menuAnimator.Play("Window camera");
+        _mainCamera = !_mainCamera;
+
+
+        yield return new WaitForSeconds(_setupTime);
+
+
+        //Set options canvas active
+
+        _isWatching = true;
+
+    }
+
+    public IEnumerator SwitchToMainState()
+    {
+        Debug.Log("Switching back!");
         _menuAnimator.Play("Overview camera");
+
+        yield return new WaitForSeconds(_setupTime);
+
         _isWatching = false;
+        //_canExit = true;
+        _reset = true;
+        _mainCamera = !_mainCamera;
+
     }
 }

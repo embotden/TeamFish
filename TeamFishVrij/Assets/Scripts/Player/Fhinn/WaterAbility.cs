@@ -13,6 +13,7 @@ public class WaterAbility : MonoBehaviour
     public GameObject _visualCue;
     //public WaterFollow _waterAbilityScript;
     //public PlayerInteractables _visualCueScript;
+    public GameObject _targetHint;
 
     [Header("Start")]
     [SerializeField] private bool _isNearWater;
@@ -27,16 +28,11 @@ public class WaterAbility : MonoBehaviour
 
     private void Awake()
     {
-        //_waterEffect.SetActive(false);
-        //_visualCue.SetActive(false);
         _canPickupWater = true;
         _isNearWater = false;
 
         _visualCue.SetActive(false);
-
-        //GameObject _player = GameObject.FindWithTag("Fhinn");
-        //_visualCueScript = _player.GetComponent<PlayerInteractables>();
-
+        _targetHint.SetActive(false);
     }
 
 
@@ -45,6 +41,7 @@ public class WaterAbility : MonoBehaviour
         if (other.gameObject.tag == "Fhinn")
         {
             _isNearWater = true;
+            _visualCue.SetActive(true);
         }
     }
 
@@ -53,6 +50,7 @@ public class WaterAbility : MonoBehaviour
         if (other.gameObject.tag == "Fhinn")
         {
             _isNearWater = false;
+            _visualCue.SetActive(false);
         }
     }
 
@@ -61,30 +59,8 @@ public class WaterAbility : MonoBehaviour
 
         if(_isNearWater && _canPickupWater)
         {
-            //_visualCueScript._canUseWater = true;
-            _visualCue.SetActive(true);
-
             if (Input.GetKeyDown(KeyCode.Q)) StartCoroutine(Pickup());
         }
-        else
-        {
-            //_visualCueScript._canUseWater = false;
-            _visualCue.SetActive(false);
-        }
-
-        /*if(_isNearWater && Input.GetKeyDown(KeyCode.Q))
-        {
-            if (_canPickupWater)
-            {
-                StartCoroutine(Pickup());
-            }
-            else
-            {
-                Debug.Log("Water dropped");
-                //DroppingWater();
-
-            }
-        }*/
 
     }
 
@@ -96,6 +72,9 @@ public class WaterAbility : MonoBehaviour
         //Animation raise water
         var cloneWater = Instantiate(_waterEffect, _waterSpawn.transform.position, Quaternion.identity);
 
+        //Turn on light hint
+        _targetHint.SetActive(true);
+
         //Time water lasts
         yield return new WaitForSeconds(_duration);
 
@@ -106,6 +85,8 @@ public class WaterAbility : MonoBehaviour
         //DroppingWater();
 
         Destroy(cloneWater);
+
+        _targetHint.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 

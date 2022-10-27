@@ -10,8 +10,12 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     private CharacterController _characterController;
+    public MainMenuNavigator _MainMenuOptions;
+
     private Animator animator;
+
     private Vector3 playerVelocity;
+
     [SerializeField] private float _speed; //movement speed
     public float _turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
@@ -37,6 +41,7 @@ public class PlayerController : MonoBehaviour
         _speed = _walkingSpeed;
         animator = GetComponent<Animator>();
         _characterController = GetComponent<CharacterController>();
+
 
         _yVelocity = _gravity;
     }
@@ -67,7 +72,6 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         var characterMovement = new Vector3(horizontal, 0, vertical); //walking around
-
 
 
         //JUMPING + DOUBLE JUMP
