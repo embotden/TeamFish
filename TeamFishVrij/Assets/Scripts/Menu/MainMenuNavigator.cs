@@ -17,9 +17,6 @@ public class MainMenuNavigator : MonoBehaviour
     //public bool _canExit;
     private bool _mainCamera;
 
-    [Header("Player")]
-    public GameObject _Fhinn;
-
     [Header("Options")]
     [SerializeField] private bool _isOptions;
     private bool _isCollection;
@@ -38,8 +35,6 @@ public class MainMenuNavigator : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_isWatching);
-
         if(_isOptions || _isCollection || _isStory)
         {
             if (Input.GetKeyDown(KeyCode.Q))

@@ -37,6 +37,7 @@ public class MainMenuTriggerCheck : MonoBehaviour
     {
         if (other.CompareTag("Fhinn"))
         {
+            _sectionHeader.SetActive(false);
             _menuManager._visualCue.SetActive(false);
 
             _canChoose = false;
