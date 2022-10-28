@@ -90,7 +90,6 @@ public class MainMenuNavigator : MonoBehaviour
     public IEnumerator OptionsState()
     {
         _isOptions = true;
-        Time.timeScale = 0f;
 
         _menuAnimator.Play("Window camera");
         _mainCamera = !_mainCamera;
