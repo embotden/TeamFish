@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController _characterController;
     public MainMenuNavigator _MainMenuOptions;
 
-    private Animator animator;
+    public Animator animator;
 
     private Vector3 playerVelocity;
 
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _speed = _walkingSpeed;
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         _characterController = GetComponent<CharacterController>();
 
 
