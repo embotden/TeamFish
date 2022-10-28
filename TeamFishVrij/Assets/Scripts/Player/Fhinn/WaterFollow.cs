@@ -22,7 +22,7 @@ public class WaterFollow : MonoBehaviour
     private void Start()
     {
         nav = GetComponent<NavMeshAgent>();
-        _target = GameObject.Find("/Characters/MC/Temporary MC Object/Ability Position").transform;
+        _target = GameObject.Find("/Characters/MC/Ability Position").transform;
     }
 
     private void Update()
