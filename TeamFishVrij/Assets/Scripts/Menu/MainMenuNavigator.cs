@@ -7,6 +7,7 @@ public class MainMenuNavigator : MonoBehaviour
 {
     [Header("Visual Cues")]
     public GameObject _visualCue;
+    public GameObject _optionsMenu;
 
     [Header("Transition")]
     public Animator _menuAnimator;
@@ -29,6 +30,8 @@ public class MainMenuNavigator : MonoBehaviour
     void Start()
     {
         _visualCue.SetActive(false);
+        _optionsMenu.SetActive(false);
+
         _isWatching = false;
         _reset = false;
     }
@@ -94,6 +97,8 @@ public class MainMenuNavigator : MonoBehaviour
 
 
         //Set options canvas active
+        _optionsMenu.SetActive(true);
+
 
         _isWatching = true;
 
@@ -102,6 +107,9 @@ public class MainMenuNavigator : MonoBehaviour
     public IEnumerator SwitchToMainState()
     {
         Debug.Log("Switching back!");
+
+        _optionsMenu.SetActive(false);
+
         _menuAnimator.Play("Overview camera");
 
         yield return new WaitForSeconds(_setupTime);
