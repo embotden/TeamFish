@@ -12,12 +12,16 @@ public class PlantManager : MonoBehaviour
 
     [Header("Succes feedback")]
     [SerializeField] private float _waitingTime;
-    private ImageTrigger _imageInteraction;
+    //private ImageTrigger _imageInteraction;
     public GameObject _succesFeedback;
 
     [SerializeField] private bool _succesFeedbackTriggered = false;
 
+    private void Start()
+    {
+        _succesFeedback.SetActive(false);
 
+    }
     private void Update()
     {
         if (_planteState >= _maxHealth && !_succesFeedbackTriggered) Invoke("PlantMaxedOut", _waitingTime);
@@ -30,8 +34,9 @@ public class PlantManager : MonoBehaviour
 
     private void PlantMaxedOut()
     {
-        _imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
-        _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
+        _succesFeedback.SetActive(true);
+        //_imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
+       // _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
 
         _succesFeedbackTriggered = true;
     }

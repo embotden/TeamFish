@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlantReaction : MonoBehaviour
 {
     public GameObject _plantManager;
+    public GameObject _plantCollider;
 
     public bool _plantIsHitWater = false;
 
@@ -22,6 +23,8 @@ public class PlantReaction : MonoBehaviour
 
         //Deactivate hitbox
         gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        _plantCollider.GetComponent<BoxCollider>().enabled = false;
 
         //Turn off visual cue
         gameObject.GetComponent<MeshRenderer>().enabled = false;

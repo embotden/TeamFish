@@ -88,6 +88,8 @@ public class WaterAbility : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        _targetHint.SetActive(false);
+
         _canPickupWater = true;
     }
 }
