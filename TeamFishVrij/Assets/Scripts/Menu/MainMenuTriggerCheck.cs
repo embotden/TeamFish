@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuTriggerCheck : MonoBehaviour
 {
@@ -62,7 +63,8 @@ public class MainMenuTriggerCheck : MonoBehaviour
         }
         else if (gameObject.CompareTag("Bath"))
         {
-            _menuManager.StartGame();
+            Debug.Log("1");
+            _menuManager.StartCoroutine(_menuManager.StartGame(SceneManager.GetActiveScene().buildIndex + 1));
         }
     }
 }
