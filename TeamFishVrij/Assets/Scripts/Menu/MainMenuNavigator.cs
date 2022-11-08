@@ -61,12 +61,12 @@ public class MainMenuNavigator : MonoBehaviour
             _startHeader.SetActive(true);
         }
 
-        if(_reset)
+        /*if(_reset)
         {
             _isStory = false;
             _isOptions = false;
             _isCollection = false;
-        }
+        }*/
 
         if (_isWatching && Input.GetKeyDown(KeyCode.Escape))
         {
