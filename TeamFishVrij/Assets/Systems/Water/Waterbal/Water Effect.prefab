@@ -9638,6 +9638,7 @@ GameObject:
   - component: {fileID: 3742165168562156264}
   - component: {fileID: 2434707388284783553}
   - component: {fileID: 3560800992746295558}
+  - component: {fileID: 2556115582717111660}
   m_Layer: 0
   m_Name: Water Effect
   m_TagString: Untagged
@@ -9675,6 +9676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
+  _newTarget: {fileID: 0}
   _smoothSpeed: 50
   offset: {x: 0, y: 0, z: 0}
   _plantDestructionScript: {fileID: 0}
@@ -9730,6 +9732,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &2556115582717111660
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742165168562156266}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4b0c09f178ae4bc3b2a9f2669c69dde, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3742165168842156345
 GameObject:
   m_ObjectHideFlags: 0

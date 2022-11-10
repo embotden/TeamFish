@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MainMenuNavigator : MonoBehaviour
 {
+    PlayerInputActions _playerMenuControls;
+
     [Header("Visual Cues")]
     public GameObject _visualCue;
     public GameObject _optionsMenu;
     public GameObject _startTrigger;
     public GameObject _startHeader;
+    public Slider _optionsFirstButton;
 
     [Header("Transition")]
     public Animator _menuAnimator;
@@ -31,7 +35,9 @@ public class MainMenuNavigator : MonoBehaviour
     private bool _isStart;
     private bool _reset;
 
-
+    [Header("Game Start")]
+    public GameObject _loadingScreen;
+    public Slider _slider;
 
     void Start()
     {
@@ -43,17 +49,19 @@ public class MainMenuNavigator : MonoBehaviour
         _isWatching = false;
         _reset = false;
         _canStart = false;
+
+        _playerMenuControls = new PlayerInputActions();
     }
 
     private void Update()
     {
-        if(_isOptions || _isCollection || _isStory)
+        /*if(_isOptions || _isCollection || _isStory)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 StartCoroutine(SwitchToMainState());
             }
-        }
+        }*/
 
         if (_canStart)
         {
@@ -101,7 +109,6 @@ public class MainMenuNavigator : MonoBehaviour
 
     public IEnumerator StartGame(int levelIndex)
     {
-        Debug.Log("2");
         _isStart = true;
         _isWatching = true;
         _visualCue.SetActive(false);
@@ -113,12 +120,22 @@ public class MainMenuNavigator : MonoBehaviour
         //_transition.Play("Crossfade_End");
         _crossfadeTransition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
 
-        Debug.Log("3");
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
 
-        SceneManager.LoadScene(levelIndex);
+        _loadingScreen.SetActive(true);
+
+        while(!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            _slider.value = progress;
+
+            yield return null;
+        }
+
     }
 
 
@@ -135,6 +152,7 @@ public class MainMenuNavigator : MonoBehaviour
 
         //Set options canvas active
         _optionsMenu.SetActive(true);
+        _optionsFirstButton.Select();
 
 
         _isWatching = true;
@@ -155,5 +173,13 @@ public class MainMenuNavigator : MonoBehaviour
         _reset = true;
         _mainCamera = !_mainCamera;
 
+    }
+
+    void OnJump()
+    {
+        if (_isOptions || _isCollection || _isStory)
+        {
+                StartCoroutine(SwitchToMainState());
+        }
     }
 }

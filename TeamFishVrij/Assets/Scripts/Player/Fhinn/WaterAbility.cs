@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class WaterAbility : MonoBehaviour
 {
+    PlayerInputActions _waterAbilityButton;
+
     [Header("Assets")]
     public GameObject _waterEffect;
     //public GameObject _splashEffect;
@@ -24,6 +26,10 @@ public class WaterAbility : MonoBehaviour
     public bool _hitObject = false;
     [SerializeField] private float _duration;
 
+    [Header("Throwing")]
+    public bool _waterThrown = true;
+    [SerializeField] private bool _waterHolding = false; 
+
     
 
     private void Awake()
@@ -33,6 +39,8 @@ public class WaterAbility : MonoBehaviour
 
         _visualCue.SetActive(false);
         _targetHint.SetActive(false);
+
+        _waterAbilityButton = new PlayerInputActions();
     }
 
 
@@ -56,11 +64,11 @@ public class WaterAbility : MonoBehaviour
 
     private void Update()
     {
-
+        /*
         if(_isNearWater && _canPickupWater)
         {
             if (Input.GetKeyDown(KeyCode.Q)) StartCoroutine(Pickup());
-        }
+        }*/
 
     }
 
@@ -68,6 +76,8 @@ public class WaterAbility : MonoBehaviour
     {
         //Stop player from grabbing water again
         _canPickupWater = false;
+        _waterHolding = true;
+        _waterThrown = false;
 
         //Animation raise water
         var cloneWater = Instantiate(_waterEffect, _waterSpawn.transform.position, Quaternion.identity);
@@ -80,6 +90,9 @@ public class WaterAbility : MonoBehaviour
 
         //fall animation
         //Instantiate(_splashEffect, _waterEffect.transform.position, _waterEffect.transform.rotation);
+        _waterThrown = true;
+
+        yield return new WaitForSeconds(2f);
 
         //Remove water
         //DroppingWater();
@@ -91,5 +104,41 @@ public class WaterAbility : MonoBehaviour
         _targetHint.SetActive(false);
 
         _canPickupWater = true;
+        _waterHolding = false;
+    }
+
+    public IEnumerator ThrowingWater()
+    {
+        //Stop Coroutine
+
+        //Throw water animation
+
+        yield return new WaitForEndOfFrame();
+
+        //Destroy clone
+
+    }
+
+    public IEnumerator DroppingWater()
+    {
+        //Drop water animation
+
+        yield return new WaitForEndOfFrame();
+
+        //Destroy clone
+        //Destroy(cloneWater);
+    }
+
+
+    void OnWaterGrab()
+    {
+        if(_isNearWater && _canPickupWater)
+        {
+            StartCoroutine(Pickup());
+        }
+        else if(_waterHolding)
+        {
+            _waterThrown = true;
+        }
     }
 }

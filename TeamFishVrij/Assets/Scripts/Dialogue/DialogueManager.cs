@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
@@ -8,6 +9,10 @@ using Ink.Runtime;
 
 public class DialogueManager : MonoBehaviour
 {
+
+    PlayerInputActions _inputButtons;
+
+
     [Header("Dialogue UI")]
 
     [SerializeField] private GameObject _dialoguePanel;
@@ -19,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Conditions")]
 
-    [SerializeField] private float _typingSpeed = 0.04f;
+    [SerializeField] private float _typingSpeed = 2f;
 
     private static DialogueManager _instance;
 
@@ -42,7 +47,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if(_instance != null)
+        _inputButtons = new PlayerInputActions();
+
+        if (_instance != null)
         {
             Debug.LogWarning("Found more than one Dialogue Manager in the scene");
         }
@@ -62,17 +69,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-
         //return right away if dialogue isn't playing
-        if(!_isDialoguePlaying)
+        if (!_isDialoguePlaying)
         {
             return;
-        }
-
-        //hanndle continuing to the next line in the dialogue when submit is pressed
-        if(_canContinueToNextLine && Input.GetKeyDown(KeyCode.B))
-        {
-            ContinueStory();
         }
     }
 
@@ -81,7 +81,6 @@ public class DialogueManager : MonoBehaviour
         _currentStory = new Story(_inkJSON.text);
         _isDialoguePlaying = true;
         _dialoguePanel.SetActive(true);
-
 
         ContinueStory();
     }
@@ -134,7 +133,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             //if the submit button is pressed, finish up displaying the line right away
-            if(Input.GetKeyDown(KeyCode.B))
+            if(Input.GetButtonDown("Jump"))
             {
                 _dialogueText.text = line;
                 break;
@@ -148,5 +147,15 @@ public class DialogueManager : MonoBehaviour
         _continueIcon.SetActive(true);
 
         _canContinueToNextLine = true;
+    }
+
+    void OnDialogue()
+    {
+        //handle continuing to the next line in the dialogue when submit is pressed
+        if(_canContinueToNextLine)
+        {
+            ContinueStory();
+        }
+
     }
 }
