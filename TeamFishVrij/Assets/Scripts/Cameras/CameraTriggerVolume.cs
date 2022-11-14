@@ -24,17 +24,25 @@ public class CameraTriggerVolume : MonoBehaviour
 
     private void SwitchState()
     {
-        if(gameObject.CompareTag("Lookout"))
+        if (gameObject.CompareTag("Lookout"))
         {
             _animator.Play("Lookout camera");
         }
-        else if(gameObject.CompareTag("Door"))
+        else if (gameObject.CompareTag("Door"))
         {
             _animator.Play("Door camera");
         }
-        else if(gameObject.CompareTag("Shark"))
+        else if (gameObject.CompareTag("Shark"))
         {
             _animator.Play("Shark camera");
+        }
+        else if (gameObject.CompareTag("Puzzle"))
+        {
+            _animator.Play("Puzzle camera");
+        }
+        else if(gameObject.CompareTag("Under Water"))
+        {
+            _animator.Play("Underwater camera");
         }
         else
         {
