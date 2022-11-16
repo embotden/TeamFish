@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //How to make a moving character in Unity - Tarodev
 //Sprinting Unity Tutorial - Brackeys
@@ -16,45 +17,46 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 playerVelocity;
 
-    [SerializeField] private float _speed; //movement speed
+    private float _speed; //movement speed
     public float _turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
 
     [Header("Jumping")]
-    [SerializeField] private float _jumpForce = 1f;
-    [SerializeField] private bool _isGrounded;
-    [SerializeField] private bool _canDoubleJump;
-    [SerializeField] private bool _isJumping;
-    [SerializeField] private bool _isFalling;
+    PlayerInputActions _jumpControls;
+    private bool _jumpPressed = false;
+    private bool _isGrounded;
+    private bool _isJumping;
+    private bool _isFalling;
+    private float _jumpForce = 1f;
 
     [SerializeField] private float _yVelocity;
     [SerializeField] private float _gravity = -5f;
 
     [Header("Sprinting")]
     public bool _isSprinting = false;
-    [SerializeField] private float _sprintingSpeed = 6f;
-    [SerializeField] private float _walkingSpeed = 2f;
+    private float _sprintingSpeed = 6f;
+    private float _walkingSpeed = 2f;
 
 
     private void Awake()
     {
         _speed = _walkingSpeed;
-        //animator = GetComponent<Animator>();
+
+        _jumpControls = new PlayerInputActions();
+
         _characterController = GetComponent<CharacterController>();
-
-
         _yVelocity = _gravity;
     }
 
 
     void Update()
     {
-        _isGrounded = _characterController.isGrounded;
+        //_isGrounded = _characterController.isGrounded;
 
-        if (_isGrounded && playerVelocity.y < 0)
+        /*if (_isGrounded && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
-        }
+        }*/
 
         //WALKING
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //walking around
@@ -74,22 +76,9 @@ public class PlayerController : MonoBehaviour
         var characterMovement = new Vector3(horizontal, 0, vertical); //walking around
 
 
-        //JUMPING + DOUBLE JUMP
-        if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
-            {
-                playerVelocity.y += Mathf.Sqrt(_jumpForce * -3f * _gravity);
+        //JUMPING
+        MovementJump();
 
-                _isJumping = true;
-            }
-
-        playerVelocity.y += _gravity * Time.deltaTime;
-        _characterController.Move(playerVelocity * Time.deltaTime);
-
-        if (_isJumping)
-        {
-            //animator.SetBool("IsFalling", true);
-            _isFalling = true;
-        }
 
         //TURNING CHARACTER
         if (move != Vector3.zero) //If we're not standing still
@@ -108,17 +97,6 @@ public class PlayerController : MonoBehaviour
 
 
         //SPRINTING
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            _isSprinting = true;
-
-        }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            _isSprinting = false;
-
-        }
-
         if(_isSprinting)
         {
             //change speed to running
@@ -175,6 +153,51 @@ public class PlayerController : MonoBehaviour
             _isGrounded = false;
             animator.SetBool("IsGrounded", false);
         }
+    }
+
+    private void MovementJump()
+    {
+        _isGrounded = _characterController.isGrounded;
+
+        if (_isGrounded && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+
+        if(_jumpPressed && _isGrounded)
+        {
+            playerVelocity.y += Mathf.Sqrt(_jumpForce * -3f * _gravity);
+            _isJumping = true;
+            _jumpPressed = false;
+        }
+
+        if (_isJumping)
+        {
+            //animator.SetBool("IsFalling", true);
+            _isFalling = true;
+        }
+
+        playerVelocity.y += _gravity * Time.deltaTime;
+
+        _characterController.Move(playerVelocity * Time.deltaTime);
+    }
+
+    public void OnJump()
+    {
+        if (_isGrounded)
+        {
+            _jumpPressed = true;
+        }
+    }
+
+    public void OnSprintStart()
+    {
+        _isSprinting = true;
+    }
+
+    public void OnSprintStop()
+    {
+        _isSprinting = false;
     }
 
 }

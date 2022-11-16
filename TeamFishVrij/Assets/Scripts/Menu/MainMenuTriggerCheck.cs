@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MainMenuTriggerCheck : MonoBehaviour
 {
+    PlayerInputActions _inputSystemCheck;
+
     public MainMenuNavigator _menuManager;
     public GameObject _sectionHeader;
 
@@ -13,14 +16,15 @@ public class MainMenuTriggerCheck : MonoBehaviour
     private void Start()
     {
         _sectionHeader.SetActive(false);
+        _inputSystemCheck = new PlayerInputActions();
     }
 
     private void Update()
     {
-        if (_canChoose && Input.GetKeyDown(KeyCode.Q))
+        /*if (_canChoose && Input.GetKeyDown(KeyCode.Q))
         {
             findState();
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,8 +67,12 @@ public class MainMenuTriggerCheck : MonoBehaviour
         }
         else if (gameObject.CompareTag("Bath"))
         {
-            Debug.Log("1");
             _menuManager.StartCoroutine(_menuManager.StartGame(SceneManager.GetActiveScene().buildIndex + 1));
         }
+    }
+
+    void OnJump()
+    {
+        if (_canChoose) findState();
     }
 }
