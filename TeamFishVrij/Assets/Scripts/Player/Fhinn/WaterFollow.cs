@@ -9,7 +9,7 @@ public class WaterFollow : MonoBehaviour
 
     [Header("Water location")]
     public Transform _target;
-    public Transform _newTarget;
+    //public Transform _newTarget;
     NavMeshAgent nav;
 
     public float _smoothSpeed = 10f;
@@ -27,7 +27,7 @@ public class WaterFollow : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
         _target = GameObject.Find("/Characters/MC/Ability Position").transform;
-        _newTarget = GameObject.Find("/Characters/MC/Throw position").transform;
+        //_newTarget = GameObject.Find("/Characters/MC/Throw position").transform;
     }
 
     private void Update()

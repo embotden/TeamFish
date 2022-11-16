@@ -11593,7 +11593,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236744317}
-  m_LocalRotation: {x: 0.16492625, y: -0.000000016970757, z: 0.0000000028377838, w: 0.98630595}
+  m_LocalRotation: {x: 0.16492625, y: 0.000000016970759, z: -0.0000000028377845, w: 0.98630595}
   m_LocalPosition: {x: -109.56128, y: 11.465263, z: -29.77953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12373,7 +12373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 314984417}
   m_Layer: 4
-  m_Name: Water Spawn Point
+  m_Name: Water Spawn Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -41912,7 +41912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091911724}
   m_Layer: 4
-  m_Name: Water Spawn Point
+  m_Name: Water Spawn Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -60316,7 +60316,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445689389}
-  m_LocalRotation: {x: 0.16492623, y: -0.000000016970752, z: 0.0000000028377831, w: 0.98630595}
+  m_LocalRotation: {x: 0.16492623, y: 0.000000016970759, z: -0.0000000028377842, w: 0.98630595}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66066,7 +66066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665067597}
   m_Layer: 4
-  m_Name: Water Spawn Point
+  m_Name: Water Spawn Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

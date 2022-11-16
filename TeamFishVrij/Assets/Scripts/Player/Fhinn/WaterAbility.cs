@@ -64,16 +64,16 @@ public class WaterAbility : MonoBehaviour
 
     private void Update()
     {
-        /*
         if(_isNearWater && _canPickupWater)
         {
             if (Input.GetKeyDown(KeyCode.Q)) StartCoroutine(Pickup());
-        }*/
+        }
 
     }
 
     public IEnumerator Pickup()
     {
+        Debug.Log("a");
         //Stop player from grabbing water again
         _canPickupWater = false;
         _waterHolding = true;
@@ -93,6 +93,8 @@ public class WaterAbility : MonoBehaviour
         _waterThrown = true;
 
         yield return new WaitForSeconds(2f);
+
+        Debug.Log("b");
 
         //Remove water
         //DroppingWater();
@@ -130,7 +132,7 @@ public class WaterAbility : MonoBehaviour
     }
 
 
-    void OnWaterGrab()
+    /*void OnWaterGrab()
     {
         if(_isNearWater && _canPickupWater)
         {
@@ -140,5 +142,5 @@ public class WaterAbility : MonoBehaviour
         {
             _waterThrown = true;
         }
-    }
+    }*/
 }

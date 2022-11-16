@@ -9680,7 +9680,6 @@ MonoBehaviour:
   _smoothSpeed: 50
   offset: {x: 0, y: 0, z: 0}
   _plantDestructionScript: {fileID: 0}
-  _waterLifeScript: {fileID: 0}
 --- !u!195 &3742165168562156264
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9740,7 +9739,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3742165168562156266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b4b0c09f178ae4bc3b2a9f2669c69dde, type: 2}
   m_CullingMode: 0
