@@ -11880,6 +11880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 285864603}
   - component: {fileID: 285864604}
+  - component: {fileID: 285864605}
   m_Layer: 0
   m_Name: Cinemachine FreeLook MC
   m_TagString: Untagged
@@ -12010,6 +12011,23 @@ MonoBehaviour:
   - {fileID: 846305497}
   - {fileID: 1445689391}
   - {fileID: 1941152720}
+--- !u!114 &285864605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285864602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 4028157a4822b4eeea50a376c76e20bc, type: 2}
 --- !u!1 &286579531
 GameObject:
   m_ObjectHideFlags: 0
@@ -59681,7 +59699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1397267291
 Transform:
   m_ObjectHideFlags: 0
