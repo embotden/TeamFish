@@ -56,10 +56,10 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2.17
   scatter:
     m_OverrideState: 1
-    m_Value: 0.434
+    m_Value: 0.572
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -91,13 +91,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
   m_Name: WhiteBalance
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   temperature:
     m_OverrideState: 1
-    m_Value: 37.3
+    m_Value: 20
   tint:
-    m_OverrideState: 0
-    m_Value: 33
+    m_OverrideState: 1
+    m_Value: -8
 --- !u!114 &-3977229647842135991
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -153,13 +153,13 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 0, g: 0.17907563, b: 0.26666668, a: 1}
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.228
+    m_Value: 0.379
   smoothness:
     m_OverrideState: 0
     m_Value: 0.2
@@ -206,7 +206,7 @@ MonoBehaviour:
     m_Value: 2
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 26.31
+    m_Value: 23.4
   gaussianEnd:
     m_OverrideState: 1
     m_Value: 29.43
@@ -221,10 +221,10 @@ MonoBehaviour:
     m_Value: 16.2
   aperture:
     m_OverrideState: 1
-    m_Value: 4.7
+    m_Value: 4.9
   focalLength:
     m_OverrideState: 1
-    m_Value: 151
+    m_Value: 112
   bladeCount:
     m_OverrideState: 0
     m_Value: 3
@@ -252,10 +252,10 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.123
+    m_Value: 0.197
   response:
     m_OverrideState: 1
-    m_Value: 0.399
+    m_Value: 0.55
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -274,16 +274,16 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.59
+    m_Value: 0.5
   contrast:
     m_OverrideState: 1
-    m_Value: 35.3
+    m_Value: 17.82
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1.1587242, g: 0.49245778, b: 1.6029018, a: 1}
   hueShift:
-    m_OverrideState: 0
-    m_Value: -14
+    m_OverrideState: 1
+    m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 59.1
+    m_Value: 41
