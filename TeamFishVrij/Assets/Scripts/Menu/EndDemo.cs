@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class EndDemo : MonoBehaviour
 {
     public Animator _transition;
+   
+
     [SerializeField] private float _animationDuration = 0.5f;
 
 
@@ -13,7 +15,7 @@ public class EndDemo : MonoBehaviour
     {
         if(other.gameObject.tag == "Fhinn")
         {
-            Invoke("EndGameDemo", 1f);
+            Invoke("EndGameDemo", 3f);
         }
     }
 

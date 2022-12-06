@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Animator _startButton;
+    public Animator _quitButton;
+
     public Animator _levelLoader;
 
     public void PlayGame()
@@ -17,8 +19,22 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        StartCoroutine(QuitTheGame());
+    }
+
+    private IEnumerator QuitTheGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        _quitButton.SetBool("quitPressed", true);
+
+        yield return new WaitForSeconds(2f);
+
+        _levelLoader.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1.5f);
+
         Application.Quit();
-        Debug.Log("QUIT!");
     }
 
     private IEnumerator StartTheGame()

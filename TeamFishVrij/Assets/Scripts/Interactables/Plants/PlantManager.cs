@@ -18,12 +18,15 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private bool _succesFeedbackTriggered = false;
 
     [Header("Animations")]
-    public Animator _hangingPlant;
+    public Animator _hangingPlant1;
+    public Animator _hangingPlant2;
+    public GameObject _puzzleColider;
 
 
     private void Start()
     {
         _succesFeedback.SetActive(false);
+        _puzzleColider.SetActive(true);
 
     }
     private void Update()
@@ -39,10 +42,11 @@ public class PlantManager : MonoBehaviour
     private void PlantMaxedOut()
     {
         _succesFeedback.SetActive(true);
-
-        _hangingPlant.SetBool("isHit", true);
+        _puzzleColider.SetActive(false);
+        _hangingPlant1.SetBool("isHit", true);
+        _hangingPlant2.SetBool("isHit", true);
         //_imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
-       // _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
+        // _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
 
         _succesFeedbackTriggered = true;
     }
