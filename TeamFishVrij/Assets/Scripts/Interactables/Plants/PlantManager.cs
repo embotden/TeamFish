@@ -17,6 +17,10 @@ public class PlantManager : MonoBehaviour
 
     [SerializeField] private bool _succesFeedbackTriggered = false;
 
+    [Header("Animations")]
+    public Animator _hangingPlant;
+
+
     private void Start()
     {
         _succesFeedback.SetActive(false);
@@ -35,6 +39,8 @@ public class PlantManager : MonoBehaviour
     private void PlantMaxedOut()
     {
         _succesFeedback.SetActive(true);
+
+        _hangingPlant.SetBool("isHit", true);
         //_imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
        // _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
 
