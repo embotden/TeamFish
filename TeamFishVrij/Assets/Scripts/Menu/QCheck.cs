@@ -6,11 +6,11 @@ public class QCheck : MonoBehaviour
 {
     private void OnEnable()
     {
-        //Debug.Log("a");
+        Debug.Log("a");
     }
 
     private void OnDisable()
     {
-        //Debug.Log("b");
+        Debug.Log("b");
     }
 }

@@ -14,7 +14,7 @@ public class MainMenuNavigator : MonoBehaviour
     public GameObject _optionsMenu;
     public GameObject _startTrigger;
     public GameObject _startHeader;
-    public Slider _optionsFirstButton;
+    //public Slider _optionsFirstButton;
 
     [Header("Transition")]
     public Animator _menuAnimator;
@@ -151,8 +151,8 @@ public class MainMenuNavigator : MonoBehaviour
 
 
         //Set options canvas active
-        _optionsMenu.SetActive(true);
-        _optionsFirstButton.Select();
+        //_optionsMenu.SetActive(true);
+        //_optionsFirstButton.Select();
 
 
         _isWatching = true;

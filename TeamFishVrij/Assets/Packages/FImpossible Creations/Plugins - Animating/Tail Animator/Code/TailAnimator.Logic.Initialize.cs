@@ -35,7 +35,7 @@ namespace FIMSpace.FTail
             {
                 if (_TransformsGhostChain[i] == null)
                 {
-                    Debug.Log("[Tail Animator] Null bones in " + name + " !");
+                    //Debug.Log("[Tail Animator] Null bones in " + name + " !");
                     continue;
                 }
 

@@ -12,6 +12,9 @@ public class DialogueManager : MonoBehaviour
 
     PlayerInputActions _inputButtons;
 
+    [Header("Params")]
+    [SerializeField] private float _typingSpeed = 2f;
+    
 
     [Header("Dialogue UI")]
 
@@ -24,8 +27,6 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Conditions")]
 
-    [SerializeField] private float _typingSpeed = 2f;
-
     private static DialogueManager _instance;
 
     public bool _isDialoguePlaying { get; private set; }
@@ -34,14 +35,16 @@ public class DialogueManager : MonoBehaviour
 
     public bool _isDialogueFinished = false;
 
+    private bool _canSkip = false;
+
+    private bool _submitSkip;
+
 
     [Header("Flowing text effect")]
 
     private Coroutine _displayLineCoroutine;
 
     private bool _canContinueToNextLine = false;
-
-
 
 
 
@@ -127,14 +130,18 @@ public class DialogueManager : MonoBehaviour
         //hide items while text is typing
         _continueIcon.SetActive(false);
 
+        _submitSkip = false;
         _canContinueToNextLine = false;
+
+        StartCoroutine(CanSkip());
 
         //display each letter one at a time
         foreach (char letter in line.ToCharArray())
         {
             //if the submit button is pressed, finish up displaying the line right away
-            if(Input.GetButtonDown("Jump"))
+            if(_canSkip && Input.GetButtonDown("Jump"))
             {
+                _submitSkip = false;
                 _dialogueText.text = line;
                 break;
             }
@@ -147,15 +154,31 @@ public class DialogueManager : MonoBehaviour
         _continueIcon.SetActive(true);
 
         _canContinueToNextLine = true;
+
+        _canSkip = false;
     }
 
     void OnDialogue()
     {
+        _submitSkip = true;
+
         //handle continuing to the next line in the dialogue when submit is pressed
         if(_canContinueToNextLine)
         {
             ContinueStory();
         }
 
+    }
+
+    //new test
+
+    //time for typing effect to check if the player kan skip
+    private IEnumerator CanSkip()
+    {
+        _canSkip = false;
+
+        yield return new WaitForSeconds(0.05f);
+
+        _canSkip = true;
     }
 }
