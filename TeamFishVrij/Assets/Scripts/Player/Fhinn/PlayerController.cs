@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    private int AbilityLayerIndex;
+    public WaterAbility Ability_1;
+    public WaterAbility Ability_2;
+    public WaterAbility Ability_3;
+
     private Vector3 playerVelocity;
 
     private float _speed; //movement speed
@@ -46,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
         _characterController = GetComponent<CharacterController>();
         _yVelocity = _gravity;
+
+        AbilityLayerIndex = animator.GetLayerIndex("ArmAbility");
     }
 
 
@@ -133,6 +140,44 @@ public class PlayerController : MonoBehaviour
             _isGrounded = false;
             animator.SetBool("IsGrounded", false);
             animator.SetBool("IsJumping", true);
+        }
+
+        //WATER ABILITY ANIMATONS
+        if (Ability_1._isNearWater && Ability_1._canPickupWater && Input.GetKeyDown(KeyCode.Q) || Ability_2._isNearWater && Ability_2._canPickupWater && Input.GetKeyDown(KeyCode.Q) || Ability_3._isNearWater && Ability_3._canPickupWater && Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.SetBool("IsStartingAbility", true);
+        }
+
+        else
+        {
+            animator.SetBool("IsStartingAbility", false);
+        }
+
+        if (Ability_1._abilityReleased == true || Ability_2._abilityReleased == true || Ability_3._abilityReleased == true)
+        {
+            animator.SetBool("IsReleasingAbility", true);
+        }
+
+        else
+        {
+            animator.SetBool("IsReleasingAbility", false);
+        }
+
+        //STOP PLAYER FROM MOVING
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Ability"))
+        {
+            _speed = 0.0f;
+        }
+
+        // SWITCH ANIMATION LAYER
+        if (Ability_1._waterHolding == true || Ability_2._waterHolding == true || Ability_3._waterHolding == true)
+        {
+            animator.SetLayerWeight(AbilityLayerIndex, 1);
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Idle"))
+        {
+            animator.SetLayerWeight(AbilityLayerIndex, 0);
         }
     }
 
