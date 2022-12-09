@@ -11,11 +11,21 @@ public class MainMenuTriggerCheck : MonoBehaviour
     public MainMenuNavigator _menuManager;
     public GameObject _sectionHeader;
 
+    [Header("Eye animations")]
+    public Animator _eyeAnimation;
+    //public Animator _windowView;
+    //public Animator _pictures;
+    //public Animator _startGame;
+
+
     private bool _canChoose;
 
     private void Start()
     {
         _sectionHeader.SetActive(false);
+
+        _eyeAnimation.SetBool("inRange", false);
+
         _inputSystemCheck = new PlayerInputActions();
     }
 
@@ -32,6 +42,9 @@ public class MainMenuTriggerCheck : MonoBehaviour
         if (other.CompareTag("Fhinn"))
         {
             _sectionHeader.SetActive(true);
+
+            _eyeAnimation.SetBool("inRange", true);
+
             _menuManager._visualCue.SetActive(true);
 
             _canChoose = true;
@@ -42,7 +55,8 @@ public class MainMenuTriggerCheck : MonoBehaviour
     {
         if (other.CompareTag("Fhinn"))
         {
-            _sectionHeader.SetActive(false);
+            _eyeAnimation.SetBool("inRange", false);
+            //_sectionHeader.SetActive(false);
             _menuManager._visualCue.SetActive(false);
 
             _canChoose = false;

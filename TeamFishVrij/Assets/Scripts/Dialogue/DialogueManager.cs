@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private GameObject _continueIcon;
 
+    public Animator _dialogueBoxAnimations;
+
 
     [Header("Conditions")]
 
@@ -68,6 +70,7 @@ public class DialogueManager : MonoBehaviour
     {
         _isDialoguePlaying = false;
         _dialoguePanel.SetActive(false);
+        _dialogueBoxAnimations.SetBool("canTalk", false);
     }
 
     private void Update()
@@ -85,6 +88,8 @@ public class DialogueManager : MonoBehaviour
         _isDialoguePlaying = true;
         _dialoguePanel.SetActive(true);
 
+        _dialogueBoxAnimations.SetBool("canTalk", true);
+
         ContinueStory();
     }
 
@@ -92,10 +97,18 @@ public class DialogueManager : MonoBehaviour
     {
         _isDialogueFinished = true;
 
+        _dialogueBoxAnimations.SetBool("canTalk", false);
+
         yield return new WaitForSeconds(0.2f);
 
         _isDialoguePlaying = false;
+
+        _dialogueBoxAnimations.SetBool("isFinished", true);
+
+        yield return new WaitForSeconds(0.2f);
+
         _dialoguePanel.SetActive(false);
+
         _dialogueText.text = "";
     }
 

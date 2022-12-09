@@ -20,7 +20,7 @@ public class MainMenuNavigator : MonoBehaviour
     public Animator _menuAnimator;
     public Animator _crossfadeTransition;
     [SerializeField] private float _setupTime = 2f;
-    [SerializeField] private float _animationDuration = 0.5f;
+    //[SerializeField] private float _animationDuration = 0.5f;
 
     [Header("Conditions")]
     private bool _isWatching;
@@ -32,8 +32,8 @@ public class MainMenuNavigator : MonoBehaviour
     [SerializeField] private bool _isOptions;
     private bool _isCollection;
     private bool _isStory;
-    private bool _isStart;
-    private bool _reset;
+    //private bool _isStart;
+    //private bool _reset;
 
     [Header("Game Start")]
     public GameObject _loadingScreen;
@@ -42,12 +42,12 @@ public class MainMenuNavigator : MonoBehaviour
     void Start()
     {
         _visualCue.SetActive(false);
-        _optionsMenu.SetActive(false);
+        //_optionsMenu.SetActive(false);
         _startTrigger.SetActive(false);
         _startHeader.SetActive(false);
 
         _isWatching = false;
-        _reset = false;
+        //_reset = false;
         _canStart = false;
 
         _playerMenuControls = new PlayerInputActions();
@@ -66,7 +66,7 @@ public class MainMenuNavigator : MonoBehaviour
         if (_canStart)
         {
             _startTrigger.SetActive(true);
-            _startHeader.SetActive(true);
+            //_startHeader.SetActive(true);
         }
 
         /*if(_reset)
@@ -109,7 +109,7 @@ public class MainMenuNavigator : MonoBehaviour
 
     public IEnumerator StartGame(int levelIndex)
     {
-        _isStart = true;
+        //_isStart = true;
         _isWatching = true;
         _visualCue.SetActive(false);
 
@@ -170,7 +170,7 @@ public class MainMenuNavigator : MonoBehaviour
         _isWatching = false;
 
         //_canExit = true;
-        _reset = true;
+        //_reset = true;
         _mainCamera = !_mainCamera;
 
     }
