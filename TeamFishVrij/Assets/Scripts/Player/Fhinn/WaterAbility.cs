@@ -7,6 +7,7 @@ public class WaterAbility : MonoBehaviour
 {
     PlayerInputActions _waterAbilityButton;
 
+
     [Header("Assets")]
     public GameObject _waterEffect;
     //public GameObject _splashEffect;
@@ -18,8 +19,8 @@ public class WaterAbility : MonoBehaviour
     public GameObject _targetHint;
 
     [Header("Start")]
-    [SerializeField] private bool _isNearWater;
-    [SerializeField] private bool _canPickupWater;
+    [SerializeField] public bool _isNearWater;
+    [SerializeField] public bool _canPickupWater;
 
 
     [Header("Duration")]
@@ -28,7 +29,8 @@ public class WaterAbility : MonoBehaviour
 
     [Header("Throwing")]
     public bool _waterThrown = true;
-    [SerializeField] private bool _waterHolding = false; 
+    public bool _abilityReleased = false;
+    [SerializeField] public bool _waterHolding = false; 
 
     
 
@@ -41,6 +43,7 @@ public class WaterAbility : MonoBehaviour
         _targetHint.SetActive(false);
 
         _waterAbilityButton = new PlayerInputActions();
+
     }
 
 
@@ -78,6 +81,7 @@ public class WaterAbility : MonoBehaviour
         _canPickupWater = false;
         _waterHolding = true;
         _waterThrown = false;
+        _abilityReleased = false;
 
         //Animation raise water
         var cloneWater = Instantiate(_waterEffect, _waterSpawn.transform.position, Quaternion.identity);
@@ -92,7 +96,11 @@ public class WaterAbility : MonoBehaviour
         //Instantiate(_splashEffect, _waterEffect.transform.position, _waterEffect.transform.rotation);
         _waterThrown = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f); // Extra seconds to match animation with dissapearance water
+
+        _abilityReleased = true;
+
+        yield return new WaitForSeconds(0.5f);
 
         Debug.Log("b");
 
@@ -101,7 +109,11 @@ public class WaterAbility : MonoBehaviour
 
         Destroy(cloneWater);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f); // Extra seconds to stop Fhinn release animation from repeating
+
+        _abilityReleased = false;
+
+        yield return new WaitForSeconds(1.5f);
 
         _targetHint.SetActive(false);
 
