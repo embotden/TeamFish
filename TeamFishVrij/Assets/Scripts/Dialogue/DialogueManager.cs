@@ -9,11 +9,117 @@ using Ink.Runtime;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Dialogue UI")]
+    [SerializeField] private GameObject _dialoguePanel;
+    [SerializeField] private TextMeshProUGUI _dialogueText;
 
-    PlayerInputActions _inputButtons;
+    [Header("Conditions")]
+    private Story _currentStory;
+    private static DialogueManager _instance;
+    public bool _isDialoguePlaying { get; private set; }
+
+    public Animator _dialogueBoxAnimations;
+
+    public bool _isDialogueFinished = false;
+    private bool _submitSkip;
+
+
+    private void Awake()
+    {
+        if(_instance != null)
+        {
+            Debug.LogWarning("Found more than one dialogue manager in scene!");
+        }
+        _instance = this;
+    }
+
+    public static DialogueManager GetInstance()
+    {
+        return _instance;
+    }
+
+    private void Start()
+    {
+        _isDialoguePlaying = false;
+        _dialoguePanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        //return right away if dialogue isn't playing
+        if (!_isDialoguePlaying)
+        {
+            return;
+        }
+    }
+
+    public void EnterDialogueMode(TextAsset _inkJSON)
+    {
+        _currentStory = new Story(_inkJSON.text);
+        _isDialoguePlaying = true;
+        _dialoguePanel.SetActive(true);
+
+        _dialogueBoxAnimations.SetBool("canTalk", true);
+
+        ContinueStory();
+    }
+
+    private void ContinueStory()
+    {
+        if(_currentStory.canContinue)
+        {
+            Debug.Log("can continue!");
+            _dialogueText.text = _currentStory.Continue();
+        }
+        else
+        {
+            StartCoroutine(ExitDialogueMode());
+            Debug.Log("exiting dialoguemode!");
+        }
+        
+    }
+
+    private IEnumerator ExitDialogueMode()
+    {
+        _dialogueText.text = "";
+
+        _isDialogueFinished = true;
+
+        _dialogueBoxAnimations.SetBool("canTalk", false);
+
+        yield return new WaitForSeconds(0.2f);
+
+        _isDialoguePlaying = false;
+
+        _dialogueBoxAnimations.SetBool("isFinished", true);
+
+        yield return new WaitForSeconds(1f);
+
+        _dialoguePanel.SetActive(false);
+
+    }
+
+    void OnDialogue()
+    {
+        _submitSkip = true;
+
+        //handle continuing to the next line in the dialogue when submit is pressed
+        if (_currentStory.canContinue)
+        {
+            ContinueStory();
+        }
+        else
+        {
+            StartCoroutine(ExitDialogueMode());
+            Debug.Log("exiting dialoguemode!");
+        }
+
+    }
+
+    /*PlayerInputActions _inputButtons;
 
     [Header("Params")]
-    [SerializeField] private float _typingSpeed = 2f;
+    private float _typingSpeed = 0.005f/10f;
     
 
     [Header("Dialogue UI")]
@@ -105,7 +211,7 @@ public class DialogueManager : MonoBehaviour
 
         _dialogueBoxAnimations.SetBool("isFinished", true);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
 
         _dialoguePanel.SetActive(false);
 
@@ -193,5 +299,5 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
 
         _canSkip = true;
-    }
+    }*/
 }

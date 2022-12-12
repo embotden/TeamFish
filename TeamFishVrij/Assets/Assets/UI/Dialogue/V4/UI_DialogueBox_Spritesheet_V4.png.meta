@@ -1,0 +1,751 @@
+fileFormatVersion: 2
+guid: 8629abb3e67804aefa6a1c9c953ac980
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_0
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 329
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2faa4dd47e9834843b34da13b46d0321
+      internalID: -637517575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_1
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 3696
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da6e3452b0354204a91ff467b05aeda
+      internalID: -2143231153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_2
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 3696
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b009f93866940d5b18c1705e838105
+      internalID: 53560444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_3
+      rect:
+        serializedVersion: 2
+        x: 2848
+        y: 3696
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b13faeff1684dd7ba53687845446b9
+      internalID: -180180801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3296
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c80173a89804487b545518ef9f5a1c
+      internalID: -217855178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_5
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 3296
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffaeab77bf5de4dcba73d88e2123c41f
+      internalID: -1334291723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_6
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 3296
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a43483abf7894a93b59b30b644e06e1
+      internalID: 760055766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_7
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 3296
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d4898fde6bc4ca8ab9d6c9b8cde6ee
+      internalID: -192887346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_8
+      rect:
+        serializedVersion: 2
+        x: 2848
+        y: 3296
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de90a217db714e709ea36273c0ff1a8
+      internalID: -564693428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2896
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad666b8883de64ac2bc3318df366abb5
+      internalID: 741129071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_10
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 2896
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552935ea455ee420ab2ed170c6b85630
+      internalID: 1636745811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_11
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 2896
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00281ef22463d4e12a07a0faad054563
+      internalID: 1553267266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_12
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 2896
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27087573894b1446b8756607ce8623f9
+      internalID: 1464100161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_13
+      rect:
+        serializedVersion: 2
+        x: 2848
+        y: 2896
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919176071d0b2481aa117099dfec3bcd
+      internalID: 1655914027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2496
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d8c58e16d02d466e9adadc537984bd9
+      internalID: 1210243058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_15
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 2496
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b632c85fbc4984f08b5c55156cf3eb32
+      internalID: -362441030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_16
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 2496
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9be72a4ef87c40a6a7b2982ace945fd
+      internalID: 175851032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_17
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 2496
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1422a883a33c4d6bb9bd6d222514eaa
+      internalID: -645053588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_18
+      rect:
+        serializedVersion: 2
+        x: 2848
+        y: 2496
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa9fc1db28fa48f0bf70150f806b1e3
+      internalID: 1822583017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2096
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f9323bd918c4ccdbcca154e1686f85
+      internalID: 850620476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_20
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 2096
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c3e7916d813f4e3aa74613b7ecce27d
+      internalID: -339452071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_21
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 2096
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8210038554b74643bcd0b8c51731d56
+      internalID: 721457638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_22
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 2096
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ebb5294471344b54af28ddd472a936a
+      internalID: -1033903099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_23
+      rect:
+        serializedVersion: 2
+        x: 2848
+        y: 2096
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc474b5b3859643e8ac356190ca2367e
+      internalID: 1780332418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1696
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f42d351c5c0401fa0614b09797a9c7
+      internalID: 2128764549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_25
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 1696
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae42a2e95dd3345d4b63786856e6dfc6
+      internalID: 1959043862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_26
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 1696
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b81664702ebb4658a6be22634b259bf
+      internalID: -1061152747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DialogueBox_Spritesheet_V4_27
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 1696
+        width: 712
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 150, z: 130, w: 185}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920f4a56422614168956e7234939d17c
+      internalID: 921352885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 20dd79e2ca352433c88af740646e06da
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      UI_DialogueBox_Spritesheet_V4_6: 760055766
+      UI_DialogueBox_Spritesheet_V4_4: -217855178
+      UI_DialogueBox_Spritesheet_V4_19: 850620476
+      UI_DialogueBox_Spritesheet_V4_1: -2143231153
+      UI_DialogueBox_Spritesheet_V4_20: -339452071
+      UI_DialogueBox_Spritesheet_V4_16: 175851032
+      UI_DialogueBox_Spritesheet_V4_3: -180180801
+      UI_DialogueBox_Spritesheet_V4_5: -1334291723
+      UI_DialogueBox_Spritesheet_V4_10: 1636745811
+      UI_DialogueBox_Spritesheet_V4_15: -362441030
+      UI_DialogueBox_Spritesheet_V4_17: -645053588
+      UI_DialogueBox_Spritesheet_V4_25: 1959043862
+      UI_DialogueBox_Spritesheet_V4_11: 1553267266
+      UI_DialogueBox_Spritesheet_V4_23: 1780332418
+      UI_DialogueBox_Spritesheet_V4_8: -564693428
+      UI_DialogueBox_Spritesheet_V4_12: 1464100161
+      UI_DialogueBox_Spritesheet_V4_26: -1061152747
+      UI_DialogueBox_Spritesheet_V4_24: 2128764549
+      UI_DialogueBox_Spritesheet_V4_14: 1210243058
+      UI_DialogueBox_Spritesheet_V4_7: -192887346
+      UI_DialogueBox_Spritesheet_V4_18: 1822583017
+      UI_DialogueBox_Spritesheet_V4_2: 53560444
+      UI_DialogueBox_Spritesheet_V4_0: -637517575
+      UI_DialogueBox_Spritesheet_V4_22: -1033903099
+      UI_DialogueBox_Spritesheet_V4_9: 741129071
+      UI_DialogueBox_Spritesheet_V4_13: 1655914027
+      UI_DialogueBox_Spritesheet_V4_21: 721457638
+      UI_DialogueBox_Spritesheet_V4_27: 921352885
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
