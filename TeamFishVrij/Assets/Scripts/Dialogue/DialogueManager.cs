@@ -16,7 +16,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Conditions")]
     private Story _currentStory;
     private static DialogueManager _instance;
+    //public WaterAbility _waterUICheck;
     public bool _isDialoguePlaying { get; private set; }
+    public bool _DialogueWaterCheck = false;
 
     public Animator _dialogueBoxAnimations;
 
@@ -58,6 +60,7 @@ public class DialogueManager : MonoBehaviour
         _currentStory = new Story(_inkJSON.text);
         _isDialoguePlaying = true;
         _dialoguePanel.SetActive(true);
+        _DialogueWaterCheck = true;
 
         _dialogueBoxAnimations.SetBool("canTalk", true);
 
@@ -96,6 +99,8 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         _dialoguePanel.SetActive(false);
+
+        _DialogueWaterCheck = false;
 
     }
 
