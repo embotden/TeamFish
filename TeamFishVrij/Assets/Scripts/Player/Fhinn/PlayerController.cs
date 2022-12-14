@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     private CharacterController _characterController;
-    public MainMenuNavigator _MainMenuOptions;
+    //public MainMenuNavigator _MainMenuOptions;
 
     public Animator animator;
 

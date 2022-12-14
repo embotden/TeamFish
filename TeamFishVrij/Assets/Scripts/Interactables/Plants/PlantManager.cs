@@ -11,7 +11,7 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private float _maxHealth = 10f;
 
     [Header("Succes feedback")]
-    [SerializeField] private float _waitingTime;
+    private float _waitingTime = 0.2f;
     //private ImageTrigger _imageInteraction;
     public GameObject _succesFeedback;
 

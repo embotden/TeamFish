@@ -29,14 +29,6 @@ public class MainMenuTriggerCheck : MonoBehaviour
         _inputSystemCheck = new PlayerInputActions();
     }
 
-    private void Update()
-    {
-        /*if (_canChoose && Input.GetKeyDown(KeyCode.Q))
-        {
-            findState();
-        }*/
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fhinn"))
@@ -56,7 +48,6 @@ public class MainMenuTriggerCheck : MonoBehaviour
         if (other.CompareTag("Fhinn"))
         {
             _eyeAnimation.SetBool("inRange", false);
-            //_sectionHeader.SetActive(false);
             _menuManager._visualCue.SetActive(false);
 
             _canChoose = false;
@@ -85,7 +76,7 @@ public class MainMenuTriggerCheck : MonoBehaviour
         }
     }
 
-    void OnJump()
+    void OnWaterGrab()
     {
         if (_canChoose) findState();
     }

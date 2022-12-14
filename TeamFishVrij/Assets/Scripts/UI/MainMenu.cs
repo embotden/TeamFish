@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
 
     public Animator _levelLoader;
 
+    public GameObject _optionsMenu;
+    public GameObject _mainMenu;
+
     public void PlayGame()
     {
         StartCoroutine(StartTheGame());
@@ -20,6 +23,13 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         StartCoroutine(QuitTheGame());
+    }
+
+    public void OptionsScreen()
+    {
+        _optionsMenu.SetActive(true);
+        _mainMenu.SetActive(false);
+        
     }
 
     private IEnumerator QuitTheGame()
