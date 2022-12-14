@@ -28,16 +28,20 @@ public class WaterAbility : MonoBehaviour
     [Header("Duration")]
     public bool _hitObject = false;
     [SerializeField] private float _duration;
+    public PlantReaction _plantHitpoint;
 
     [Header("Throwing")]
     public bool _waterThrown = true;
     public bool _abilityReleased = false;
     [SerializeField] public bool _waterHolding = false;
 
-    [Header("Animation")]
+    [Header("UI Animation")]
     public Animator _UIAnimation;
     private bool _canShowUI = false;
     private bool _isShowingUI = false;
+
+    //[Header("Water Animation")]
+    //public Animator _wateranimations;
 
     
 
@@ -108,21 +112,25 @@ public class WaterAbility : MonoBehaviour
         //make ui dissapear
         _canShowUI = false;
 
-        //Animation raise water
+        //spawn waterball
         var cloneWater = Instantiate(_waterEffect, _waterSpawn.transform.position, Quaternion.identity);
+        WaterFollow _waterbalScript = cloneWater.GetComponent<WaterFollow>();
 
-
-        //Turn on light hint
+        //visual hint
         _targetHint.SetActive(true);
 
         //Time water lasts
         yield return new WaitForSeconds(_duration);
 
-        Destroy(cloneWater);
+        //Destroy
+        if(_waterbalScript) _waterbalScript.DestroyBall();
 
         yield return new WaitForSeconds(0.5f); // Extra seconds to stop Fhinn release animation from repeating
+
+        //turn off visual hing
         _targetHint.SetActive(false);
 
+        //player can grab water again
         _canPickupWater = true;
     }
 
