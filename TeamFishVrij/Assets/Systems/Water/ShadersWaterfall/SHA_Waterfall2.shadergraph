@@ -1336,7 +1336,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": 2.0,
+        "e00": 1.9900000095367432,
         "e01": 2.0,
         "e02": 2.0,
         "e03": 2.0,
@@ -3075,8 +3075,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -707.0,
-            "y": 1422.0,
+            "x": -714.0,
+            "y": 1417.0,
             "width": 120.0,
             "height": 149.0
         }
