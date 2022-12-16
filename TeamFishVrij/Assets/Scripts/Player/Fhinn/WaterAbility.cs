@@ -44,6 +44,9 @@ public class WaterAbility : MonoBehaviour
     public bool _isStartingAbility;
     public bool _abilityReleased;
 
+    private GameObject _Fhinn;
+    //private int AbilityLayerIndex;
+
 
 
     private void Awake()
@@ -57,6 +60,8 @@ public class WaterAbility : MonoBehaviour
         _waterAbilityButton = new PlayerInputActions();
 
         _UIAnimation.SetBool("canShow", false);
+
+        _Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");        
     }
 
     //check if player is near water source
@@ -106,13 +111,20 @@ public class WaterAbility : MonoBehaviour
 
     public IEnumerator Pickup()
     {
-        StartCoroutine(FhinnAnimation());
+        //StartCoroutine(FhinnAnimation());
+
+        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
+        int AbilityLayerIndex = _FhinnAnimator.GetLayerIndex("ArmAbility");
 
         //Stop player from grabbing water again
         _canPickupWater = false;
 
         //make ui dissapear
         _canShowUI = false;
+
+        //water grab animation
+        _FhinnAnimator.SetBool("IsStartingAbility", true);
+        _FhinnAnimator.SetLayerWeight(AbilityLayerIndex, 1);
 
         //spawn waterball
         var cloneWater = Instantiate(_waterEffect, _waterSpawn.transform.position, Quaternion.identity);
@@ -124,14 +136,24 @@ public class WaterAbility : MonoBehaviour
         //Time water lasts
         yield return new WaitForSeconds(_duration);
 
+        _FhinnAnimator.SetBool("IsReleasingAbility", true);
+
         //Destroy
-        if(_waterbalScript) _waterbalScript.DestroyBall();
+        if (_waterbalScript)
+        {
+            _waterbalScript.DestroyBall();
+        }
 
         //turn off visual hing
         _targetHint.SetActive(false);
 
         //player can grab water again
         _canPickupWater = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        _FhinnAnimator.SetBool("IsStartingAbility", false);
+        _FhinnAnimator.SetBool("IsReleasingAbility", false);
     }
 
     private IEnumerator ShowQUI()
@@ -156,22 +178,33 @@ public class WaterAbility : MonoBehaviour
 
     }
 
-    public IEnumerator FhinnAnimation()
+    /*public IEnumerator FhinnAnimation()
     {
-        _isStartingAbility = true;
+        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
+
+        _FhinnAnimator.SetBool("IsStartingAbility", true);
+        _FhinnAnimator.SetLayerWeight(AbilityLayerIndex, 1);
+
+        //_isStartingAbility = true;
 
         yield return new WaitForSeconds(1f);
 
-        _isStartingAbility = false;
+        _FhinnAnimator.SetBool("IsStartingAbility", false);
+
+        //_isStartingAbility = false;
 
         yield return new WaitForSeconds(3.8f);
 
-        _abilityReleased = true;
+        _FhinnAnimator.SetBool("IsReleasingAbility", true);
+
+        //_abilityReleased = true;
 
         yield return new WaitForSeconds(0.5f);
 
-        _abilityReleased = false;
+        _FhinnAnimator.SetBool("IsReleasingAbility", false);
 
-    }
+        //_abilityReleased = false;
+
+    }*/
 
 }

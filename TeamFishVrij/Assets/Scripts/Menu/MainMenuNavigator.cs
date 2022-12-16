@@ -32,7 +32,7 @@ public class MainMenuNavigator : MonoBehaviour
     [SerializeField] private bool _isOptions;
     private bool _isCollection;
     private bool _isStory;
-    private bool _isStart;
+    //private bool _isStart;
     //private bool _reset;
 
     [Header("Game Start")]
@@ -98,7 +98,7 @@ public class MainMenuNavigator : MonoBehaviour
 
     public IEnumerator StartGame(int levelIndex)
     {
-        _isStart = true;
+        //_isStart = true;
         _isWatching = true;
         _visualCue.SetActive(false);
 

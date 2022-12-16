@@ -71,6 +71,33 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeverLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""6be12d5a-9b3e-436e-8965-f75e3a7a0e49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeverRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ecf0af1-e52a-4f8d-ad30-cb48656ecd4e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeverLetGo"",
+                    ""type"": ""Button"",
+                    ""id"": ""c93a882a-688f-4bc4-8c04-ca2fa9a217a1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -219,6 +246,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""dd82ac77-00ad-4b82-a936-bee87080f9bf"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaterGrab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5a82887c-3363-42e5-96ee-7f555e3671d7"",
                     ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": ""Press(behavior=1)"",
@@ -247,6 +285,149 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""WaterTrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c53e2752-625e-4eda-b0a0-f34bba0581c1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaterTrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""583d1e20-e37d-4373-b6fe-506769e1e320"",
+                    ""path"": ""<Joystick>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""266a2b93-4a56-45b3-8d1f-86721acfb89a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c5e2989-668f-4211-b9ff-7fa2a8b515c5"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c912cfc-8978-4650-b59c-50ec68a86a5e"",
+                    ""path"": ""<Joystick>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1dee03b3-5dcb-4d82-8b40-49360fc9cea3"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e994b177-7f9c-4960-a27f-1a19f517afa0"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ad51ce6-cc27-4882-9c28-cd0fcd6d36dd"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLetGo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d4635a7-f00d-48e8-8f10-fc9fcc4d12fb"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLetGo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20a3014b-6a7d-423d-9f28-3d2ff2521d1e"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLetGo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25a9e741-9070-48a4-9c97-f27792b0340c"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLetGo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""400e185f-474d-4d7e-828a-0967c18af07d"",
+                    ""path"": ""<Joystick>/stick/left"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLetGo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de7c6271-1e10-4f4f-a299-f301c6a6c066"",
+                    ""path"": ""<Joystick>/stick/right"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeverLetGo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -576,6 +757,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_SprintStop = m_Player.FindAction("SprintStop", throwIfNotFound: true);
         m_Player_WaterGrab = m_Player.FindAction("WaterGrab", throwIfNotFound: true);
         m_Player_WaterTrow = m_Player.FindAction("WaterTrow", throwIfNotFound: true);
+        m_Player_LeverLeft = m_Player.FindAction("LeverLeft", throwIfNotFound: true);
+        m_Player_LeverRight = m_Player.FindAction("LeverRight", throwIfNotFound: true);
+        m_Player_LeverLetGo = m_Player.FindAction("LeverLetGo", throwIfNotFound: true);
         // WorldUI
         m_WorldUI = asset.FindActionMap("WorldUI", throwIfNotFound: true);
         m_WorldUI_Dialogue = m_WorldUI.FindAction("Dialogue", throwIfNotFound: true);
@@ -649,6 +833,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SprintStop;
     private readonly InputAction m_Player_WaterGrab;
     private readonly InputAction m_Player_WaterTrow;
+    private readonly InputAction m_Player_LeverLeft;
+    private readonly InputAction m_Player_LeverRight;
+    private readonly InputAction m_Player_LeverLetGo;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -658,6 +845,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @SprintStop => m_Wrapper.m_Player_SprintStop;
         public InputAction @WaterGrab => m_Wrapper.m_Player_WaterGrab;
         public InputAction @WaterTrow => m_Wrapper.m_Player_WaterTrow;
+        public InputAction @LeverLeft => m_Wrapper.m_Player_LeverLeft;
+        public InputAction @LeverRight => m_Wrapper.m_Player_LeverRight;
+        public InputAction @LeverLetGo => m_Wrapper.m_Player_LeverLetGo;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -682,6 +872,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @WaterTrow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterTrow;
                 @WaterTrow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterTrow;
                 @WaterTrow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterTrow;
+                @LeverLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLeft;
+                @LeverLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLeft;
+                @LeverLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLeft;
+                @LeverRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverRight;
+                @LeverRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverRight;
+                @LeverRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverRight;
+                @LeverLetGo.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLetGo;
+                @LeverLetGo.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLetGo;
+                @LeverLetGo.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLetGo;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -701,6 +900,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @WaterTrow.started += instance.OnWaterTrow;
                 @WaterTrow.performed += instance.OnWaterTrow;
                 @WaterTrow.canceled += instance.OnWaterTrow;
+                @LeverLeft.started += instance.OnLeverLeft;
+                @LeverLeft.performed += instance.OnLeverLeft;
+                @LeverLeft.canceled += instance.OnLeverLeft;
+                @LeverRight.started += instance.OnLeverRight;
+                @LeverRight.performed += instance.OnLeverRight;
+                @LeverRight.canceled += instance.OnLeverRight;
+                @LeverLetGo.started += instance.OnLeverLetGo;
+                @LeverLetGo.performed += instance.OnLeverLetGo;
+                @LeverLetGo.canceled += instance.OnLeverLetGo;
             }
         }
     }
@@ -802,6 +1010,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnSprintStop(InputAction.CallbackContext context);
         void OnWaterGrab(InputAction.CallbackContext context);
         void OnWaterTrow(InputAction.CallbackContext context);
+        void OnLeverLeft(InputAction.CallbackContext context);
+        void OnLeverRight(InputAction.CallbackContext context);
+        void OnLeverLetGo(InputAction.CallbackContext context);
     }
     public interface IWorldUIActions
     {

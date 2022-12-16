@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
-    private int AbilityLayerIndex;
+    public int AbilityLayerIndex;
     private int TailLayerIndex;
 
     private float currentLayerWeightTail;
@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
     private float smoothTime = 0.3f;
     private bool _isPlayingRelease;
 
-    public WaterAbility Ability_1;
-    public WaterAbility Ability_2;
-    public WaterAbility Ability_3;
+    //public WaterAbility Ability_1;
+    //public WaterAbility Ability_2;
+    //public WaterAbility Ability_3;
 
     private Vector3 playerVelocity;
 
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //WATER ABILITY ANIMATONS
-        if (Ability_1._isStartingAbility == true || Ability_2._isStartingAbility == true || Ability_3._isStartingAbility == true)
+        /*if (Ability_1._isStartingAbility || Ability_2._isStartingAbility|| Ability_3._isStartingAbility)
         {
             animator.SetBool("IsStartingAbility", true);
             animator.SetLayerWeight(AbilityLayerIndex, 1);
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsStartingAbility", false);
         }
 
-        if (Ability_1._abilityReleased == true || Ability_2._abilityReleased == true || Ability_3._abilityReleased == true)
+        if (Ability_1._abilityReleased || Ability_2._abilityReleased || Ability_3._abilityReleased)
         {
             animator.SetBool("IsReleasingAbility", true);
         }
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("IsReleasingAbility", false);
-        }
+        }*/
 
         //STOP PLAYER FROM MOVING
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Ability"))
