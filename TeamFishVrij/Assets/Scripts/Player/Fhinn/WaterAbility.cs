@@ -24,7 +24,6 @@ public class WaterAbility : MonoBehaviour
     [SerializeField] public bool _isNearWater;
     [SerializeField] public bool _canPickupWater;
 
-
     [Header("Duration")]
     public bool _hitObject = false;
     [SerializeField] private float _duration;
@@ -32,8 +31,7 @@ public class WaterAbility : MonoBehaviour
 
     [Header("Throwing")]
     public bool _waterThrown = true;
-    public bool _abilityReleased = false;
-    [SerializeField] public bool _waterHolding = false;
+    [SerializeField] public bool _waterHolding;
 
     [Header("UI Animation")]
     public Animator _UIAnimation;
@@ -43,7 +41,10 @@ public class WaterAbility : MonoBehaviour
     //[Header("Water Animation")]
     //public Animator _wateranimations;
 
-    
+    public bool _isStartingAbility;
+    public bool _abilityReleased;
+
+
 
     private void Awake()
     {
@@ -94,18 +95,19 @@ public class WaterAbility : MonoBehaviour
 
         if (!_canShowUI && _isShowingUI) StartCoroutine(CloseQUI()); //if UI is showing while it can't
 
+
     }
 
     //check if player can grab water
     void OnWaterGrab()
     {
         if (_isShowingUI) StartCoroutine(Pickup());
-
-
     }
-    
+
     public IEnumerator Pickup()
     {
+        StartCoroutine(FhinnAnimation());
+
         //Stop player from grabbing water again
         _canPickupWater = false;
 
@@ -124,8 +126,6 @@ public class WaterAbility : MonoBehaviour
 
         //Destroy
         if(_waterbalScript) _waterbalScript.DestroyBall();
-
-        yield return new WaitForSeconds(0.5f); // Extra seconds to stop Fhinn release animation from repeating
 
         //turn off visual hing
         _targetHint.SetActive(false);
@@ -153,6 +153,24 @@ public class WaterAbility : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         _isShowingUI = false;
+
+    }
+
+    public IEnumerator FhinnAnimation()
+    {
+        _isStartingAbility = true;
+
+        yield return new WaitForSeconds(1f);
+
+        _isStartingAbility = false;
+
+        yield return new WaitForSeconds(3.8f);
+
+        _abilityReleased = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        _abilityReleased = false;
 
     }
 
