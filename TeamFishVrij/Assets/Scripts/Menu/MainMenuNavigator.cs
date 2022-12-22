@@ -39,6 +39,12 @@ public class MainMenuNavigator : MonoBehaviour
     public GameObject _loadingScreen;
     public Slider _slider;
 
+    [Header("Dialogue")]
+    [SerializeField] private TextAsset _windowDialogue;
+    [SerializeField] private TextAsset _paintingDialogue;
+    [SerializeField] private TextAsset _startDialogue;
+
+
     void Start()
     {
         _visualCue.SetActive(false);
@@ -55,26 +61,11 @@ public class MainMenuNavigator : MonoBehaviour
 
     private void Update()
     {
-        /*if(_isOptions || _isCollection || _isStory)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                StartCoroutine(SwitchToMainState());
-            }
-        }*/
-
         if (_canStart)
         {
             _startTrigger.SetActive(true);
             //_startHeader.SetActive(true);
         }
-
-        /*if(_reset)
-        {
-            _isStory = false;
-            _isOptions = false;
-            _isCollection = false;
-        }*/
 
         if (_isWatching && Input.GetKeyDown(KeyCode.Escape))
         {
@@ -92,8 +83,6 @@ public class MainMenuNavigator : MonoBehaviour
 
         _isWatching = true;
         _canStart = true;
-
-        //_startHeader.SetActive(true);
     }
 
     public void CollectionViewState()
@@ -117,23 +106,29 @@ public class MainMenuNavigator : MonoBehaviour
         _mainCamera = !_mainCamera;
         yield return new WaitForSeconds(.5f);
 
-        //_transition.Play("Crossfade_End");
-        _crossfadeTransition.SetTrigger("Start");
+        //start dialogue
+        DialogueManager.GetInstance().EnterDialogueMode(_startDialogue);
 
-        yield return new WaitForSeconds(1f);
-
-
-        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
-
-        _loadingScreen.SetActive(true);
-
-        while(!operation.isDone)
+        if (DialogueManager.GetInstance()._isDialogueFinished)
         {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
+            _crossfadeTransition.SetTrigger("Start");
 
-            _slider.value = progress;
+            yield return new WaitForSeconds(1f);
 
-            yield return null;
+
+            AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+
+            _loadingScreen.SetActive(true);
+
+            while(!operation.isDone)
+            {
+                float progress = Mathf.Clamp01(operation.progress / .9f);
+
+                _slider.value = progress;
+
+                yield return null;
+            }
+
         }
 
     }
@@ -146,17 +141,9 @@ public class MainMenuNavigator : MonoBehaviour
         _menuAnimator.Play("Window camera");
         _mainCamera = !_mainCamera;
 
-
         yield return new WaitForSeconds(_setupTime);
 
-
-        //Set options canvas active
-        //_optionsMenu.SetActive(true);
-        //_optionsFirstButton.Select();
-
-
         _isWatching = true;
-
     }
 
     public IEnumerator SwitchToMainState()
@@ -169,10 +156,19 @@ public class MainMenuNavigator : MonoBehaviour
 
         _isWatching = false;
 
-        //_canExit = true;
-        //_reset = true;
         _mainCamera = !_mainCamera;
 
+        //start dialogue
+        if (_isOptions)
+        {
+            DialogueManager.GetInstance().EnterDialogueMode(_windowDialogue);
+            _isOptions = false;
+        }
+        else if(_isStory)
+        {
+            DialogueManager.GetInstance().EnterDialogueMode(_paintingDialogue);
+            _isStory = false;
+        }
     }
 
     void OnJump()

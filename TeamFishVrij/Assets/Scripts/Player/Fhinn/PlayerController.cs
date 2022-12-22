@@ -11,14 +11,22 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     private CharacterController _characterController;
-    public MainMenuNavigator _MainMenuOptions;
+    //public MainMenuNavigator _MainMenuOptions;
 
     public Animator animator;
 
-    private int AbilityLayerIndex;
-    public WaterAbility Ability_1;
-    public WaterAbility Ability_2;
-    public WaterAbility Ability_3;
+    public int AbilityLayerIndex;
+    private int TailLayerIndex;
+
+    private float currentLayerWeightTail;
+    private float currentLayerWeightAbility;
+    private float yVelocity = 0.0F;
+    private float smoothTime = 0.3f;
+    private bool _isPlayingRelease;
+
+    //public WaterAbility Ability_1;
+    //public WaterAbility Ability_2;
+    //public WaterAbility Ability_3;
 
     private Vector3 playerVelocity;
 
@@ -53,6 +61,7 @@ public class PlayerController : MonoBehaviour
         _yVelocity = _gravity;
 
         AbilityLayerIndex = animator.GetLayerIndex("ArmAbility");
+        TailLayerIndex = animator.GetLayerIndex("Tail");
     }
 
 
@@ -64,6 +73,14 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }*/
+
+        // USED FOR SMOOTHLY SWITCHING BETWEEN ANIMATION LAYERS
+        currentLayerWeightTail = animator.GetLayerWeight(TailLayerIndex);
+        currentLayerWeightAbility = animator.GetLayerWeight(AbilityLayerIndex);
+
+        
+        
+
 
         //WALKING
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //walking around
@@ -143,9 +160,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //WATER ABILITY ANIMATONS
-        if (Ability_1._isNearWater && Ability_1._canPickupWater && Input.GetKeyDown(KeyCode.Q) || Ability_2._isNearWater && Ability_2._canPickupWater && Input.GetKeyDown(KeyCode.Q) || Ability_3._isNearWater && Ability_3._canPickupWater && Input.GetKeyDown(KeyCode.Q))
+        /*if (Ability_1._isStartingAbility || Ability_2._isStartingAbility|| Ability_3._isStartingAbility)
         {
             animator.SetBool("IsStartingAbility", true);
+            animator.SetLayerWeight(AbilityLayerIndex, 1);
         }
 
         else
@@ -153,7 +171,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsStartingAbility", false);
         }
 
-        if (Ability_1._abilityReleased == true || Ability_2._abilityReleased == true || Ability_3._abilityReleased == true)
+        if (Ability_1._abilityReleased || Ability_2._abilityReleased || Ability_3._abilityReleased)
         {
             animator.SetBool("IsReleasingAbility", true);
         }
@@ -161,7 +179,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("IsReleasingAbility", false);
-        }
+        }*/
 
         //STOP PLAYER FROM MOVING
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Ability"))
@@ -169,15 +187,34 @@ public class PlayerController : MonoBehaviour
             _speed = 0.0f;
         }
 
-        // SWITCH ANIMATION LAYER
-        if (Ability_1._waterHolding == true || Ability_2._waterHolding == true || Ability_3._waterHolding == true)
+        // Checks if the AbilityRelease state has a transition
+        if (animator.GetAnimatorTransitionInfo(2).IsName("AbilityRelease -> Idle") || animator.GetAnimatorTransitionInfo(2).IsName("AbilityRelease -> Walk") || animator.GetAnimatorTransitionInfo(2).IsName("AbilityRelease -> Sprint"))
         {
-            animator.SetLayerWeight(AbilityLayerIndex, 1);
+            _isPlayingRelease = true;
         }
 
+        else
+        {
+            _isPlayingRelease = false;
+        }
+
+        // SWITCH ANIMATION LAYER
         if (animator.GetCurrentAnimatorStateInfo(1).IsName("Idle"))
         {
-            animator.SetLayerWeight(AbilityLayerIndex, 0);
+            float endWeightA = Mathf.SmoothDamp(currentLayerWeightAbility, 0, ref yVelocity, smoothTime);
+            animator.SetLayerWeight(AbilityLayerIndex, endWeightA);
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Ability Hold"))
+        {
+            float startWeightT = Mathf.SmoothDamp(currentLayerWeightTail, 1, ref yVelocity, smoothTime);
+            animator.SetLayerWeight(TailLayerIndex, startWeightT);
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Idle") && _isPlayingRelease == false)
+        {
+            float endWeightT = Mathf.SmoothDamp(currentLayerWeightTail, 0, ref yVelocity, smoothTime);
+            animator.SetLayerWeight(TailLayerIndex, endWeightT);
         }
     }
 

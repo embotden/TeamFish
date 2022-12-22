@@ -17,6 +17,12 @@ TagManager:
   - Bath
   - Puzzle
   - Under Water
+  - platform1
+  - platform2
+  - platform3
+  - crossing
+  - statue
+  - light beam
   layers:
   - Default
   - TransparentFX
@@ -24,7 +30,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Particles visible
   - 
   - 
   - 

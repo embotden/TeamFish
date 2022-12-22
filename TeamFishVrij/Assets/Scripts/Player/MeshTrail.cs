@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeshTrail : MonoBehaviour
 {
 
-    private bool _isTrailActive;
+    //private bool _isTrailActive;
 
     [Header("mesh related")]
     public float _meshRefreshRate = 0.1f;
@@ -32,7 +32,7 @@ public class MeshTrail : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            _isTrailActive = true;
+            //_isTrailActive = true;
             StartCoroutine(ActivateTrail(_activeTime));
         }
     }
@@ -68,7 +68,7 @@ public class MeshTrail : MonoBehaviour
 
         }
 
-        _isTrailActive = false;
+        //_isTrailActive = false;
     }
 
     IEnumerator AnimateMaterialFloat(Material mat, float goal, float rate, float refreshRate)

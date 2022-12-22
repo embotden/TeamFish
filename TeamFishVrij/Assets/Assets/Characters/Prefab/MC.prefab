@@ -940,7 +940,6 @@ GameObject:
   - component: {fileID: 3588740091041776625}
   - component: {fileID: 3588740091041776624}
   - component: {fileID: 3588740091041776628}
-  - component: {fileID: 3588740091041776636}
   - component: {fileID: 3588740091041776637}
   m_Layer: 0
   m_Name: MC
@@ -1086,7 +1085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e202870c55e494cf8b36d12aa0c79ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MainMenuOptions: {fileID: 0}
   animator: {fileID: 2152500029393037483}
   Ability_1: {fileID: 0}
   Ability_2: {fileID: 0}
@@ -1095,26 +1093,6 @@ MonoBehaviour:
   _yVelocity: 0
   _gravity: -20
   _isSprinting: 0
---- !u!114 &3588740091041776636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588740090845837725}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb9cd84b97b1409f911e901edfa5e11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meshRefreshRate: 0.01
-  _meshDestroyDelay: 3
-  _positionToSpawn: {fileID: 0}
-  _mat: {fileID: 2100000, guid: a8b982372f5ef47f88de276b5af4f4fc, type: 2}
-  _shaderVarRef: _Alpha
-  _shaderVarRate: 0.1
-  _shaderVarRefreshRate: 0.5
-  _activeTime: 5
 --- !u!114 &3588740091041776637
 MonoBehaviour:
   m_ObjectHideFlags: 0

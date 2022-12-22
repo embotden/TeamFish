@@ -24,7 +24,6 @@ public class WaterAbility : MonoBehaviour
     [SerializeField] public bool _isNearWater;
     [SerializeField] public bool _canPickupWater;
 
-
     [Header("Duration")]
     public bool _hitObject = false;
     [SerializeField] private float _duration;
@@ -32,8 +31,7 @@ public class WaterAbility : MonoBehaviour
 
     [Header("Throwing")]
     public bool _waterThrown = true;
-    public bool _abilityReleased = false;
-    [SerializeField] public bool _waterHolding = false;
+    [SerializeField] public bool _waterHolding;
 
     [Header("UI Animation")]
     public Animator _UIAnimation;
@@ -43,7 +41,13 @@ public class WaterAbility : MonoBehaviour
     //[Header("Water Animation")]
     //public Animator _wateranimations;
 
-    
+    public bool _isStartingAbility;
+    public bool _abilityReleased;
+
+    private GameObject _Fhinn;
+    //private int AbilityLayerIndex;
+
+
 
     private void Awake()
     {
@@ -56,6 +60,8 @@ public class WaterAbility : MonoBehaviour
         _waterAbilityButton = new PlayerInputActions();
 
         _UIAnimation.SetBool("canShow", false);
+
+        _Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");        
     }
 
     //check if player is near water source
@@ -94,23 +100,31 @@ public class WaterAbility : MonoBehaviour
 
         if (!_canShowUI && _isShowingUI) StartCoroutine(CloseQUI()); //if UI is showing while it can't
 
+
     }
 
     //check if player can grab water
     void OnWaterGrab()
     {
         if (_isShowingUI) StartCoroutine(Pickup());
-
-
     }
-    
+
     public IEnumerator Pickup()
     {
+        //StartCoroutine(FhinnAnimation());
+
+        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
+        int AbilityLayerIndex = _FhinnAnimator.GetLayerIndex("ArmAbility");
+
         //Stop player from grabbing water again
         _canPickupWater = false;
 
         //make ui dissapear
         _canShowUI = false;
+
+        //water grab animation
+        _FhinnAnimator.SetBool("IsStartingAbility", true);
+        _FhinnAnimator.SetLayerWeight(AbilityLayerIndex, 1);
 
         //spawn waterball
         var cloneWater = Instantiate(_waterEffect, _waterSpawn.transform.position, Quaternion.identity);
@@ -119,19 +133,31 @@ public class WaterAbility : MonoBehaviour
         //visual hint
         _targetHint.SetActive(true);
 
+        yield return new WaitForEndOfFrame();
+
+        //starting ability animation to false
+        _FhinnAnimator.SetBool("IsStartingAbility", false);
+
         //Time water lasts
         yield return new WaitForSeconds(_duration);
 
-        //Destroy
-        if(_waterbalScript) _waterbalScript.DestroyBall();
+        _FhinnAnimator.SetBool("IsReleasingAbility", true);
 
-        yield return new WaitForSeconds(0.5f); // Extra seconds to stop Fhinn release animation from repeating
+        //Destroy
+        if (_waterbalScript)
+        {
+            _waterbalScript.DestroyBall();
+        }
 
         //turn off visual hing
         _targetHint.SetActive(false);
 
         //player can grab water again
         _canPickupWater = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        _FhinnAnimator.SetBool("IsReleasingAbility", false);
     }
 
     private IEnumerator ShowQUI()
@@ -155,5 +181,34 @@ public class WaterAbility : MonoBehaviour
         _isShowingUI = false;
 
     }
+
+    /*public IEnumerator FhinnAnimation()
+    {
+        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
+
+        _FhinnAnimator.SetBool("IsStartingAbility", true);
+        _FhinnAnimator.SetLayerWeight(AbilityLayerIndex, 1);
+
+        //_isStartingAbility = true;
+
+        yield return new WaitForSeconds(1f);
+
+        _FhinnAnimator.SetBool("IsStartingAbility", false);
+
+        //_isStartingAbility = false;
+
+        yield return new WaitForSeconds(3.8f);
+
+        _FhinnAnimator.SetBool("IsReleasingAbility", true);
+
+        //_abilityReleased = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        _FhinnAnimator.SetBool("IsReleasingAbility", false);
+
+        //_abilityReleased = false;
+
+    }*/
 
 }
