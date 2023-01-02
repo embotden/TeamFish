@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7d20424549e4d02882c90a6614c0da, type: 3}
   m_Name: FoggySky
   m_EditorClassIdentifier: 
-  baseAltitude: 60
+  baseAltitude: 50
   useXYZDistance: 1
-  densityLinear: 0.0012
+  densityLinear: 0.06
   densityExponential: 1.024
   maxHeight: 10000
   distanceMax: 100000
-  tintColor: {r: 0.7647059, g: 0.7647059, b: 0.78431374, a: 1}
+  tintColor: {r: 0.4137721, g: 0.2787469, b: 0.6792453, a: 1}
   useVerticalGradient: 1
   verticalGradient:
     serializedVersion: 2
-    key0: {r: 0.9150943, g: 0.46713474, b: 0.35826805, a: 0.7411765}
-    key1: {r: 1, g: 0.7151787, b: 0.23921567, a: 0.8627451}
-    key2: {r: 0.8962264, g: 0.81674045, b: 0.7736294, a: 1}
+    key0: {r: 0, g: 0.57643056, b: 1, a: 0.7411765}
+    key1: {r: 0.8363645, g: 0.763172, b: 0.9245283, a: 0.8627451}
+    key2: {r: 0.6067551, g: 0.62564445, b: 0.9528302, a: 1}
     key3: {r: 0.990566, g: 0.70554465, b: 0.70554465, a: 1}
     key4: {r: 0, g: 0, b: 0, a: 1}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   lightDiffusionPower: 64
   lightDiffusionIntensity: 0.2
   brightness: 1
-  useSunColor: 1
+  useSunColor: 0
   dithering: 1
   renderQueue: 3100
   sortingLayerID: 0

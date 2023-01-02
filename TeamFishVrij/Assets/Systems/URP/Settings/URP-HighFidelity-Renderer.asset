@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3555842348288746729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9a4847a92104072b352fe44da35cbb, type: 3}
+  m_Name: Volumetric Lights
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  shader: {fileID: 4800000, guid: 6b7e6acc194204408b3294f5c220fc1e, type: 3}
+  blendMode: 0
+  renderPassEvent: 450
+  downscaling: 1
+  blurPasses: 1
+  blurDownscaling: 1
+  blurSpread: 1
+  blurHDR: 1
+  blurEdgePreserve: 0
+  blurEdgeDepthThreshold: 0.001
+  brightness: 1
+  ditherStrength: 0
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +67,9 @@ MonoBehaviour:
   - {fileID: -1878332245247344467}
   - {fileID: 786321471711636895}
   - {fileID: 8072959095688591621}
-  m_RendererFeatureMap: adc0de57c6d2eee59f6da2603693e90a05f9c67086e90870
+  - {fileID: -3555842348288746729}
+  - {fileID: 2866504853779526185}
+  m_RendererFeatureMap: adc0de57c6d2eee59f6da2603693e90a05f9c67086e90870175bf550391ca7ce29327624fadec727
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -121,6 +148,27 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &2866504853779526185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6a73f16fc15400aa1bbb77dd779b76, type: 3}
+  m_Name: VolumetricLightsDepthPrePassFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  transparentLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  alphaCutoutLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  alphaCutOff: 0
+  ignoreReflectionProbes: 1
 --- !u!114 &8072959095688591621
 MonoBehaviour:
   m_ObjectHideFlags: 0
