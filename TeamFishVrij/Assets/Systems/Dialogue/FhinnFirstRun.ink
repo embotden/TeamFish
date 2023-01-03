@@ -1,3 +1,4 @@
+#speaker:Fhinn
 ...
 //Fhinn jumps
 Why... am I not floating?
