@@ -2,22 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public Animator _startButton;
-    public Animator _quitButton;
-
-    public Animator _levelLoader;
-
+    [Header("Menu Screens")]
     public GameObject _optionsMenu;
     public GameObject _mainMenu;
+    public GameObject _credits;
+
+    /*[Header("Text Animations")]
+    public Animator _startButton;
+    public Animator _quitButton;*/
+
+    [Header("VFX")]
+    [SerializeField] private GameObject _startEffect;
+    [SerializeField] private Animator _crossfade;
+    public Animator _vignetteStart;
+
+    [Header("Level Loader")]
+    [SerializeField] private GameObject _loadingScreen;
+    [SerializeField] private Slider _loadingBar;
+    [SerializeField] private GameObject _controlsImage;
+
+    [Header("Camera")]
+    [SerializeField] private Animator _cameraTransitions;
+
+    [Header("Conditions")]
+    private float _setup = 2.5f;
+    [SerializeField] private bool _mainCamera;
+
+
+    private void Start()
+    {
+        _startEffect.SetActive(false);
+
+        _optionsMenu.SetActive(false);
+        _credits.SetActive(false);
+        _loadingScreen.SetActive(false);
+        _controlsImage.SetActive(false);
+    }
 
     public void PlayGame()
     {
-        StartCoroutine(StartTheGame());
-        //_startButton.SetBool("startPressed", true);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(StartTheGame(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     public void QuitGame()
@@ -25,40 +53,91 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(QuitTheGame());
     }
 
-    public void OptionsScreen()
+    public void OptionsButton()
     {
-        _optionsMenu.SetActive(true);
+        StartCoroutine(OptionsScreen());
+    }
+
+    public void ReturnToMainMenu()
+    {
+        StartCoroutine(BackToMain());
+    }
+
+    public IEnumerator OptionsScreen()
+    {
         _mainMenu.SetActive(false);
-        
+
+        _cameraTransitions.Play("Exposition camera");
+
+        yield return new WaitForSeconds(_setup);
+
+        _optionsMenu.SetActive(true);
+
+
+        _mainCamera = !_mainCamera;
+    }
+
+    private IEnumerator BackToMain()
+    {
+        _optionsMenu.SetActive(false);
+        _credits.SetActive(false);
+
+        _cameraTransitions.Play("Window camera");
+
+        yield return new WaitForSeconds(_setup);
+
+        _mainMenu.SetActive(true);
+
+        _mainCamera = !_mainCamera;
+
     }
 
     private IEnumerator QuitTheGame()
     {
         yield return new WaitForSeconds(0.5f);
 
-        _quitButton.SetBool("quitPressed", true);
+        //_quitButton.SetBool("quitPressed", true);
 
         yield return new WaitForSeconds(2f);
 
-        _levelLoader.SetTrigger("Start");
+        _crossfade.SetTrigger("Start");
 
         yield return new WaitForSeconds(1.5f);
 
         Application.Quit();
     }
 
-    private IEnumerator StartTheGame()
-    {
-        yield return new WaitForSeconds(0.5f);
 
-        _startButton.SetBool("startPressed", true);
+    private IEnumerator StartTheGame(int levelIndex)
+    {
+        _mainMenu.SetActive(false);
+        //yield return new WaitForSeconds(0.5f);
+
+        //_startButton.SetBool("startPressed", true);
+        _vignetteStart.Play("AN_MM_Start");
+        _startEffect.SetActive(true);
 
         yield return new WaitForSeconds(2f);
 
-        _levelLoader.SetTrigger("Start");
+        _crossfade.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        _controlsImage.SetActive(true);
+
+        yield return new WaitForSeconds(4f);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+
+        _loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            _loadingBar.value = progress;
+
+            yield return null;
+        }
     }
 }

@@ -64,7 +64,7 @@ public class MainMenuTriggerCheck : MonoBehaviour
         }
         else if (gameObject.CompareTag("Story"))
         {
-            _menuManager.StoryViewState();
+            _menuManager.StartCoroutine(_menuManager.StoryViewState());
         }
         else if (gameObject.CompareTag("Collection"))
         {
@@ -76,8 +76,8 @@ public class MainMenuTriggerCheck : MonoBehaviour
         }
     }
 
-    void OnWaterGrab()
+    void OnSelect()
     {
-        if (_canChoose) findState();
+        if (_canChoose && !_menuManager._isWatching) findState();
     }
 }
