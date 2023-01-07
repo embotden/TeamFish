@@ -64,6 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(_isDialogueFinished);
         //return right away if dialogue isn't playing
         if (!_isDialoguePlaying)
         {
@@ -111,7 +112,7 @@ public class DialogueManager : MonoBehaviour
             //handle tags
             HandleTags(_currentStory.currentTags);
 
-            Debug.Log("can continue!");
+            //Debug.Log("can continue!");
             _dialogueText.text = _currentStory.Continue();
 
             _ContinueButtonAnimations.Play("UI_Continue_Clicked");
@@ -121,7 +122,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             StartCoroutine(ExitDialogueMode());
-            Debug.Log("exiting dialoguemode!");
+            //Debug.Log("exiting dialoguemode!");
         }
         
     }
@@ -144,11 +145,11 @@ public class DialogueManager : MonoBehaviour
             switch(tagKey)
             {
                 case SPEAKER_TAG:
-                    Debug.Log("speaker=" + tagValue);
+                    //Debug.Log("speaker=" + tagValue);
                     _displayNameTag.text = tagValue;
                     break;
                 case LAYOUT_TAG:
-                    Debug.Log("layout=" + tagValue);
+                    //Debug.Log("layout=" + tagValue);
                     _layoutAnimator.Play(tagValue);
                     break;
                 default:
@@ -215,7 +216,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             StartCoroutine(ExitDialogueMode());
-            Debug.Log("exiting dialoguemode!");
+            //Debug.Log("exiting dialoguemode!");
         }
 
     }

@@ -98,6 +98,24 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""71a46188-6461-40a7-a0d7-431093f676b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""664fadf2-aa0e-4677-abdc-30fa5c4dc13d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -430,6 +448,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""LeverLetGo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""321c8ec6-53a6-4559-95af-58a893eff852"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0e6dcf2-a517-4109-ba3f-a02e48028996"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5915e975-1a79-4e18-92fd-79b46ea81ceb"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af6305ec-4b24-466c-8330-3d94552aa05e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -450,6 +512,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""91c67a05-d4e2-4984-bbd1-e471ae44220e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3e1fff9-4d91-4824-ad9c-4c384f22a568"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -498,6 +569,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03367b8c-ac66-4653-b9c5-485c43321026"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fdf922b-1b67-4849-8113-816b039ea55f"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d88c058-ec0a-4a7b-a7f0-c17c1ef971d3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -760,10 +864,13 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_LeverLeft = m_Player.FindAction("LeverLeft", throwIfNotFound: true);
         m_Player_LeverRight = m_Player.FindAction("LeverRight", throwIfNotFound: true);
         m_Player_LeverLetGo = m_Player.FindAction("LeverLetGo", throwIfNotFound: true);
+        m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
+        m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
         // WorldUI
         m_WorldUI = asset.FindActionMap("WorldUI", throwIfNotFound: true);
         m_WorldUI_Dialogue = m_WorldUI.FindAction("Dialogue", throwIfNotFound: true);
         m_WorldUI_Pause = m_WorldUI.FindAction("Pause", throwIfNotFound: true);
+        m_WorldUI_Back = m_WorldUI.FindAction("Back", throwIfNotFound: true);
         // MenuUI
         m_MenuUI = asset.FindActionMap("MenuUI", throwIfNotFound: true);
         m_MenuUI_Point = m_MenuUI.FindAction("Point", throwIfNotFound: true);
@@ -836,6 +943,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LeverLeft;
     private readonly InputAction m_Player_LeverRight;
     private readonly InputAction m_Player_LeverLetGo;
+    private readonly InputAction m_Player_Back;
+    private readonly InputAction m_Player_Select;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -848,6 +957,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @LeverLeft => m_Wrapper.m_Player_LeverLeft;
         public InputAction @LeverRight => m_Wrapper.m_Player_LeverRight;
         public InputAction @LeverLetGo => m_Wrapper.m_Player_LeverLetGo;
+        public InputAction @Back => m_Wrapper.m_Player_Back;
+        public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -881,6 +992,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @LeverLetGo.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLetGo;
                 @LeverLetGo.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLetGo;
                 @LeverLetGo.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeverLetGo;
+                @Back.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                @Select.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -909,6 +1026,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @LeverLetGo.started += instance.OnLeverLetGo;
                 @LeverLetGo.performed += instance.OnLeverLetGo;
                 @LeverLetGo.canceled += instance.OnLeverLetGo;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
             }
         }
     }
@@ -919,12 +1042,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IWorldUIActions m_WorldUIActionsCallbackInterface;
     private readonly InputAction m_WorldUI_Dialogue;
     private readonly InputAction m_WorldUI_Pause;
+    private readonly InputAction m_WorldUI_Back;
     public struct WorldUIActions
     {
         private @PlayerInputActions m_Wrapper;
         public WorldUIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Dialogue => m_Wrapper.m_WorldUI_Dialogue;
         public InputAction @Pause => m_Wrapper.m_WorldUI_Pause;
+        public InputAction @Back => m_Wrapper.m_WorldUI_Back;
         public InputActionMap Get() { return m_Wrapper.m_WorldUI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -940,6 +1065,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_WorldUIActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_WorldUIActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_WorldUIActionsCallbackInterface.OnPause;
+                @Back.started -= m_Wrapper.m_WorldUIActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_WorldUIActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_WorldUIActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_WorldUIActionsCallbackInterface = instance;
             if (instance != null)
@@ -950,6 +1078,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -1013,11 +1144,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLeverLeft(InputAction.CallbackContext context);
         void OnLeverRight(InputAction.CallbackContext context);
         void OnLeverLetGo(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
     public interface IWorldUIActions
     {
         void OnDialogue(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
     public interface IMenuUIActions
     {
