@@ -13,7 +13,7 @@ public class MainMenuNavigator : MonoBehaviour
     public GameObject _visualCue;
     public GameObject _optionsMenu;
     public GameObject _startTrigger;
-    public GameObject _startHeader;
+    //public Animator _startHeader;
     public Animator _lightCue;
     public GameObject _godRay;
 
@@ -53,7 +53,6 @@ public class MainMenuNavigator : MonoBehaviour
     {
         _visualCue.SetActive(false);
         _startTrigger.SetActive(false);
-        _startHeader.SetActive(false);
         _windowViewTrigger.SetActive(false);
         _godRay.SetActive(false);
 
@@ -78,6 +77,8 @@ public class MainMenuNavigator : MonoBehaviour
 
     public IEnumerator OpeningDialogue()
     {
+        yield return new WaitForSeconds(2f);
+
         //start dialogue
         DialogueManager.GetInstance().EnterDialogueMode(_openingDialogue);
 
@@ -142,23 +143,27 @@ public class MainMenuNavigator : MonoBehaviour
 
         _menuAnimator.Play("Start camera");
         _mainCamera = !_mainCamera;
+
         yield return new WaitForSeconds(.5f);
 
         //start dialogue
         DialogueManager.GetInstance().EnterDialogueMode(_startDialogue);
 
-        if (DialogueManager.GetInstance()._isDialogueFinished)
+        while (DialogueManager.GetInstance()._isDialoguePlaying)
         {
-            _crossfadeTransition.SetTrigger("Start");
+            yield return null;
+        }
 
-            yield return new WaitForSeconds(1f);
+        Debug.Log("Dialogue Done!");
+        _crossfadeTransition.SetTrigger("Start");
 
+        yield return new WaitForSeconds(1f);
 
-            AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
 
-            _loadingScreen.SetActive(true);
+        _loadingScreen.SetActive(true);
 
-            while(!operation.isDone)
+        while(!operation.isDone)
             {
                 float progress = Mathf.Clamp01(operation.progress / .9f);
 
@@ -166,7 +171,6 @@ public class MainMenuNavigator : MonoBehaviour
 
                 yield return null;
             }
-        }
     }
 
 
@@ -218,23 +222,11 @@ public class MainMenuNavigator : MonoBehaviour
             {
                 _lightCue.Play("AN_VOLLG_Appear");
                 _godRay.SetActive(true);
-                _startHeader.SetActive(true);
+                //_startHeader.SetTrigger("canStart");
                 _canStart = true;
             }
         }
     }
-
-    /*void OnJump()
-    {
-        if (_isOptions || _isCollection || _isStory)
-        {
-            if(_canSwitch)
-            {
-                StartCoroutine(SwitchToMainState());
-
-            }
-        }
-    }*/
 
     void OnBack()
     {

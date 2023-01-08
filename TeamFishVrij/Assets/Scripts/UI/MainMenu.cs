@@ -11,10 +11,6 @@ public class MainMenu : MonoBehaviour
     public GameObject _mainMenu;
     public GameObject _credits;
 
-    /*[Header("Text Animations")]
-    public Animator _startButton;
-    public Animator _quitButton;*/
-
     [Header("VFX")]
     [SerializeField] private GameObject _startEffect;
     [SerializeField] private Animator _crossfade;
@@ -32,6 +28,13 @@ public class MainMenu : MonoBehaviour
     private float _setup = 2.5f;
     [SerializeField] private bool _mainCamera;
 
+    [Header("Start setup")]
+    public Button _mainMenuPrimaryButton;
+    public Slider _settingsMenuPrimaryButton;
+
+    PlayerInputActions _menuNavigation;
+
+
 
     private void Start()
     {
@@ -41,6 +44,10 @@ public class MainMenu : MonoBehaviour
         _credits.SetActive(false);
         _loadingScreen.SetActive(false);
         _controlsImage.SetActive(false);
+
+        _mainMenuPrimaryButton.Select();
+
+        _menuNavigation = new PlayerInputActions();
     }
 
     public void PlayGame()
@@ -73,6 +80,8 @@ public class MainMenu : MonoBehaviour
 
         _optionsMenu.SetActive(true);
 
+        _settingsMenuPrimaryButton.Select();
+
 
         _mainCamera = !_mainCamera;
     }
@@ -87,6 +96,8 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(_setup);
 
         _mainMenu.SetActive(true);
+
+        _mainMenuPrimaryButton.Select();
 
         _mainCamera = !_mainCamera;
 
@@ -110,10 +121,16 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator StartTheGame(int levelIndex)
     {
-        _mainMenu.SetActive(false);
         //yield return new WaitForSeconds(0.5f);
 
         //_startButton.SetBool("startPressed", true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        _mainMenu.SetActive(false);
+
+        //yield return new WaitForSeconds(0.5f);
+
         _vignetteStart.Play("AN_MM_Start");
         _startEffect.SetActive(true);
 
@@ -139,5 +156,10 @@ public class MainMenu : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    void OnCancel()
+    {
+        if (_optionsMenu) StartCoroutine(BackToMain());
     }
 }

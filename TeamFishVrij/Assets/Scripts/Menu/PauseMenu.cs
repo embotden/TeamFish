@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     public Button _primaryButton;
 
     public static bool _gameIsPaused = false;
-    private bool _buttonPressed = false;
+    //private bool _buttonPressed = false;
 
     public GameObject _pauseMenuUI;
 

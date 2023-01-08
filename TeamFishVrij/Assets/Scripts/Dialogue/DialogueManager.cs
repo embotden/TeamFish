@@ -58,13 +58,11 @@ public class DialogueManager : MonoBehaviour
         _dialoguePanel.SetActive(false);
         _continueIcon.SetActive(false);
         _buttonClicked = false;
-
-
     }
 
     private void Update()
     {
-        Debug.Log(_isDialogueFinished);
+        //Debug.Log(_isDialoguePlaying);
         //return right away if dialogue isn't playing
         if (!_isDialoguePlaying)
         {
@@ -76,7 +74,6 @@ public class DialogueManager : MonoBehaviour
             _ContinueButtonAnimations.SetBool("isClicked", false);
             _buttonClicked = false;
         }
-
     }
 
     public void EnterDialogueMode(TextAsset _inkJSON)
@@ -88,6 +85,7 @@ public class DialogueManager : MonoBehaviour
         _dialoguePanel.SetActive(true);
         _continueIcon.SetActive(true);
         _DialogueWaterCheck = true;
+        _isDialogueFinished = false;
 
         _dialogueBoxAnimations.SetBool("canTalk", true);
         _ContinueButtonAnimations.SetBool("canStart", true);
