@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     private CharacterController _characterController;
-    //public MainMenuNavigator _MainMenuOptions;
+    private MainMenuNavigator _watchingMenuOption;
 
     public Animator animator;
 
@@ -93,6 +93,13 @@ public class PlayerController : MonoBehaviour
         if (DialogueManager.GetInstance()._isDialoguePlaying)
         {
             return;
+        }
+        else if(_watchingMenuOption)
+        {
+            if(_watchingMenuOption._isWatching)
+            {
+                return;
+            }
         }
 
         float vertical = Input.GetAxis("Vertical");

@@ -133,6 +133,11 @@ public class WaterAbility : MonoBehaviour
         //visual hint
         _targetHint.SetActive(true);
 
+        yield return new WaitForEndOfFrame();
+
+        //starting ability animation to false
+        _FhinnAnimator.SetBool("IsStartingAbility", false);
+
         //Time water lasts
         yield return new WaitForSeconds(_duration);
 
@@ -152,7 +157,6 @@ public class WaterAbility : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        _FhinnAnimator.SetBool("IsStartingAbility", false);
         _FhinnAnimator.SetBool("IsReleasingAbility", false);
     }
 

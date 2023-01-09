@@ -13,50 +13,57 @@ public class MainMenuNavigator : MonoBehaviour
     public GameObject _visualCue;
     public GameObject _optionsMenu;
     public GameObject _startTrigger;
-    public GameObject _startHeader;
-    //public Slider _optionsFirstButton;
+    //public Animator _startHeader;
+    public Animator _lightCue;
+    public GameObject _godRay;
 
     [Header("Transition")]
     public Animator _menuAnimator;
     public Animator _crossfadeTransition;
     [SerializeField] private float _setupTime = 2f;
-    //[SerializeField] private float _animationDuration = 0.5f;
+
+    public Animator _windowVolume;
 
     [Header("Conditions")]
-    private bool _isWatching;
-    //public bool _canExit;
+    public bool _isWatching;
     private bool _mainCamera;
     private bool _canStart;
+    private bool _canSwitch;
 
     [Header("Options")]
     [SerializeField] private bool _isOptions;
     private bool _isCollection;
     private bool _isStory;
-    //private bool _isStart;
-    //private bool _reset;
 
     [Header("Game Start")]
     public GameObject _loadingScreen;
     public Slider _slider;
 
     [Header("Dialogue")]
+    [SerializeField] private TextAsset _openingDialogue;
     [SerializeField] private TextAsset _windowDialogue;
     [SerializeField] private TextAsset _paintingDialogue;
     [SerializeField] private TextAsset _startDialogue;
+
+    [Header("Triggers")]
+    public GameObject _windowViewTrigger;
 
 
     void Start()
     {
         _visualCue.SetActive(false);
-        //_optionsMenu.SetActive(false);
         _startTrigger.SetActive(false);
-        _startHeader.SetActive(false);
+        _windowViewTrigger.SetActive(false);
+        _godRay.SetActive(false);
 
         _isWatching = false;
-        //_reset = false;
         _canStart = false;
 
         _playerMenuControls = new PlayerInputActions();
+
+        _windowVolume.SetBool("viewActive", true);
+        StartCoroutine(OpeningDialogue());
+
     }
 
     private void Update()
@@ -64,17 +71,38 @@ public class MainMenuNavigator : MonoBehaviour
         if (_canStart)
         {
             _startTrigger.SetActive(true);
-            //_startHeader.SetActive(true);
-        }
-
-        if (_isWatching && Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("quit options button");
         }
     }
     
 
-    public void StoryViewState()
+    public IEnumerator OpeningDialogue()
+    {
+        yield return new WaitForSeconds(2f);
+
+        //start dialogue
+        DialogueManager.GetInstance().EnterDialogueMode(_openingDialogue);
+
+        _isWatching = true;
+
+        while (!DialogueManager.GetInstance()._isDialogueFinished)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        _menuAnimator.Play("Overview camera");
+        _windowVolume.SetBool("viewActive", false);
+
+
+        yield return new WaitForSeconds(.5f);
+
+        _windowViewTrigger.SetActive(true);
+        _mainCamera = !_mainCamera;
+        _isWatching = false;
+    }
+
+    public IEnumerator StoryViewState()
     {
         _isStory = true;
 
@@ -82,7 +110,18 @@ public class MainMenuNavigator : MonoBehaviour
         _mainCamera = !_mainCamera;
 
         _isWatching = true;
-        _canStart = true;
+        _canSwitch = false;
+
+        yield return new WaitForSeconds(1.5f);
+
+        DialogueManager.GetInstance().EnterDialogueMode(_paintingDialogue);
+
+        while (!DialogueManager.GetInstance()._isDialogueFinished)
+        {
+            yield return null;
+        }
+        _canSwitch = true;
+
     }
 
     public void CollectionViewState()
@@ -104,23 +143,27 @@ public class MainMenuNavigator : MonoBehaviour
 
         _menuAnimator.Play("Start camera");
         _mainCamera = !_mainCamera;
+
         yield return new WaitForSeconds(.5f);
 
         //start dialogue
         DialogueManager.GetInstance().EnterDialogueMode(_startDialogue);
 
-        if (DialogueManager.GetInstance()._isDialogueFinished)
+        while (DialogueManager.GetInstance()._isDialoguePlaying)
         {
-            _crossfadeTransition.SetTrigger("Start");
+            yield return null;
+        }
 
-            yield return new WaitForSeconds(1f);
+        Debug.Log("Dialogue Done!");
+        _crossfadeTransition.SetTrigger("Start");
 
+        yield return new WaitForSeconds(1f);
 
-            AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
 
-            _loadingScreen.SetActive(true);
+        _loadingScreen.SetActive(true);
 
-            while(!operation.isDone)
+        while(!operation.isDone)
             {
                 float progress = Mathf.Clamp01(operation.progress / .9f);
 
@@ -128,9 +171,6 @@ public class MainMenuNavigator : MonoBehaviour
 
                 yield return null;
             }
-
-        }
-
     }
 
 
@@ -139,9 +179,21 @@ public class MainMenuNavigator : MonoBehaviour
         _isOptions = true;
 
         _menuAnimator.Play("Window camera");
+        _windowVolume.SetBool("viewActive", true);
         _mainCamera = !_mainCamera;
 
-        yield return new WaitForSeconds(_setupTime);
+        _canSwitch = false;
+
+        yield return new WaitForSeconds(.5f);
+
+        DialogueManager.GetInstance().EnterDialogueMode(_windowDialogue);
+
+        while (!DialogueManager.GetInstance()._isDialogueFinished)
+        {
+            yield return null;
+        }
+
+        _canSwitch = true;
 
         _isWatching = true;
     }
@@ -151,6 +203,7 @@ public class MainMenuNavigator : MonoBehaviour
         _optionsMenu.SetActive(false);
 
         _menuAnimator.Play("Overview camera");
+        _windowVolume.SetBool("viewActive", false);
 
         yield return new WaitForSeconds(_setupTime);
 
@@ -158,24 +211,32 @@ public class MainMenuNavigator : MonoBehaviour
 
         _mainCamera = !_mainCamera;
 
-        //start dialogue
         if (_isOptions)
         {
-            DialogueManager.GetInstance().EnterDialogueMode(_windowDialogue);
             _isOptions = false;
         }
         else if(_isStory)
         {
-            DialogueManager.GetInstance().EnterDialogueMode(_paintingDialogue);
             _isStory = false;
+            if(!_canStart)
+            {
+                _lightCue.Play("AN_VOLLG_Appear");
+                _godRay.SetActive(true);
+                //_startHeader.SetTrigger("canStart");
+                _canStart = true;
+            }
         }
     }
 
-    void OnJump()
+    void OnBack()
     {
         if (_isOptions || _isCollection || _isStory)
         {
+            if (_canSwitch)
+            {
                 StartCoroutine(SwitchToMainState());
+
+            }
         }
     }
 }

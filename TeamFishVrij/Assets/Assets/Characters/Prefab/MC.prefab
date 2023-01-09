@@ -1086,9 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2152500029393037483}
-  Ability_1: {fileID: 0}
-  Ability_2: {fileID: 0}
-  Ability_3: {fileID: 0}
+  AbilityLayerIndex: 0
   _turnSmoothTime: 0.1
   _yVelocity: 0
   _gravity: -20
@@ -1341,7 +1339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 65
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8229795436671156091
 RectTransform:
   m_ObjectHideFlags: 0

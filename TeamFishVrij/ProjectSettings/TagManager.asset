@@ -31,14 +31,14 @@ TagManager:
   - Water
   - UI
   - Particles visible
-  - 
+  - Fog Visible
   - 
   - 
   - _whatIsWall
   - _whatIsGrappleable
   - noPost
   - Terrain
-  - 
+  - Environment
   - 
   - 
   - 

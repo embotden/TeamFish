@@ -1,0 +1,6 @@
+... Good evening, my love... #speaker:Fhinn #layout:UI_Dialogue_LayoutFhinn
+It is a good evening... One would even call it the best evening!
+...
+I am that one.
+...
+I can't wait to hear you laugh, again.
