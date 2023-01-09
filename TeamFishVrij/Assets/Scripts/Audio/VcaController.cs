@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class VcaController : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class VcaController : MonoBehaviour
         _VcaController.getVolume(out _VcaVolume);
     }
 
+    public void OnEnable()
+    {
+        Debug.Log("slider selected");
+    }
 
     public void SetVolume(float volume)
     {
