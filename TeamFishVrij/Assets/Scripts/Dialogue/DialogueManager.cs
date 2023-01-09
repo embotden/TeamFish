@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator _SteevinNametag;
     [SerializeField] private Animator _ContinueButtonAnimations;
     [SerializeField] private bool _buttonClicked;
+    [SerializeField] private bool _justStarted = false;
 
     public bool _isDialogueFinished = false;
     //private bool _submitSkip;
@@ -78,8 +79,14 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset _inkJSON)
     {
+        Debug.Log("entering dialogue");
+
+        _justStarted = true;
+
         _currentStory = new Story(_inkJSON.text);
+
         HandleTags(_currentStory.currentTags);
+
 
         _isDialoguePlaying = true;
         _dialoguePanel.SetActive(true);
@@ -95,30 +102,39 @@ public class DialogueManager : MonoBehaviour
         _displayNameTag.text = "???";
         _layoutAnimator.Play("UI_Dialogue_LayoutFhinn");
 
+        //name tag animations
         _FhinnNametag.SetBool("canStart", true);
         _SteevinNametag.SetBool("canStart", true);
         _FhinnNametag.SetBool("canLeave", false);
         _SteevinNametag.SetBool("canLeave", false);
+
+        //_dialogueText.text = _currentStory.Continue();
 
         ContinueStory();
     }
 
     private void ContinueStory()
     {
-        if (_currentStory.canContinue)
+        if (_currentStory.canContinue || _justStarted)
         {
+            Debug.Log("can continue story");
+
             //handle tags
             HandleTags(_currentStory.currentTags);
 
             //Debug.Log("can continue!");
             _dialogueText.text = _currentStory.Continue();
 
-            _ContinueButtonAnimations.Play("UI_Continue_Clicked");
+            if(_continueIcon.activeSelf) _ContinueButtonAnimations.Play("UI_Continue_Clicked");
+            
             _buttonClicked = true;
 
+            _justStarted = false;
         }
         else
         {
+            Debug.Log("cannot continue story");
+
             StartCoroutine(ExitDialogueMode());
             //Debug.Log("exiting dialoguemode!");
         }
@@ -159,6 +175,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ExitDialogueMode()
     {
+        Debug.Log("Dialogue finished");
         _dialogueText.text = "";
         _displayNameTag.text = "";
 
@@ -176,7 +193,11 @@ public class DialogueManager : MonoBehaviour
         {
             _SteevinNametag.SetBool("canStart", false);
         }
-        _ContinueButtonAnimations.Play("UI_Continue_ClickedEnd");
+
+        if (_continueIcon.activeSelf)
+        {
+            _ContinueButtonAnimations.Play("UI_Continue_ClickedEnd");
+        }
 
         yield return new WaitForSeconds(0.2f);
 
@@ -203,19 +224,6 @@ public class DialogueManager : MonoBehaviour
 
     void OnDialogue()
     {
-        //_submitSkip = true;
-
-        //handle continuing to the next line in the dialogue when submit is pressed
-        if (_currentStory.canContinue)
-        {
-            ContinueStory();
-            HandleTags(_currentStory.currentTags);
-        }
-        else
-        {
-            StartCoroutine(ExitDialogueMode());
-            //Debug.Log("exiting dialoguemode!");
-        }
-
+        if(_isDialoguePlaying) ContinueStory();
     }
 }
