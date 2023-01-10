@@ -38,6 +38,8 @@ public class DialogueManager : MonoBehaviour
     public bool _isDialogueFinished = false;
     //private bool _submitSkip;
 
+    private GameObject _Fhinn;
+
 
     private void Awake()
     {
@@ -46,6 +48,8 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Found more than one dialogue manager in scene!");
         }
         _instance = this;
+
+        _Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");
     }
 
     public static DialogueManager GetInstance()
@@ -115,9 +119,13 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStory()
     {
+        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
+
         if (_currentStory.canContinue || _justStarted)
         {
             Debug.Log("can continue story");
+
+            _FhinnAnimator.SetBool("IsTalking", true);
 
             //handle tags
             HandleTags(_currentStory.currentTags);
@@ -137,6 +145,8 @@ public class DialogueManager : MonoBehaviour
 
             StartCoroutine(ExitDialogueMode());
             //Debug.Log("exiting dialoguemode!");
+
+            _FhinnAnimator.SetBool("IsTalking", false);
         }
         
     }
