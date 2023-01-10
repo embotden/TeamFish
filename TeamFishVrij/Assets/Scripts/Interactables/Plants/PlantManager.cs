@@ -18,8 +18,8 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private bool _succesFeedbackTriggered = false;
 
     [Header("Animations")]
-    public Animator _hangingPlant1;
-    public Animator _hangingPlant2;
+    //public Animator _hangingPlant1;
+    //public Animator _hangingPlant2;
     public GameObject _puzzleColider;
 
 
@@ -43,8 +43,8 @@ public class PlantManager : MonoBehaviour
     {
         _succesFeedback.SetActive(true);
         _puzzleColider.SetActive(false);
-        _hangingPlant1.SetBool("isHit", true);
-        _hangingPlant2.SetBool("isHit", true);
+        //_hangingPlant1.SetBool("isHit", true);
+        //_hangingPlant2.SetBool("isHit", true);
         //_imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
         // _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
 
