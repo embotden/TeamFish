@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     PlayerInputActions _menuNavigation;
+
     public Button _primaryButton;
+
 
     public static bool _gameIsPaused = false;
     //private bool _buttonPressed = false;
@@ -27,9 +29,12 @@ public class PauseMenu : MonoBehaviour
         _gameIsPaused = false;
     }
 
-    void Pause()
+    public IEnumerator Pause()
     {
         _pauseMenuUI.SetActive(true);
+
+        yield return new WaitForSeconds(.5f);
+
         _primaryButton.Select();
         Time.timeScale = 0f;
         _gameIsPaused = true;
@@ -38,12 +43,13 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenuV2");
     }
 
     public void QuitGame()
     {
         Debug.Log("Quiting game...");
+        Application.Quit();
     }
 
     void OnPause()
@@ -54,7 +60,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Pause();
+            StartCoroutine(Pause());
         }
     }
 }

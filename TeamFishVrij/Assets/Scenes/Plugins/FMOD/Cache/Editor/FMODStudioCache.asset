@@ -1,29 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9132229259631723843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Area1V1/AREA1SONG
-  m_EditorClassIdentifier: 
-  Name: AREA1SONG
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 162641073
-    data2: 840887260
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &-7926987372904068307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +53,30 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 2000
 --- !u!114 &-7830275620359415568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Area1MusicPrototype/Song1VOICES
+  m_EditorClassIdentifier: 
+  Name: Song1VOICES
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2957160905
+    data2: 4220308541
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-7714428750190541431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,6 +201,36 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4444578222280885785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Area1MusicPrototype
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/Area1MusicPrototype
+  Guid:
+    Data1: 1427964141
+    Data2: 1334854727
+    Data3: 2051169695
+    Data4: 1991561798
+  Banks:
+  - {fileID: -1112133450707545550}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8258993425367797098}
+  - {fileID: 216846850688006624}
+  - {fileID: -7714428750190541431}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 81715
 --- !u!114 &-2986624132814450752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,34 +251,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1036
   Exists: 1
---- !u!114 &-1993527939660782704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/Area1V1
-  m_EditorClassIdentifier: 
-  Path: event:/MUSIC/Area1V1
-  Guid:
-    Data1: -1602673715
-    Data2: 1216330165
-    Data3: 1719815576
-    Data4: -105014863
-  Banks:
-  - {fileID: 8363078706946214707}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -9132229259631723843}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 23703
 --- !u!114 &-1787150756699962556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +265,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Fhlin.bank
   Name: Fhlin
-  StudioPath: bank:/SFX/Fhlin
-  lastModified: 638089426239835853
+  StudioPath: bank:/Characters/Fhlin
+  lastModified: 638034230603549273
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-1112133450707545550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Prototype01.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Systems/FMODbanks/Banks/Desktop/Prototype01.bank
+  Name: Prototype01
+  StudioPath: bank:/Music/Prototype01
+  lastModified: 638034230603612795
   FileSizes: []
   Exists: 1
 --- !u!114 &-1003864897736212842
@@ -306,7 +326,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/TEST.bank
   Name: TEST
   StudioPath: bank:/TEST/TEST
-  lastModified: 638089426242199835
+  lastModified: 638034230603673777
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -325,20 +345,45 @@ MonoBehaviour:
   - {fileID: 8290892069487024680}
   - {fileID: -1787150756699962556}
   - {fileID: 7615165252003226173}
+  - {fileID: -1112133450707545550}
   - {fileID: -391293616099481558}
-  - {fileID: 8363078706946214707}
   EditorEvents:
+  - {fileID: 4838004069498730439}
   - {fileID: -6003451996275961040}
+  - {fileID: -4444578222280885785}
   - {fileID: 3684537230057340535}
   - {fileID: 234153330351884204}
-  - {fileID: -1993527939660782704}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7615165252003226173}
   StringsBanks:
   - {fileID: 8290892069487024680}
-  cacheTime: 638089426242199835
+  cacheTime: 638034230603673777
   cacheVersion: 131592
+--- !u!114 &216846850688006624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Area1MusicPrototype/Song1MELODY
+  m_EditorClassIdentifier: 
+  Name: Song1MELODY
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2306904397
+    data2: 3501631912
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &234153330351884204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +534,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 559
+--- !u!114 &4838004069498730439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps/Footsteps2
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps/Footsteps2
+  Guid:
+    Data1: -1972364511
+    Data2: 1295631189
+    Data3: 1279115429
+    Data4: 1600314053
+  Banks:
+  - {fileID: -1787150756699962556}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6696102039036268890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,8 +616,32 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638089426239077886
+  lastModified: 638034230603550422
   FileSizes: []
+  Exists: 1
+--- !u!114 &8258993425367797098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Area1MusicPrototype/Song1CHORDS
+  m_EditorClassIdentifier: 
+  Name: Song1CHORDS
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1406901270
+    data2: 3438023084
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &8290892069487024680
 MonoBehaviour:
@@ -562,28 +658,10 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638089426239107793
+  lastModified: 638034230603551653
   FileSizes:
   - Name: 
-    Value: 1646
-  Exists: 1
---- !u!114 &8363078706946214707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/MusicArea1.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Systems/FMODbanks/Banks/Desktop/MusicArea1.bank
-  Name: MusicArea1
-  StudioPath: bank:/Music/MusicArea1
-  lastModified: 638089426240758558
-  FileSizes: []
+    Value: 1330
   Exists: 1
 --- !u!114 &8654131356815803018
 MonoBehaviour:
