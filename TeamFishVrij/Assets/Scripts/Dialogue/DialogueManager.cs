@@ -83,8 +83,6 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset _inkJSON)
     {
-        Debug.Log("entering dialogue");
-
         _justStarted = true;
 
         _currentStory = new Story(_inkJSON.text);
@@ -123,8 +121,6 @@ public class DialogueManager : MonoBehaviour
 
         if (_currentStory.canContinue || _justStarted)
         {
-            Debug.Log("can continue story");
-
             _FhinnAnimator.SetBool("IsTalking", true);
 
             //handle tags
@@ -141,8 +137,6 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("cannot continue story");
-
             StartCoroutine(ExitDialogueMode());
             //Debug.Log("exiting dialoguemode!");
 
@@ -185,7 +179,6 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ExitDialogueMode()
     {
-        Debug.Log("Dialogue finished");
         _dialogueText.text = "";
         _displayNameTag.text = "";
 

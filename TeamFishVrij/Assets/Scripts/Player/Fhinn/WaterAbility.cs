@@ -112,6 +112,10 @@ public class WaterAbility : MonoBehaviour
     public IEnumerator Pickup()
     {
         //StartCoroutine(FhinnAnimation());
+        //UI animations
+        _UIAnimation.SetBool("canShow", false);
+        _UIAnimation.SetBool("isClicked", true);
+
 
         Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
         int AbilityLayerIndex = _FhinnAnimator.GetLayerIndex("ArmAbility");
@@ -167,48 +171,21 @@ public class WaterAbility : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         _UIAnimation.SetBool("canShow", true);
-        _UIAnimation.SetBool("canLeave", false);
+        _UIAnimation.SetBool("isClicked", false);
+        //_UIAnimation.SetBool("canLeave", false);
 
     }
 
     private IEnumerator CloseQUI()
     {
         _UIAnimation.SetBool("canShow", false);
-        _UIAnimation.SetBool("canLeave", true);
+        _UIAnimation.SetBool("isClicked", false);
+        //_UIAnimation.SetBool("canLeave", true);
 
         yield return new WaitForEndOfFrame();
 
         _isShowingUI = false;
 
     }
-
-    /*public IEnumerator FhinnAnimation()
-    {
-        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
-
-        _FhinnAnimator.SetBool("IsStartingAbility", true);
-        _FhinnAnimator.SetLayerWeight(AbilityLayerIndex, 1);
-
-        //_isStartingAbility = true;
-
-        yield return new WaitForSeconds(1f);
-
-        _FhinnAnimator.SetBool("IsStartingAbility", false);
-
-        //_isStartingAbility = false;
-
-        yield return new WaitForSeconds(3.8f);
-
-        _FhinnAnimator.SetBool("IsReleasingAbility", true);
-
-        //_abilityReleased = true;
-
-        yield return new WaitForSeconds(0.5f);
-
-        _FhinnAnimator.SetBool("IsReleasingAbility", false);
-
-        //_abilityReleased = false;
-
-    }*/
 
 }

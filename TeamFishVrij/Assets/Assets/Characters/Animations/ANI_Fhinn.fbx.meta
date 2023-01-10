@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f136046268834b9babeb89f6d42a96c
+guid: af87080a5e53549a2b19e34f64ff8e4a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -21,22 +21,7 @@ ModelImporter:
   - first:
       74: 3627391400137172217
     second: Fhinn_Landing.001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MAT_Fhinn
-    second: {fileID: 2100000, guid: 6c6877a8fb21a434a9ade63f3b815490, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MAT_FhinnEyes
-    second: {fileID: 2100000, guid: 36555dabcc6636340bba0299c75ca307, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MAT_FhinnMouth
-    second: {fileID: 2100000, guid: 434570d8e67d40e4fb3a93032234153e, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -118,21 +103,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.08169014
-        functionName: PlaySound
-        data: Footsteps/Footsteps
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.5714145
-        functionName: PlaySound
-        data: Footsteps/Footsteps
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -161,21 +132,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.06504329
-        functionName: PlaySound
-        data: Footsteps/Footsteps
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.54943293
-        functionName: PlaySound
-        data: Footsteps/Footsteps
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
