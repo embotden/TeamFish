@@ -21,17 +21,34 @@ public class PlantManager : MonoBehaviour
     public Animator _hangingPlant1;
     public Animator _hangingPlant2;
     public GameObject _puzzleColider;
+    //
+    private GameObject _Steevin;
 
 
     private void Start()
     {
         _succesFeedback.SetActive(false);
         _puzzleColider.SetActive(true);
+        //
+        _Steevin = GameObject.Find("/Characters/Shark/MOD_Steefin");
 
     }
     private void Update()
     {
+        Animator _SteevinAnimator = _Steevin.GetComponent<Animator>();
+
         if (_planteState >= _maxHealth && !_succesFeedbackTriggered) Invoke("PlantMaxedOut", _waitingTime);
+
+        if (_hangingPlant2.GetCurrentAnimatorStateInfo(0).IsName("Limp To Straight"))
+        {
+            _SteevinAnimator.SetBool("IsStuck", false);
+        }
+
+        else
+        {
+            _SteevinAnimator.SetBool("IsStuck", true);
+        }
+
     }
 
     public void PlantGrowing()
@@ -55,6 +72,8 @@ public class PlantManager : MonoBehaviour
     {
         _planteState -= _damage;
     }
+
+
 
 
 }
