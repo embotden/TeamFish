@@ -10,7 +10,6 @@ Material:
   m_Name: Vol_49_5_Rocks
   m_Shader: {fileID: 4800000, guid: ee7e4c9a5f6364b688a332c67fc32cca, type: 3}
   m_ValidKeywords:
-  - _NORMALMAP
   - _OCCLUSIONMAP
   - _PARALLAXMAP
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
