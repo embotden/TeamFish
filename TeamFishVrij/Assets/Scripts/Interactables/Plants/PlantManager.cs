@@ -37,9 +37,9 @@ public class PlantManager : MonoBehaviour
     {
         Animator _SteevinAnimator = _Steevin.GetComponent<Animator>();
 
-        if (_planteState >= _maxHealth && !_succesFeedbackTriggered) Invoke("PlantMaxedOut", _waitingTime);
+        //if (_planteState >= _maxHealth && !_succesFeedbackTriggered) Invoke("PlantMaxedOut", _waitingTime);
 
-        if (_hangingPlant2.GetCurrentAnimatorStateInfo(0).IsName("Limp To Straight"))
+        /*if (_hangingPlant2.GetCurrentAnimatorStateInfo(0).IsName("Limp To Straight"))
         {
             _SteevinAnimator.SetBool("IsStuck", false);
         }
@@ -47,7 +47,8 @@ public class PlantManager : MonoBehaviour
         else
         {
             _SteevinAnimator.SetBool("IsStuck", true);
-        }
+        }*/
+        
 
     }
 
