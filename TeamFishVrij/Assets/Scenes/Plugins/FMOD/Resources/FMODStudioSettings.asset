@@ -377,7 +377,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Fhlin
-  - Prototype01
+  - MusicArea1
   - TEST
   BanksToLoad: []
   LiveUpdatePort: 9264
