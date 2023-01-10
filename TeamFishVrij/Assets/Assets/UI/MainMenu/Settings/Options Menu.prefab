@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61101de2eddeb42f6a3a13db625a82e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _VcaName: 
+  _VcaName: Music
   _VcaVolume: 0
 --- !u!1 &7109753456786300260
 GameObject:
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61101de2eddeb42f6a3a13db625a82e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _VcaName: 
+  _VcaName: Master
   _VcaVolume: 0
 --- !u!1 &7109753456950297360
 GameObject:
@@ -5317,16 +5317,16 @@ MonoBehaviour:
   _optionsMenu: {fileID: 0}
   _mainMenu: {fileID: 0}
   _credits: {fileID: 0}
-  _startButton: {fileID: 7109753457337372204}
-  _quitButton: {fileID: 7109753456934586348}
   _startEffect: {fileID: 0}
   _crossfade: {fileID: 0}
+  _vignetteStart: {fileID: 0}
   _loadingScreen: {fileID: 0}
   _loadingBar: {fileID: 0}
-  _levelLoader: {fileID: 0}
+  _controlsImage: {fileID: 0}
   _cameraTransitions: {fileID: 0}
-  _setup: 2
   _mainCamera: 0
+  _mainMenuPrimaryButton: {fileID: 0}
+  _settingsMenuPrimaryButton: {fileID: 0}
 --- !u!114 &7109753458371541513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5583,7 +5583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61101de2eddeb42f6a3a13db625a82e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _VcaName: 
+  _VcaName: SFX
   _VcaVolume: 0
 --- !u!1 &7109753458541092848
 GameObject:
