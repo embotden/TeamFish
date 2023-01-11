@@ -23,6 +23,7 @@ TagManager:
   - crossing
   - statue
   - light beam
+  - toxic1
   layers:
   - Default
   - TransparentFX

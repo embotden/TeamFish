@@ -44,6 +44,10 @@ public class CameraTriggerVolume : MonoBehaviour
         {
             _animator.Play("Underwater camera");
         }
+        else if (gameObject.CompareTag("toxic1"))
+        {
+            _animator.Play("Toxic 1 camera");
+        }
         else
         {
             _animator.Play("Player camera");
