@@ -318,7 +318,10 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Envirement
   - Fhlin
+  - musicScene02
+  - MusicTitlescreen
   - TEST
   BanksToLoad: []
   LiveUpdatePort: 9264
