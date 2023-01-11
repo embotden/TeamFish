@@ -60,6 +60,7 @@ public class WaterAbility : MonoBehaviour
         _waterAbilityButton = new PlayerInputActions();
 
         _UIAnimation.SetBool("canShow", false);
+        _UIAnimation.SetBool("isClicked", false);
 
         _Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");        
     }
@@ -78,6 +79,8 @@ public class WaterAbility : MonoBehaviour
         if (other.gameObject.tag == "Fhinn")
         {
             _isNearWater = false;
+
+            _UIAnimation.Play("UI_R1_Disappear");
         }
     }
 
@@ -106,15 +109,19 @@ public class WaterAbility : MonoBehaviour
     //check if player can grab water
     void OnWaterGrab()
     {
-        if (_isShowingUI) StartCoroutine(Pickup());
+        if (_isShowingUI)
+        {
+            StartCoroutine(Pickup());
+            _UIAnimation.Play("UI_R1_Clicked");
+            _UIAnimation.SetBool("canShow", false);
+        }
+
     }
 
     public IEnumerator Pickup()
     {
         //StartCoroutine(FhinnAnimation());
         //UI animations
-        _UIAnimation.SetBool("canShow", false);
-        _UIAnimation.SetBool("isClicked", true);
 
 
         Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
@@ -171,15 +178,15 @@ public class WaterAbility : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         _UIAnimation.SetBool("canShow", true);
-        _UIAnimation.SetBool("isClicked", false);
+        //_UIAnimation.SetBool("isClicked", false);
         //_UIAnimation.SetBool("canLeave", false);
 
     }
 
     private IEnumerator CloseQUI()
     {
-        _UIAnimation.SetBool("canShow", false);
-        _UIAnimation.SetBool("isClicked", false);
+        //_UIAnimation.Play("UI_R1_Disappear");
+        //_UIAnimation.SetBool("canShow", false);
         //_UIAnimation.SetBool("canLeave", true);
 
         yield return new WaitForEndOfFrame();

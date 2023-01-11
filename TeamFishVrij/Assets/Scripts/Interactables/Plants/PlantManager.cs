@@ -14,6 +14,13 @@ public class PlantManager : MonoBehaviour
     private float _waitingTime = 0.2f;
     //private ImageTrigger _imageInteraction;
     public GameObject _succesFeedback;
+    //public Material _toxicPlantMat;
+    [SerializeField] private float _waterLevel;
+
+    public Animator _plantAnimation;
+
+    public GameObject _toxicWarning;
+
 
     [SerializeField] private bool _succesFeedbackTriggered = false;
 
@@ -31,6 +38,10 @@ public class PlantManager : MonoBehaviour
         _puzzleColider.SetActive(true);
         //
         _Steevin = GameObject.Find("/Characters/Shark/MOD_Steefin");
+
+        _waterLevel = 0.428f;
+
+        //_toxicPlantMat.SetFloat("AlphaClip", 0f);
 
     }
     private void Update()
@@ -54,17 +65,30 @@ public class PlantManager : MonoBehaviour
 
     public void PlantGrowing()
     {
-        _planteState += _revival;
+        StartCoroutine(PlantMaxedOut());
+        //_planteState += _revival;
+
+        //_toxicPlantMat.SetFloat("AlphaClip", 0.428f);
     }
 
-    private void PlantMaxedOut()
+    private IEnumerator PlantMaxedOut()
     {
+        Debug.Log("3");
+
+        _plantAnimation.SetTrigger("maxedOut");
+        
         _succesFeedback.SetActive(true);
-        _puzzleColider.SetActive(false);
+
+        _toxicWarning.SetActive(false);
+
+        yield return new WaitForSeconds(2f);
+
         //_hangingPlant1.SetBool("isHit", true);
         //_hangingPlant2.SetBool("isHit", true);
         //_imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
         // _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
+
+        _puzzleColider.SetActive(false);
 
         _succesFeedbackTriggered = true;
     }

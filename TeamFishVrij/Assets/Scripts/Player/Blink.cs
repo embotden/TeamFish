@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Blink : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
     
 
     void Start()
