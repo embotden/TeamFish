@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8148585420124355772
+--- !u!114 &-7781191828801747663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Titlesccreen/TitlescreenFade
+  m_Name: parameter:/Music/Which Song
   m_EditorClassIdentifier: 
-  Name: TitlescreenFade
+  Name: Which Song
   StudioPath: 
   Min: 0
-  Max: 1
+  Max: 3
   Default: 0
   ID:
-    data1: 1819721432
-    data2: 4130269019
+    data1: 2438661543
+    data2: 4036245657
   Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-6579027033941417181
+--- !u!114 &-7217209740944531913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,25 +34,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/Titlesccreen
+  m_Name: event:/SFX/Plant
   m_EditorClassIdentifier: 
-  Path: event:/MUSIC/Titlesccreen
+  Path: event:/SFX/Plant
   Guid:
-    Data1: -309400293
-    Data2: 1219465064
-    Data3: -1762003563
-    Data4: 1913422181
+    Data1: 1918017339
+    Data2: 1135028148
+    Data3: -2020915059
+    Data4: -743694668
   Banks:
-  - {fileID: 3970344788790460652}
-  IsStream: 1
+  - {fileID: 1137799548040970731}
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -8148585420124355772}
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 173617
---- !u!114 &-4934458781954592582
+  Length: 3752
+--- !u!114 &-6132302886611162123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,16 +61,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/TEST sound/TEST parameter 1
+  m_Name: parameter:/Music/TitlescreenFade
   m_EditorClassIdentifier: 
-  Name: TEST parameter 1
+  Name: TitlescreenFade
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 3306911660
-    data2: 3598472112
+    data1: 3157212
+    data2: 3519556058
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4181558238909705124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Scene02Layers
+  m_EditorClassIdentifier: 
+  Name: Scene02Layers
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1969973362
+    data2: 1085318049
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -91,7 +114,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/musicScene02.bank
   Name: musicScene02
   StudioPath: bank:/Music/musicScene02
-  lastModified: 638089549408232004
+  lastModified: 638089852846231274
   FileSizes: []
   Exists: 1
 --- !u!114 &-2333396422405295482
@@ -109,10 +132,10 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638089549405888266
+  lastModified: 638089852843548466
   FileSizes:
   - Name: 
-    Value: 1868
+    Value: 1716
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -133,18 +156,19 @@ MonoBehaviour:
   - {fileID: -4036465025095384608}
   - {fileID: 3970344788790460652}
   - {fileID: 6017573156306031727}
+  - {fileID: 1137799548040970731}
   EditorEvents:
   - {fileID: 5829629123194760628}
-  - {fileID: 5036986973107015072}
-  - {fileID: -6579027033941417181}
   - {fileID: 2272848760856352122}
   - {fileID: 1895968478446730920}
+  - {fileID: 3528016678983542575}
+  - {fileID: -7217209740944531913}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8861363180696578085}
   StringsBanks:
   - {fileID: -2333396422405295482}
-  cacheTime: 638089549412156640
+  cacheTime: 638089852847597621
   cacheVersion: 131592
 --- !u!114 &583737324778887946
 MonoBehaviour:
@@ -161,10 +185,10 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Fhlin.bank
   Name: Fhlin
   StudioPath: bank:/SFX/Fhlin
-  lastModified: 638089549411413493
+  lastModified: 638089852846769832
   FileSizes: []
   Exists: 1
---- !u!114 &1725416732142984351
+--- !u!114 &1137799548040970731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,20 +197,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Scene02V2/AREA1SONG
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Envirement.bank
   m_EditorClassIdentifier: 
-  Name: AREA1SONG
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 162641073
-    data2: 840887260
-  Type: 0
-  IsGlobal: 0
-  Labels: []
+  Path: Assets/Systems/FMODbanks/Banks/Desktop/Envirement.bank
+  Name: Envirement
+  StudioPath: bank:/SFX/Envirement
+  lastModified: 638089852847118900
+  FileSizes: []
   Exists: 1
 --- !u!114 &1895968478446730920
 MonoBehaviour:
@@ -238,11 +256,41 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters:
-  - {fileID: -4934458781954592582}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &3528016678983542575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Music
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/Music
+  Guid:
+    Data1: -1602673715
+    Data2: 1216330165
+    Data3: 1719815576
+    Data4: -105014863
+  Banks:
+  - {fileID: -4036465025095384608}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6132302886611162123}
+  - {fileID: -7781191828801747663}
+  - {fileID: -4181558238909705124}
+  - {fileID: 4535678159984961383}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 375051
 --- !u!114 &3970344788790460652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,10 +306,10 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/MusicTitlescreen.bank
   Name: MusicTitlescreen
   StudioPath: bank:/Music/MusicTitlescreen
-  lastModified: 638089549410356319
+  lastModified: 638089852846271167
   FileSizes: []
   Exists: 1
---- !u!114 &5036986973107015072
+--- !u!114 &4535678159984961383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,26 +318,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/Scene02V2
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/MainThemeLayers
   m_EditorClassIdentifier: 
-  Path: event:/MUSIC/Scene02V2
-  Guid:
-    Data1: -1602673715
-    Data2: 1216330165
-    Data3: 1719815576
-    Data4: -105014863
-  Banks:
-  - {fileID: -4036465025095384608}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 1725416732142984351}
-  - {fileID: 7723308631716841893}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 47466
+  Name: MainThemeLayers
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 768146340
+    data2: 3072499762
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &5829629123194760628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,32 +375,8 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/TEST.bank
   Name: TEST
   StudioPath: bank:/TEST/TEST
-  lastModified: 638089549412156640
+  lastModified: 638089852847597621
   FileSizes: []
-  Exists: 1
---- !u!114 &7723308631716841893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Scene02V2/Scene02Fade
-  m_EditorClassIdentifier: 
-  Name: Scene02Fade
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2374464358
-    data2: 4247877431
-  Type: 0
-  IsGlobal: 0
-  Labels: []
   Exists: 1
 --- !u!114 &8861363180696578085
 MonoBehaviour:
@@ -374,6 +393,6 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638089549405838395
+  lastModified: 638089852843498596
   FileSizes: []
   Exists: 1
