@@ -22699,7 +22699,7 @@ Material:
     - _RayMarchSettings: {r: 6, g: 0.01, b: 0.5, a: 0.1}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: 0.10572453, g: 0.28929517, b: 0.9513837, a: 0}
-    - _WindDirection: {r: 1.8914484, g: 0, b: 1.8914484, a: 0}
+    - _WindDirection: {r: 1.895261, g: 0, b: 1.895261, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &2061125790
 PrefabInstance:
