@@ -12,7 +12,7 @@ public class MainMenuTriggerCheck : MonoBehaviour
     //public GameObject _sectionHeader;
 
     [Header("Eye animations")]
-    public Animator _eyeAnimation;
+    //public Animator _eyeAnimation;
     //public Animator _windowView;
     //public Animator _pictures;
     //public Animator _startGame;
@@ -24,20 +24,20 @@ public class MainMenuTriggerCheck : MonoBehaviour
     {
         //_sectionHeader.SetActive(false);
 
-        _eyeAnimation.SetBool("inRange", false);
+        //_eyeAnimation.SetBool("inRange", false);
 
         _inputSystemCheck = new PlayerInputActions();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Fhinn"))
+        if (other.CompareTag("Fhinn") && _menuManager._canShow)
         {
             //_sectionHeader.SetActive(true);
 
-            _eyeAnimation.SetBool("inRange", true);
+            //_eyeAnimation.SetBool("inRange", true);
 
-            _menuManager._visualCue.SetActive(true);
+            _menuManager._interactableUI.SetBool("canShow", true);
 
             _canChoose = true;
         }
@@ -47,10 +47,14 @@ public class MainMenuTriggerCheck : MonoBehaviour
     {
         if (other.CompareTag("Fhinn"))
         {
-            _eyeAnimation.SetBool("inRange", false);
-            _menuManager._visualCue.SetActive(false);
+            //_eyeAnimation.SetBool("inRange", false);
+            _menuManager._interactableUI.Play("AN_UI_X_Disappear");
+            _menuManager._interactableUI.SetBool("canShow", false);
+
 
             _canChoose = false;
+
+            _menuManager._canShow = false;
         }
     }
 

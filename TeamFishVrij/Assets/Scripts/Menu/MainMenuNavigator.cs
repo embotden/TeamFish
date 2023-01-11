@@ -10,7 +10,8 @@ public class MainMenuNavigator : MonoBehaviour
     PlayerInputActions _playerMenuControls;
 
     [Header("Visual Cues")]
-    public GameObject _visualCue;
+    //public GameObject _UIX_Interactable;
+    public Animator _interactableUI;
     public GameObject _optionsMenu;
     public GameObject _startTrigger;
     //public Animator _startHeader;
@@ -29,6 +30,7 @@ public class MainMenuNavigator : MonoBehaviour
     private bool _mainCamera;
     private bool _canStart;
     private bool _canSwitch;
+    public bool _canShow;
 
     [Header("Options")]
     [SerializeField] private bool _isOptions;
@@ -51,13 +53,15 @@ public class MainMenuNavigator : MonoBehaviour
 
     void Start()
     {
-        _visualCue.SetActive(false);
+        //_UIX_Interactable.SetActive(false);
+        _interactableUI.SetBool("canShow", false);
         _startTrigger.SetActive(false);
         _windowViewTrigger.SetActive(false);
         _godRay.SetActive(false);
 
         _isWatching = false;
         _canStart = false;
+        _canShow = false;
 
         _playerMenuControls = new PlayerInputActions();
 
@@ -77,6 +81,8 @@ public class MainMenuNavigator : MonoBehaviour
 
     public IEnumerator OpeningDialogue()
     {
+        _canShow = false;
+
         yield return new WaitForSeconds(2f);
 
         //start dialogue
@@ -100,11 +106,19 @@ public class MainMenuNavigator : MonoBehaviour
         _windowViewTrigger.SetActive(true);
         _mainCamera = !_mainCamera;
         _isWatching = false;
+
+        //_UIX_Interactable.SetActive(true);
+
+        _canShow = true;
     }
 
     public IEnumerator StoryViewState()
     {
+        _interactableUI.Play("AN_UI_X_Clicked");
+        _interactableUI.SetBool("canShow", false);
+
         _isStory = true;
+        _canShow = false;
 
         _menuAnimator.Play("Exposition camera");
         _mainCamera = !_mainCamera;
@@ -126,7 +140,11 @@ public class MainMenuNavigator : MonoBehaviour
 
     public void CollectionViewState()
     {
+        _interactableUI.Play("AN_UI_X_Clicked");
+        _interactableUI.SetBool("canShow", false);
+
         _isCollection = true;
+        _canShow = false;
 
         _menuAnimator.Play("Memories camera");
         _mainCamera = !_mainCamera;
@@ -139,7 +157,10 @@ public class MainMenuNavigator : MonoBehaviour
     {
         //_isStart = true;
         _isWatching = true;
-        _visualCue.SetActive(false);
+        _canShow = false;
+
+        _interactableUI.Play("AN_UI_X_Clicked");
+        _interactableUI.SetBool("canShow", false);
 
         _menuAnimator.Play("Start camera");
         _mainCamera = !_mainCamera;
@@ -176,7 +197,11 @@ public class MainMenuNavigator : MonoBehaviour
 
     public IEnumerator OptionsState()
     {
+        _interactableUI.Play("AN_UI_X_Clicked");
+        _interactableUI.SetBool("canShow", false);
+
         _isOptions = true;
+        _canShow = false;
 
         _menuAnimator.Play("Window camera");
         _windowVolume.SetBool("viewActive", true);
@@ -211,6 +236,9 @@ public class MainMenuNavigator : MonoBehaviour
 
         _mainCamera = !_mainCamera;
 
+        _interactableUI.SetBool("canShow", true);
+        _canShow = true;
+
         if (_isOptions)
         {
             _isOptions = false;
@@ -226,6 +254,7 @@ public class MainMenuNavigator : MonoBehaviour
                 _canStart = true;
             }
         }
+
     }
 
     void OnBack()
