@@ -14,8 +14,12 @@ public class PlantManager : MonoBehaviour
     private float _waitingTime = 0.2f;
     //private ImageTrigger _imageInteraction;
     public GameObject _succesFeedback;
-    public Material _toxicPlantMat;
+    //public Material _toxicPlantMat;
     [SerializeField] private float _waterLevel;
+
+    public Animator _plantAnimation;
+
+    public GameObject _toxicWarning;
 
 
     [SerializeField] private bool _succesFeedbackTriggered = false;
@@ -37,7 +41,7 @@ public class PlantManager : MonoBehaviour
 
         _waterLevel = 0.428f;
 
-        _toxicPlantMat.SetFloat("AlphaClip", 0f);
+        //_toxicPlantMat.SetFloat("AlphaClip", 0f);
 
     }
     private void Update()
@@ -61,15 +65,21 @@ public class PlantManager : MonoBehaviour
 
     public void PlantGrowing()
     {
-        _planteState += _revival;
+        StartCoroutine(PlantMaxedOut());
+        //_planteState += _revival;
 
-        _toxicPlantMat.SetFloat("AlphaClip", 0.428f);
+        //_toxicPlantMat.SetFloat("AlphaClip", 0.428f);
     }
 
     private IEnumerator PlantMaxedOut()
     {
+        Debug.Log("3");
+
+        _plantAnimation.SetTrigger("maxedOut");
+        
         _succesFeedback.SetActive(true);
-        _puzzleColider.SetActive(false);
+
+        _toxicWarning.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -78,7 +88,7 @@ public class PlantManager : MonoBehaviour
         //_imageInteraction = _succesFeedback.GetComponent<ImageTrigger>();
         // _imageInteraction.StartCoroutine(_imageInteraction.StoryPainting());
 
-
+        _puzzleColider.SetActive(false);
 
         _succesFeedbackTriggered = true;
     }

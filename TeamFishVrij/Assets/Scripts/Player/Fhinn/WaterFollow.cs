@@ -39,6 +39,8 @@ public class WaterFollow : MonoBehaviour
     {
         if (other.gameObject.tag == "plant hitpoint")
         {
+            Debug.Log("1");
+
             var plantScript = other.GetComponent<PlantReaction>();
 
             plantScript._plantIsHitWater = true;

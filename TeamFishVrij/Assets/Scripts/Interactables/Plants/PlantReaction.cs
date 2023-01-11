@@ -18,6 +18,7 @@ public class PlantReaction : MonoBehaviour
 
     public void plantReactingWater()
     {
+        Debug.Log("2");
         //Call upon plant manager
         _plantManager.GetComponent<PlantManager>().PlantGrowing();
 
@@ -27,7 +28,7 @@ public class PlantReaction : MonoBehaviour
         _plantCollider.GetComponent<BoxCollider>().enabled = false;
 
         //Turn off visual cue
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         //Reset
         _plantIsHitWater = false;
