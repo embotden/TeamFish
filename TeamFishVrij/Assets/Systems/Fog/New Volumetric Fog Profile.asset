@@ -106,7 +106,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   brightness: 1.2
   deepObscurance: 1
-  specularColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  specularColor: {r: 0.5518868, g: 0.9545274, b: 1, a: 1}
   specularThreshold: 0.791
   specularIntensity: 0.966
   turbulence: 0.18
