@@ -43,7 +43,8 @@ public class WaterFollow : MonoBehaviour
 
             var plantScript = other.GetComponent<PlantReaction>();
 
-            plantScript._plantIsHitWater = true;
+            //plantScript._plantIsHitWater = true;
+            plantScript.plantReactingWater();
 
             DestroyBall();
         }
@@ -52,16 +53,16 @@ public class WaterFollow : MonoBehaviour
     public async void DestroyBall()
     {
         //check if exist
-        if (!gameObject) return;
+        if (gameObject == null) return;
         
         //play destruction animation
         _animator.SetBool("waterGrabbed", false);
         _animator.SetBool("canBeDropped", true);
-
+        Debug.Log("destroyin in a bit");
         //delay
         await Task.Delay(400);
 
         //Destroy(cloneWater);
-        if(gameObject) Destroy(gameObject);
+        if(this && gameObject) Destroy(gameObject);
     }
 }

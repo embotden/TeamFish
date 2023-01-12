@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MAT_Fhinn
-    second: {fileID: 2100000, guid: 6c6877a8fb21a434a9ade63f3b815490, type: 2}
+    second: {fileID: 2100000, guid: fc548926a1c238845a7e0fdacf95878d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
