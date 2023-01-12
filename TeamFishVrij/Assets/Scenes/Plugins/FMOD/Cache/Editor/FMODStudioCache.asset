@@ -193,7 +193,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Fhlin.bank
   Name: Fhlin
   StudioPath: bank:/SFX/Fhlin
-  lastModified: 638090617548926998
+  lastModified: 638091335864348392
   FileSizes: []
   Exists: 1
 --- !u!114 &-4036465025095384608
@@ -249,7 +249,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Envirement.bank
   Name: Envirement
   StudioPath: bank:/SFX/Envirement
-  lastModified: 638090617548627803
+  lastModified: 638091335864178877
   FileSizes: []
   Exists: 1
 --- !u!114 &-1411007650016843023
@@ -307,7 +307,7 @@ MonoBehaviour:
   - {fileID: 747429132326156625}
   StringsBanks:
   - {fileID: 1662646182641298243}
-  cacheTime: 638090617549286040
+  cacheTime: 638091335867967345
   cacheVersion: 131592
 --- !u!114 &583737324778887946
 MonoBehaviour:
@@ -342,7 +342,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638090617546842489
+  lastModified: 638091335864451810
   FileSizes: []
   Exists: 1
 --- !u!114 &1662646182641298243
@@ -360,7 +360,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638090617546872420
+  lastModified: 638091335864572390
   FileSizes:
   - Name: 
     Value: 1822
@@ -459,7 +459,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/MusicTitlescreen.bank
   Name: MusicTitlescreen
   StudioPath: bank:/Music/MusicTitlescreen
-  lastModified: 638090617548398444
+  lastModified: 638091335304720297
   FileSizes: []
   Exists: 1
 --- !u!114 &2706046299605704937
@@ -570,7 +570,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/musicScene02.bank
   Name: musicScene02
   StudioPath: bank:/Music/musicScene02
-  lastModified: 638090617548358521
+  lastModified: 638091335867967345
   FileSizes: []
   Exists: 1
 --- !u!114 &5036986973107015072
@@ -695,7 +695,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/TEST.bank
   Name: TEST
   StudioPath: bank:/TEST/TEST
-  lastModified: 638090617549286040
+  lastModified: 638091335305680596
   FileSizes: []
   Exists: 1
 --- !u!114 &7723308631716841893
