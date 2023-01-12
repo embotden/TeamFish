@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class FhinnEmblemFlicker : MonoBehaviour
 {
-    private GameObject _Fhinn;
+    private Animator animator;
+
 
     void Start()
     {
-        _Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");
-        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
-        _FhinnAnimator.SetBool("IsOld", true);
+        animator = GetComponent<Animator>();
+        animator.SetBool("IsOld", true);
     }
+
 }
