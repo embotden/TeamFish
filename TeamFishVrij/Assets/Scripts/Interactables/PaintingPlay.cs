@@ -19,11 +19,11 @@ public class PaintingPlay : MonoBehaviour
 
     public Animator _lightAnimations;
 
-    private bool _isReadyforText;
+    //private bool _isReadyforText;
 
     private void Start()
     {
-        _isReadyforText = false;
+        //_isReadyforText = false;
 
         _plantTouchBorder.SetActive(false);
     }

@@ -8,21 +8,22 @@ public class PlantManager : MonoBehaviour
     public float _damage;
     public float _revival;
     [SerializeField] private float _planteState;
-    [SerializeField] private float _maxHealth = 10f;
+    //[SerializeField] private float _maxHealth = 10f;
 
     [Header("Succes feedback")]
-    private float _waitingTime = 0.2f;
+    //private float _waitingTime = 0.2f;
     //private ImageTrigger _imageInteraction;
     public GameObject _succesFeedback;
     //public Material _toxicPlantMat;
-    [SerializeField] private float _waterLevel;
+    //[SerializeField] private float _waterLevel;
 
     public Animator _plantAnimation;
+    public Animator _volumeChange;
 
     public GameObject _toxicWarning;
 
 
-    [SerializeField] private bool _succesFeedbackTriggered = false;
+    //[SerializeField] private bool _succesFeedbackTriggered = false;
 
     [Header("Animations")]
     //public Animator _hangingPlant1;
@@ -39,7 +40,7 @@ public class PlantManager : MonoBehaviour
         //
         _Steevin = GameObject.Find("/Characters/Shark/MOD_Steefin");
 
-        _waterLevel = 0.428f;
+        //_waterLevel = 0.428f;
 
         //_toxicPlantMat.SetFloat("AlphaClip", 0f);
 
@@ -76,6 +77,7 @@ public class PlantManager : MonoBehaviour
         Debug.Log("3");
 
         _plantAnimation.SetTrigger("maxedOut");
+        _volumeChange.SetTrigger("canLeave");
         
         _succesFeedback.SetActive(true);
 
@@ -90,7 +92,7 @@ public class PlantManager : MonoBehaviour
 
         _puzzleColider.SetActive(false);
 
-        _succesFeedbackTriggered = true;
+        //_succesFeedbackTriggered = true;
     }
 
     public void PlantShrinking()
