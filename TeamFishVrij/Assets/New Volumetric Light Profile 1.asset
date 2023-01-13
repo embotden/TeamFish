@@ -41,15 +41,15 @@ MonoBehaviour:
   noiseScale: 5
   noiseFinalMultiplier: 1
   density: 0.2
-  mediumAlbedo: {r: 0.6650944, g: 0.91053, b: 1, a: 1}
-  brightness: 1
+  mediumAlbedo: {r: 0, g: 1, b: 0.9033289, a: 1}
+  brightness: 0.96
   attenuationMode: 0
   attenCoefConstant: 1
   attenCoefLinear: 2
   attenCoefQuadratic: 1
-  rangeFallOff: 1
+  rangeFallOff: 0.67
   diffusionIntensity: 0
-  penumbra: 0.5
+  penumbra: 1
   tipRadius: 0
   cookieTexture: {fileID: 0}
   cookieScale: {x: 1, y: 1}
@@ -65,7 +65,7 @@ MonoBehaviour:
   dustDistanceAttenuation: 10
   dustAutoToggle: 0
   dustDistanceDeactivation: 70
-  enableShadows: 0
+  enableShadows: 1
   shadowIntensity: 0.7
   shadowTranslucency: 0
   shadowTranslucencyIntensity: 1

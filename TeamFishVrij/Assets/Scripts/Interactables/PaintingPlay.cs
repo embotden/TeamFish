@@ -6,7 +6,7 @@ public class PaintingPlay : MonoBehaviour
 {
     public Animator _paintingAnimation;
     public GameObject _plantTouchBorder;
-    public WaterAbility _uiCue;
+    public GameObject _uiCue;
 
     public float _timeToStop;
 
@@ -16,12 +16,10 @@ public class PaintingPlay : MonoBehaviour
 
     public Animator _lightAnimations;
 
-    //private bool _isReadyforText;
+    public bool canFhinnWalk;
 
     private void Start()
     {
-        //_isReadyforText = false;
-
         _plantTouchBorder.SetActive(false);
     }
 
@@ -35,7 +33,6 @@ public class PaintingPlay : MonoBehaviour
 
     private IEnumerator ThisCutscene()
     {
-        _uiCue._visualCue.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -45,10 +42,13 @@ public class PaintingPlay : MonoBehaviour
         {
             yield return null;
         }
+        
+        canFhinnWalk = false;
+        _uiCue.SetActive(false);
 
         _lightAnimations.SetTrigger("canStart");
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3f);
 
         _paintingAnimation.SetTrigger("canPlay");
 
@@ -60,6 +60,9 @@ public class PaintingPlay : MonoBehaviour
         
         yield return new WaitForSeconds(2.5f);
 
+        _uiCue.SetActive(true);
+        canFhinnWalk = true;
+
         DialogueManager.GetInstance().EnterDialogueMode(_inkJSON2);
 
         while (!DialogueManager.GetInstance()._isDialogueFinished)
@@ -68,7 +71,7 @@ public class PaintingPlay : MonoBehaviour
         }
 
         _plantTouchBorder.SetActive(true);
-        _uiCue._visualCue.SetActive(true);
+        //_playerMovements._canKeepMoving = true;
 
         Destroy(gameObject);
     }

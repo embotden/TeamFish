@@ -20,12 +20,9 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if(_isPlayerInRange && !DialogueManager.GetInstance()._isDialoguePlaying)
-        {
-                DialogueManager.GetInstance().EnterDialogueMode(_inkJSON);
-        }
+        if (_isPlayerInRange && !DialogueManager.GetInstance()._isDialoguePlaying) StartCoroutine(DialoguePlaying());
 
-        if (DialogueManager.GetInstance()._isDialogueFinished) Destroy(gameObject);
+        
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -36,8 +33,15 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider collider)
+    private IEnumerator DialoguePlaying()
     {
-        _isPlayerInRange = false;
+        DialogueManager.GetInstance().EnterDialogueMode(_inkJSON);
+
+        while (!DialogueManager.GetInstance()._isDialogueFinished)
+        {
+            yield return null;
+        }
+
+        gameObject.SetActive(false);
     }
 }

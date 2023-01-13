@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     private CharacterController _characterController;
     private MainMenuNavigator _watchingMenuOption;
+    private DialogueManager _checkDialogue;
+    private PaintingPlay _checkCutscene;
 
     public Animator animator;
 
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private float yVelocity = 0.0F;
     private float smoothTime = 0.3f;
     private bool _isPlayingRelease;
+    //public bool _canKeepMoving = true;
 
     //public WaterAbility Ability_1;
     //public WaterAbility Ability_2;
@@ -67,26 +70,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //_isGrounded = _characterController.isGrounded;
-
-        /*if (_isGrounded && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }*/
-
         // USED FOR SMOOTHLY SWITCHING BETWEEN ANIMATION LAYERS
         currentLayerWeightTail = animator.GetLayerWeight(TailLayerIndex);
         currentLayerWeightAbility = animator.GetLayerWeight(AbilityLayerIndex);
-
-        
-        
-
 
         //WALKING
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //walking around
 
         if(!DialogueManager.GetInstance()._isDialoguePlaying) _characterController.Move(move * Time.deltaTime * _speed);
-
 
 
         //DIALOGUE
@@ -97,6 +88,13 @@ public class PlayerController : MonoBehaviour
         else if(_watchingMenuOption)
         {
             if(_watchingMenuOption._isWatching)
+            {
+                return;
+            }
+        }
+        else if (_checkCutscene)
+        {
+            if (!_checkCutscene.canFhinnWalk)
             {
                 return;
             }
@@ -165,28 +163,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsGrounded", false);
             animator.SetBool("IsJumping", true);
         }
-
-        //WATER ABILITY ANIMATONS
-        /*if (Ability_1._isStartingAbility || Ability_2._isStartingAbility|| Ability_3._isStartingAbility)
-        {
-            animator.SetBool("IsStartingAbility", true);
-            animator.SetLayerWeight(AbilityLayerIndex, 1);
-        }
-
-        else
-        {
-            animator.SetBool("IsStartingAbility", false);
-        }
-
-        if (Ability_1._abilityReleased || Ability_2._abilityReleased || Ability_3._abilityReleased)
-        {
-            animator.SetBool("IsReleasingAbility", true);
-        }
-
-        else
-        {
-            animator.SetBool("IsReleasingAbility", false);
-        }*/
 
         //STOP PLAYER FROM MOVING
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Ability"))

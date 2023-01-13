@@ -15,10 +15,10 @@ MonoBehaviour:
   baseAltitude: 20
   useXYZDistance: 1
   densityLinear: 0.01
-  densityExponential: 0.97
+  densityExponential: 1.01
   maxHeight: 10000
   distanceMax: 100000
-  tintColor: {r: 0.23584908, g: 0.025587406, b: 0.16292295, a: 1}
+  tintColor: {r: 0.26264182, g: 0.019520547, b: 0.4433962, a: 1}
   useVerticalGradient: 1
   verticalGradient:
     serializedVersion: 2
@@ -61,7 +61,7 @@ MonoBehaviour:
   direction: {x: 0.001, y: 0, z: 0}
   lightDiffusionPower: 64
   lightDiffusionIntensity: 0.2
-  brightness: 1
+  brightness: 0.72
   useSunColor: 1
   dithering: 1
   renderQueue: 3100

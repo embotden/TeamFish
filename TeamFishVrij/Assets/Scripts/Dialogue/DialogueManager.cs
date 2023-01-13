@@ -14,16 +14,15 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private TextMeshProUGUI _displayNameTag;
     [SerializeField] private GameObject _continueIcon;
+    [SerializeField] private GameObject _worldCanvas;
 
     [Header("Ink Unity Linkup")]
     private const string SPEAKER_TAG = "speaker";
-    //private const string PORTRAIT_TAG = "portrait";
     private const string LAYOUT_TAG = "layout";
 
     [Header("Conditions")]
     private Story _currentStory;
     private static DialogueManager _instance;
-    //public WaterAbility _waterUICheck;
     public bool _isDialoguePlaying { get; private set; }
     public bool _DialogueWaterCheck = false;
 
@@ -32,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator _FhinnNametag;
     [SerializeField] private Animator _SteevinNametag;
     [SerializeField] private Animator _ContinueButtonAnimations;
+    [SerializeField] private PlayerController _fhinnAnimations;
     [SerializeField] private bool _buttonClicked;
     [SerializeField] private bool _justStarted = false;
 
@@ -95,6 +95,8 @@ public class DialogueManager : MonoBehaviour
         _continueIcon.SetActive(true);
         _DialogueWaterCheck = true;
         _isDialogueFinished = false;
+
+        _worldCanvas.SetActive(false);
 
         _dialogueBoxAnimations.SetBool("canTalk", true);
         _ContinueButtonAnimations.SetBool("canStart", true);
@@ -222,6 +224,7 @@ public class DialogueManager : MonoBehaviour
 
         _dialoguePanel.SetActive(false);
         _DialogueWaterCheck = false;
+        _worldCanvas.SetActive(true);
 
     }
 

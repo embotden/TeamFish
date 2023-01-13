@@ -13,7 +13,7 @@ public class PlantManager : MonoBehaviour
     public GameObject _succesFeedback;
     public GameObject _toxicParticles;
     public Animator _plantAnimation;
-    public Animator _volumeChange;
+    //public Animator _volumeChange;
     public bool _plantMaxedOut;
 
     [Header("Animations")]
@@ -43,7 +43,7 @@ public class PlantManager : MonoBehaviour
         Debug.Log("3");
 
         _plantAnimation.SetTrigger("maxedOut");
-        _volumeChange.SetTrigger("canLeave");
+        //_volumeChange.SetTrigger("canLeave");
         
         _succesFeedback.SetActive(true);
         _toxicParticles.SetActive(false);
