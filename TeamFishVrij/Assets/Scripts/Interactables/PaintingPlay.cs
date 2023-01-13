@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PaintingPlay : MonoBehaviour
 {
-    //public GameObject _videoPlayer;
-    //public GameObject _renderTexture;
-
     public Animator _paintingAnimation;
     public GameObject _plantTouchBorder;
     public WaterAbility _uiCue;

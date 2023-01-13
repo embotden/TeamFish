@@ -16,6 +16,8 @@ public class EndDemo : MonoBehaviour
         if(other.gameObject.tag == "Fhinn")
         {
             Invoke("EndGameDemo", 3f);
+
+            Debug.Log("End Triggered");
         }
     }
 

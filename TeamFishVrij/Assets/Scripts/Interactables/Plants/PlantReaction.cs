@@ -9,7 +9,6 @@ public class PlantReaction : MonoBehaviour
 
     public bool _plantIsHitWater = false;
 
-
     private void Update()
     {
         if (_plantIsHitWater) plantReactingWater();
