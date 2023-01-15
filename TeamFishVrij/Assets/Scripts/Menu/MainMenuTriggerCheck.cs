@@ -37,50 +37,6 @@ public class MainMenuTriggerCheck : MonoBehaviour
         _inputSystemCheck = new PlayerInputActions();
     }
 
-    private void Update()
-    {
-        //Debug.Log("can be visible =" + _canBeVisible);
-
-        /*if(_canBeVisible)
-        {
-            if (!_menuManager._isWatching) _xInteractionAnimation.SetBool("canShow", true);
-        } 
-        else
-        {
-            if(_isClicked)
-            {
-                _xInteractionAnimation.Play("AN_UI_X_Clicked");
-                _xInteractionAnimation.SetBool("canShow", false);
-                _isClicked = false;
-            } 
-            else
-            {
-                _xInteractionAnimation.SetBool("canShow", false);
-
-            }
-
-            if (_isVisible)
-            {
-                _xInteractionAnimation.SetBool("canShow", false);
-            }
-            else
-            {
-                Debug.Log("allready invisible");
-            }
-        }*/
-    }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Fhinn"))
-        {
-            if(!_menuManager._isWatching) _xInteractionAnimation.SetBool("canShow", true);
-
-            //_canChoose = true;
-            //_canBeVisible = true;
-        }
-    }*/
-
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Fhinn"))

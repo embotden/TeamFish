@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float smoothTime = 0.3f;
     private bool _isPlayingRelease;
     //public bool _canKeepMoving = true;
+    public bool _canIMove = true;
 
     //public WaterAbility Ability_1;
     //public WaterAbility Ability_2;
@@ -70,6 +71,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(_canIMove);
+
         // USED FOR SMOOTHLY SWITCHING BETWEEN ANIMATION LAYERS
         currentLayerWeightTail = animator.GetLayerWeight(TailLayerIndex);
         currentLayerWeightAbility = animator.GetLayerWeight(AbilityLayerIndex);
@@ -77,11 +80,19 @@ public class PlayerController : MonoBehaviour
         //WALKING
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //walking around
 
-        if(!DialogueManager.GetInstance()._isDialoguePlaying) _characterController.Move(move * Time.deltaTime * _speed);
-
-
         //DIALOGUE
-        if (DialogueManager.GetInstance()._isDialoguePlaying)
+        if (DialogueManager.GetInstance()._isDialoguePlaying || !_canIMove)
+        {
+            animator.SetBool("IsSprinting", false);
+            animator.SetBool("IsWalking", false);
+            return;
+        }
+
+        //if(!DialogueManager.GetInstance()._isDialoguePlaying && _canIMove) _characterController.Move(move * Time.deltaTime * _speed);
+        _characterController.Move(move * Time.deltaTime * _speed);
+
+
+        /*if (DialogueManager.GetInstance()._isDialoguePlaying)
         {
             return;
         }
@@ -91,14 +102,7 @@ public class PlayerController : MonoBehaviour
             {
                 return;
             }
-        }
-        else if (_checkCutscene)
-        {
-            if (!_checkCutscene.canFhinnWalk)
-            {
-                return;
-            }
-        }
+        }*/
 
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
@@ -115,6 +119,7 @@ public class PlayerController : MonoBehaviour
             float targetAngle = Mathf.Atan2(characterMovement.x, characterMovement.z) *Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
 
             //Walking animation
             animator.SetBool("IsWalking", true);

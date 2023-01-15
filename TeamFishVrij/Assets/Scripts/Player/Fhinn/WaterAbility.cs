@@ -60,7 +60,7 @@ public class WaterAbility : MonoBehaviour
         _waterAbilityButton = new PlayerInputActions();
 
         _UIAnimation.SetBool("canShow", false);
-        _UIAnimation.SetBool("isClicked", false);
+        //_UIAnimation.SetBool("isClicked", false);
 
         _Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");        
     }
@@ -71,6 +71,7 @@ public class WaterAbility : MonoBehaviour
         if (other.gameObject.tag == "Fhinn")
         {
             _isNearWater = true;
+            //_UIAnimation.SetBool("canShow", true);
         }
     }
 
@@ -80,7 +81,8 @@ public class WaterAbility : MonoBehaviour
         {
             _isNearWater = false;
 
-            _UIAnimation.Play("UI_R1_Disappear");
+            //_UIAnimation.SetBool("canShow", false);
+            //_UIAnimation.Play("UI_R1_Disappear");
         }
     }
 
@@ -178,6 +180,8 @@ public class WaterAbility : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         _UIAnimation.SetBool("canShow", true);
+
+        //_UIAnimation.SetBool("canShow", true);
         //_UIAnimation.SetBool("isClicked", false);
         //_UIAnimation.SetBool("canLeave", false);
 
@@ -188,6 +192,8 @@ public class WaterAbility : MonoBehaviour
         //_UIAnimation.Play("UI_R1_Disappear");
         //_UIAnimation.SetBool("canShow", false);
         //_UIAnimation.SetBool("canLeave", true);
+        
+        _UIAnimation.SetBool("canShow", false);
 
         yield return new WaitForEndOfFrame();
 
