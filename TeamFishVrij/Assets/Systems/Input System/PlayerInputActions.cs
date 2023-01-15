@@ -123,17 +123,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""af63b05c-c7b7-4996-a109-51e913c97d7e"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SprintStart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""85392e91-b3bf-44d8-ab0e-25a8674dd640"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": ""Press"",
@@ -158,17 +147,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""40ed4901-aca6-45a0-8b62-ba38dd09ab95"",
                     ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SprintStop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5b449464-876a-425a-8ec6-e1f95ce6f51e"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
