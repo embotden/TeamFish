@@ -71,8 +71,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_canIMove);
-
         // USED FOR SMOOTHLY SWITCHING BETWEEN ANIMATION LAYERS
         currentLayerWeightTail = animator.GetLayerWeight(TailLayerIndex);
         currentLayerWeightAbility = animator.GetLayerWeight(AbilityLayerIndex);
@@ -234,7 +232,7 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        if(_jumpPressed && _isGrounded)
+        /*if(_jumpPressed && _isGrounded)
         {
             playerVelocity.y += Mathf.Sqrt(_jumpForce * -3f * _gravity);
             _isJumping = true;
@@ -245,7 +243,7 @@ public class PlayerController : MonoBehaviour
         {
             //animator.SetBool("IsFalling", true);
             _isFalling = true;
-        }
+        }*/
 
         playerVelocity.y += _gravity * Time.deltaTime;
 

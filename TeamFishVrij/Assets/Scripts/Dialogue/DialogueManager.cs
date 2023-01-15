@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     private Story _currentStory;
     private static DialogueManager _instance;
     public bool _isDialoguePlaying { get; private set; }
-    public bool _DialogueWaterCheck = false;
+    public bool _dialogueGoingCheck = false;
 
     public Animator _dialogueBoxAnimations;
     [SerializeField] private Animator _layoutAnimator;
@@ -96,7 +96,7 @@ public class DialogueManager : MonoBehaviour
         //Conditions
         _justStarted = true;
         _isDialoguePlaying = true;
-        _DialogueWaterCheck = true;
+        _dialogueGoingCheck = true;
         _isDialogueFinished = false;
 
         //stop non dialogue UI from becoming visible
@@ -226,7 +226,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         _dialoguePanel.SetActive(false);
-        _DialogueWaterCheck = false;
+        _dialogueGoingCheck = false;
         _worldCanvas.SetActive(true);
 
     }
