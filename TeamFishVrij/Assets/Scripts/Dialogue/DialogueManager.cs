@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Ink Unity Linkup")]
     private const string SPEAKER_TAG = "speaker";
-    //private const string LAYOUT_TAG = "layout";
+    private const string LAYOUT_TAG = "layout";
 
     [Header("Conditions")]
     private Story _currentStory;
@@ -147,17 +147,12 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    void refreshUI()
-    {
-        List<string> _tags = _currentStory.currentTags;
-    }
-
     private void HandleTags(List<string> currentTags)
     {
         //loop through each tag and handle it accordingly
         foreach (string tag in currentTags)
         {
-            Debug.Log("next step");
+            //Debug.Log("next step");
 
             //parse the tag
             string[] splitTag = tag.Split(':');
@@ -173,13 +168,13 @@ public class DialogueManager : MonoBehaviour
             switch(tagKey)
             {
                 case SPEAKER_TAG:
-                    Debug.Log("speaker=" + tagValue);
+                    //Debug.Log("speaker=" + tagValue);
                     _displayNameTag.text = tagValue;
                     break;
-                //case LAYOUT_TAG:
+                case LAYOUT_TAG:
                     //Debug.Log("layout=" + tagValue);
-                    //_layoutAnimator.Play(tagValue);
-                    //break;
+                    _layoutAnimator.Play(tagValue);
+                    break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled " + tag);
                     break;

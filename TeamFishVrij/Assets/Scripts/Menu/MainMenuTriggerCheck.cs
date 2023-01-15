@@ -14,6 +14,10 @@ public class MainMenuTriggerCheck : MonoBehaviour
     [Header("Interaction Cue")]
     public Animator _xInteractionAnimation;
 
+    private bool _isVisible;
+    private bool _canBeVisible;
+    private bool _isClicked;
+
     //public Animator _eyeAnimation;
     //public Animator _windowView;
     //public Animator _pictures;
@@ -33,17 +37,58 @@ public class MainMenuTriggerCheck : MonoBehaviour
         _inputSystemCheck = new PlayerInputActions();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
+    {
+        //Debug.Log("can be visible =" + _canBeVisible);
+
+        /*if(_canBeVisible)
+        {
+            if (!_menuManager._isWatching) _xInteractionAnimation.SetBool("canShow", true);
+        } 
+        else
+        {
+            if(_isClicked)
+            {
+                _xInteractionAnimation.Play("AN_UI_X_Clicked");
+                _xInteractionAnimation.SetBool("canShow", false);
+                _isClicked = false;
+            } 
+            else
+            {
+                _xInteractionAnimation.SetBool("canShow", false);
+
+            }
+
+            if (_isVisible)
+            {
+                _xInteractionAnimation.SetBool("canShow", false);
+            }
+            else
+            {
+                Debug.Log("allready invisible");
+            }
+        }*/
+    }
+
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fhinn"))
         {
-            //_sectionHeader.SetActive(true);
-
-            //_eyeAnimation.SetBool("inRange", true);
-
             if(!_menuManager._isWatching) _xInteractionAnimation.SetBool("canShow", true);
 
+            //_canChoose = true;
+            //_canBeVisible = true;
+        }
+    }*/
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Fhinn"))
+        {
+            if (!_menuManager._isWatching) _xInteractionAnimation.SetBool("canShow", true);
+
             _canChoose = true;
+            //_canBeVisible = true;
         }
     }
 
@@ -51,14 +96,11 @@ public class MainMenuTriggerCheck : MonoBehaviour
     {
         if (other.CompareTag("Fhinn"))
         {
-            //_eyeAnimation.SetBool("inRange", false);
-            //_menuManager._interactableUI.Play("AN_UI_X_Disappear");
-            
             _xInteractionAnimation.SetBool("canShow", false);
 
             _canChoose = false;
-
             _menuManager._canShow = false;
+            //_canBeVisible = false;
         }
     }
 
@@ -88,6 +130,11 @@ public class MainMenuTriggerCheck : MonoBehaviour
 
     void OnSelect()
     {
-        if (_canChoose && !_menuManager._isWatching) findState();
+        if (_canChoose && !_menuManager._isWatching)
+        {
+            //_isClicked = true;
+            //_canBeVisible = false;
+            findState();
+        }
     }
 }
