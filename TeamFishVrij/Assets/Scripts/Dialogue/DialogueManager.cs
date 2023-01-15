@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.UI;
 
 //when i add choices and the animation isn't flowing: Unity typing text effect for dialogue | Unity tutorial 2021
 
@@ -18,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Ink Unity Linkup")]
     private const string SPEAKER_TAG = "speaker";
-    private const string LAYOUT_TAG = "layout";
+    //private const string LAYOUT_TAG = "layout";
 
     [Header("Conditions")]
     private Story _currentStory;
@@ -63,11 +64,13 @@ public class DialogueManager : MonoBehaviour
         _dialoguePanel.SetActive(false);
         _continueIcon.SetActive(false);
         _buttonClicked = false;
+
+
+        _dialogueText.text = "";
     }
 
     private void Update()
     {
-        //Debug.Log(_isDialoguePlaying);
         //return right away if dialogue isn't playing
         if (!_isDialoguePlaying)
         {
@@ -83,55 +86,53 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset _inkJSON)
     {
-        _justStarted = true;
-
+        //retreive Inky file
         _currentStory = new Story(_inkJSON.text);
 
-        HandleTags(_currentStory.currentTags);
-
-
-        _isDialoguePlaying = true;
+        //Set UI Active
         _dialoguePanel.SetActive(true);
         _continueIcon.SetActive(true);
+
+        //Conditions
+        _justStarted = true;
+        _isDialoguePlaying = true;
         _DialogueWaterCheck = true;
         _isDialogueFinished = false;
 
+        //stop non dialogue UI from becoming visible
         _worldCanvas.SetActive(false);
 
+        //UI animations
         _dialogueBoxAnimations.SetBool("canTalk", true);
         _ContinueButtonAnimations.SetBool("canStart", true);
-        //_ContinueButtonAnimations.SetBool("canLeave", false);
 
         //reset dialogue layout
-        _displayNameTag.text = "???";
-        _layoutAnimator.Play("UI_Dialogue_LayoutFhinn");
+        _displayNameTag.text = "";
+        //_layoutAnimator.Play("UI_Dialogue_LayoutFhinn");
 
-        //name tag animations
+        //Name tag animations
         _FhinnNametag.SetBool("canStart", true);
         _SteevinNametag.SetBool("canStart", true);
         _FhinnNametag.SetBool("canLeave", false);
         _SteevinNametag.SetBool("canLeave", false);
-
-        //_dialogueText.text = _currentStory.Continue();
 
         ContinueStory();
     }
 
     private void ContinueStory()
     {
-        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
+        //Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
 
         if (_currentStory.canContinue || _justStarted)
         {
-            _FhinnAnimator.SetBool("IsTalking", true);
+            //_FhinnAnimator.SetBool("IsTalking", true);
+
+            _dialogueText.text = _currentStory.Continue();
 
             //handle tags
             HandleTags(_currentStory.currentTags);
 
-            //Debug.Log("can continue!");
-            _dialogueText.text = _currentStory.Continue();
-
-            if(_continueIcon.activeSelf) _ContinueButtonAnimations.Play("UI_Continue_Clicked");
+            if (_continueIcon.activeSelf) _ContinueButtonAnimations.Play("UI_Continue_Clicked");
             
             _buttonClicked = true;
 
@@ -140,24 +141,31 @@ public class DialogueManager : MonoBehaviour
         else
         {
             StartCoroutine(ExitDialogueMode());
-            //Debug.Log("exiting dialoguemode!");
 
-            _FhinnAnimator.SetBool("IsTalking", false);
+            //_FhinnAnimator.SetBool("IsTalking", false);
         }
         
+    }
+
+    void refreshUI()
+    {
+        List<string> _tags = _currentStory.currentTags;
     }
 
     private void HandleTags(List<string> currentTags)
     {
         //loop through each tag and handle it accordingly
-        foreach(string tag in currentTags)
+        foreach (string tag in currentTags)
         {
+            Debug.Log("next step");
+
             //parse the tag
             string[] splitTag = tag.Split(':');
             if(splitTag.Length != 2)
             {
                 Debug.LogError("Tag could not be appropriately parsed: " + tag);
             }
+            
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
 
@@ -165,13 +173,13 @@ public class DialogueManager : MonoBehaviour
             switch(tagKey)
             {
                 case SPEAKER_TAG:
-                    //Debug.Log("speaker=" + tagValue);
+                    Debug.Log("speaker=" + tagValue);
                     _displayNameTag.text = tagValue;
                     break;
-                case LAYOUT_TAG:
+                //case LAYOUT_TAG:
                     //Debug.Log("layout=" + tagValue);
-                    _layoutAnimator.Play(tagValue);
-                    break;
+                    //_layoutAnimator.Play(tagValue);
+                    //break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled " + tag);
                     break;

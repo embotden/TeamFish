@@ -1,5 +1,5 @@
-... Good evening, my love... #speaker:Fhinn #layout:UI_Dialogue_LayoutFhinn
-It is a good evening... One would even call it the best evening!
+... Good evening, my love... #speaker:Fhinn
+It is a good evening... One would even call it the best evening! #speaker:Steevin
 ...
 I am that one.
 ...
