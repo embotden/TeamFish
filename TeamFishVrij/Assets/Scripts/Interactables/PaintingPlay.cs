@@ -16,7 +16,10 @@ public class PaintingPlay : MonoBehaviour
 
     public Animator _lightAnimations;
 
-    public bool canFhinnWalk;
+    public bool isCutscenePlaying;
+
+    public PlayerController playerInteractions;
+
 
     private void Start()
     {
@@ -33,6 +36,7 @@ public class PaintingPlay : MonoBehaviour
 
     private IEnumerator ThisCutscene()
     {
+        playerInteractions._canIMove = false;
 
         yield return new WaitForSeconds(2f);
 
@@ -43,7 +47,6 @@ public class PaintingPlay : MonoBehaviour
             yield return null;
         }
         
-        canFhinnWalk = false;
         _uiCue.SetActive(false);
 
         _lightAnimations.SetTrigger("canStart");
@@ -58,10 +61,10 @@ public class PaintingPlay : MonoBehaviour
 
         _lightAnimations.SetTrigger("canMove");
         
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
 
         _uiCue.SetActive(true);
-        canFhinnWalk = true;
+        
 
         DialogueManager.GetInstance().EnterDialogueMode(_inkJSON2);
 
@@ -71,6 +74,8 @@ public class PaintingPlay : MonoBehaviour
         }
 
         _plantTouchBorder.SetActive(true);
+        
+        playerInteractions._canIMove = true;
         //_playerMovements._canKeepMoving = true;
 
         Destroy(gameObject);
