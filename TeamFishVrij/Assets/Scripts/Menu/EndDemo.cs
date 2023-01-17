@@ -27,7 +27,9 @@ public class EndDemo : MonoBehaviour
     [Header("Player")]
     public PlayerController _characterMovements;
 
-
+    //audio
+    FMOD.Studio.Bus MUSICBus;
+    FMOD.Studio.Bus SFXBus;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -52,6 +54,9 @@ public class EndDemo : MonoBehaviour
 
         _SteevinAnimator.SetBool("IsStuck", true);
         _FhinnPositionAnimator.enabled = false;
+
+        MUSICBus = FMODUnity.RuntimeManager.GetBus("Bus:/MUSIC");
+        SFXBus = FMODUnity.RuntimeManager.GetBus("Bus:/SFX");
     }
 
     public void EndGameDemo()
@@ -115,7 +120,10 @@ public class EndDemo : MonoBehaviour
         //start end credits
         _endCredits.SetTrigger("canStart");
         
-        //FMODUnity.RuntimeManager.PlayOneShot("event:/Example");
+
+        MUSICBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        SFXBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/MUSIC/MusicCredits");
 
         //wait for end credits to finish
         yield return new WaitForSeconds(79f);

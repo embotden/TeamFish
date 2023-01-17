@@ -280,5 +280,6 @@ public class DialogueManager : MonoBehaviour
     void OnDialogue()
     {
         if(_isDialoguePlaying) ContinueStory();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UIBubble");    //Play sound
     }
 }

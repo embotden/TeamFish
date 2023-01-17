@@ -323,6 +323,7 @@ MonoBehaviour:
   - musicScene02
   - MusicTitlescreen
   - TEST
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

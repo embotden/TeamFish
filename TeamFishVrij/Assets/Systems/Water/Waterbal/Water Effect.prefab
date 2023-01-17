@@ -9639,6 +9639,8 @@ GameObject:
   - component: {fileID: 2434707388284783553}
   - component: {fileID: 3560800992746295558}
   - component: {fileID: 2556115582717111660}
+  - component: {fileID: -1597750628989112308}
+  - component: {fileID: 3225816673489303479}
   m_Layer: 0
   m_Name: Water Effect
   m_TagString: Untagged
@@ -9750,6 +9752,57 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1597750628989112308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742165168562156266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -308934103
+      Data2: 1319698460
+      Data3: -1463026526
+      Data4: -126339723
+    Path: event:/SFX/Watermagic
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Parameter 1
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3225816673489303479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742165168562156266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a208c85da6d04c861d81b992e4ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Emitters:
+  - Target: {fileID: -1597750628989112308}
+    Params:
+    - Name: Parameter 1
+      Value: 1
+  TriggerEvent: 12
 --- !u!1 &3742165168842156345
 GameObject:
   m_ObjectHideFlags: 0
