@@ -53,6 +53,7 @@ public class MainMenuNavigator : MonoBehaviour
     public GameObject _windowViewTrigger;
 
     public GameObject _Fhinn;
+    public Animator FhinnsSleepyTime;
     public PlayerController CanFhinnMove;
 
 
@@ -160,7 +161,6 @@ public class MainMenuNavigator : MonoBehaviour
         //_isStart = true;
         _isWatching = true;
         //_canShow = false;
-        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
 
         _menuAnimator.Play("Start camera");
         _mainCamera = !_mainCamera;
@@ -177,7 +177,7 @@ public class MainMenuNavigator : MonoBehaviour
 
         // Fhinn going to sleep
         yield return new WaitForSeconds(0.1f);
-        _FhinnAnimator.SetBool("IsSleeping", true);
+        FhinnsSleepyTime.SetBool("IsSleeping", true);
 
 
         yield return new WaitForSeconds(9.3f);

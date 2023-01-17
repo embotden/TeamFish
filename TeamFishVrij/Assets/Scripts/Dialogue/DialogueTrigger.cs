@@ -35,7 +35,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private IEnumerator DialoguePlaying()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         DialogueManager.GetInstance().EnterDialogueMode(_inkJSON);
 
