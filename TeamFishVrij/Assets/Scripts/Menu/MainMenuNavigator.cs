@@ -164,7 +164,9 @@ public class MainMenuNavigator : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("Dialogue Done!");
+        
+        
+        //screen dip to black
         _crossfadeTransition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1f);
