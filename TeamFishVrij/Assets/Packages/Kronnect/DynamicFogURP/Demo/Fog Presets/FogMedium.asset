@@ -18,7 +18,7 @@ MonoBehaviour:
   densityExponential: 1.01
   maxHeight: 10000
   distanceMax: 100000
-  tintColor: {r: 0.26264182, g: 0.019520547, b: 0.4433962, a: 1}
+  tintColor: {r: 0.6639498, g: 0.35088107, b: 0.8962264, a: 1}
   useVerticalGradient: 1
   verticalGradient:
     serializedVersion: 2
@@ -51,19 +51,19 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   boxProjection: 0
   depthClip: 0
-  noiseColorBlend: 0.1
+  noiseColorBlend: 0.249
   noiseColor: {r: 0.6862745, g: 0.7058824, b: 0.7137255, a: 1}
-  scale: 20
+  scale: 19.46
   shift: 0
   noiseDistanceAtten: 1
   turbulence: 0
   speed: 0.73
   direction: {x: 0.001, y: 0, z: 0}
-  lightDiffusionPower: 64
+  lightDiffusionPower: 0.1
   lightDiffusionIntensity: 0.2
   brightness: 0.72
   useSunColor: 1
   dithering: 1
-  renderQueue: 3100
+  renderQueue: 3196
   sortingLayerID: 0
   sortingOrder: 0

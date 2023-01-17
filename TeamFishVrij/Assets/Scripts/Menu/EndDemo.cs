@@ -61,7 +61,9 @@ public class EndDemo : MonoBehaviour
         }
 
         //transition where Steevin gets "unstuck"
-        _HelpingSteevinUI.Play("DipToBlack");
+        _HelpingSteevinUI.Play("AN_HelpSteevin_Play");
+
+        yield return new WaitForSeconds(3f);
 
         //start second part of dialogue
         DialogueManager.GetInstance().EnterDialogueMode(_inkJSON2);
@@ -72,7 +74,7 @@ public class EndDemo : MonoBehaviour
         }
 
         //start end credits
-        _endCredits.Play("AN_EC_AC");
+        _endCredits.SetTrigger("canStart");
 
         //wait for end credits to finish
         yield return new WaitForSeconds(79f);
