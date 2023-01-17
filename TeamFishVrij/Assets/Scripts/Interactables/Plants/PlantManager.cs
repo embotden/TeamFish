@@ -19,6 +19,7 @@ public class PlantManager : MonoBehaviour
     [Header("Animations")]
     public GameObject _puzzleColider;
     private GameObject _Steevin;
+    private GameObject _SteevinPlant;
 
 
     private void Start()
@@ -27,10 +28,22 @@ public class PlantManager : MonoBehaviour
         _puzzleColider.SetActive(true);
         
         _Steevin = GameObject.Find("/Characters/Shark/MOD_Steefin");
+        _SteevinPlant = GameObject.Find("Environment/Zone 3: Meeting the Shark/Plant Interactable Meeting Steevin/Toxic Plants (1)/Plants");
     }
     private void Update()
     {
         Animator _SteevinAnimator = _Steevin.GetComponent<Animator>();
+        Animator _SteevinPlantAnimator = _SteevinPlant.GetComponent<Animator>();
+
+        if (_SteevinPlantAnimator.GetCurrentAnimatorStateInfo(0).IsName("AN_ToxicDisappear"))
+        {
+            _SteevinAnimator.SetBool("IsStuck", false);
+        }
+
+        else
+        {
+            _SteevinAnimator.SetBool("IsStuck", true);
+        }
     }
 
     public void PlantGrowing()
