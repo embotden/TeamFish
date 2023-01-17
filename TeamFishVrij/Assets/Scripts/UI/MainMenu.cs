@@ -19,7 +19,6 @@ public class MainMenu : MonoBehaviour
     [Header("Level Loader")]
     [SerializeField] private GameObject _loadingScreen;
     [SerializeField] private Slider _loadingBar;
-    [SerializeField] private GameObject _controlsImage;
 
     [Header("Camera")]
     [SerializeField] private Animator _cameraTransitions;
@@ -43,7 +42,6 @@ public class MainMenu : MonoBehaviour
         _optionsMenu.SetActive(false);
         _credits.SetActive(false);
         _loadingScreen.SetActive(false);
-        _controlsImage.SetActive(false);
 
         _mainMenuPrimaryButton.Select();
 
@@ -137,10 +135,6 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         _crossfade.SetTrigger("Start");
-
-        yield return new WaitForSeconds(1f);
-
-        _controlsImage.SetActive(true);
 
         yield return new WaitForSeconds(4f);
 
