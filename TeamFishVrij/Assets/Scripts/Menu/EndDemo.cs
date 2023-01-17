@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class EndDemo : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class EndDemo : MonoBehaviour
 
     [Header("Player")]
     public PlayerController _characterMovements;
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -112,6 +114,8 @@ public class EndDemo : MonoBehaviour
 
         //start end credits
         _endCredits.SetTrigger("canStart");
+        
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Example");
 
         //wait for end credits to finish
         yield return new WaitForSeconds(79f);

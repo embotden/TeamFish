@@ -131,11 +131,13 @@ public class DialogueManager : MonoBehaviour
     private void ContinueStory()
     {
         //Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
+
         //Animator _SteevinAnimator = _Steevin.GetComponent<Animator>();
 
         if (_currentStory.canContinue || _justStarted)
         {
             //_FhinnAnimator.SetBool("IsTalking", true);
+
             //_SteevinAnimator.SetBool("IsTalking", true);
 
             _dialogueText.text = _currentStory.Continue();
@@ -154,7 +156,9 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(ExitDialogueMode());
 
             //_FhinnAnimator.SetBool("IsTalking", false);
+
             //_SteevinAnimator.SetBool("IsTalking", false);
+
         }
         
     }
