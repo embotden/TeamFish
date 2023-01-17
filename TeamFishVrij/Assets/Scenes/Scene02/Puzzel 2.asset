@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: -0.045
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_Value: 1.13
   intensity:
     m_OverrideState: 1
-    m_Value: 6.16
+    m_Value: 1.21
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -84,7 +84,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8711841, z: 0.9490182, w: 0.25236595}
+    m_Value: {x: 1, y: 0.8711841, z: 0.9490182, w: 0.19101626}
   midtones:
     m_OverrideState: 1
     m_Value: {x: 0.800577, y: 1, z: 0.763324, w: 0.29968458}
@@ -209,7 +209,7 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.35243857, g: 0.72258806, b: 0.754717, a: 1}
+    m_Value: {r: 0.3529412, g: 0.39399582, b: 0.7529412, a: 1}
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
@@ -240,7 +240,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.84953403, y: 0.88031363, z: 1, w: -0.18404907}
+    m_Value: {x: 0.84953403, y: 0.88031363, z: 1, w: 0.046012264}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.851667, z: 0.8941853, w: 0}
@@ -274,13 +274,13 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 4.26
+    m_Value: 4.09
   aperture:
     m_OverrideState: 1
-    m_Value: 7.7
+    m_Value: 8.1
   focalLength:
     m_OverrideState: 1
-    m_Value: 118
+    m_Value: 96
   bladeCount:
     m_OverrideState: 0
     m_Value: 5

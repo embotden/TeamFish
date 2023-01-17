@@ -20,15 +20,15 @@ MonoBehaviour:
   sortingLayerID: 0
   sortingOrder: 0
   noiseTexture: {fileID: 2800000, guid: 0f1dc7c421d534c99a4a3e7fc36a4cda, type: 3}
-  noiseStrength: 1
-  noiseScale: 15
+  noiseStrength: 1.31
+  noiseScale: 2.6
   noiseFinalMultiplier: 1
   useDetailNoise: 0
   detailTexture: {fileID: 11700000, guid: 950add8d241c6479bbab1f10e1035d60, type: 2}
   detailScale: 0.35
   detailStrength: 0.5
   detailOffset: -0.5
-  density: 0.31
+  density: 0.1
   shape: 0
   border: 0.179
   verticalOffset: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   specularColor: {r: 1, g: 1, b: 0.8, a: 1}
   specularThreshold: 0.637
   specularIntensity: 0.428
-  turbulence: 0.73
+  turbulence: 0
   windDirection: {x: 0.02, y: 0, z: 0}
   dayNightCycle: 0
   lightDiffusionPower: 32

@@ -7,6 +7,7 @@ public class PaintingPlay : MonoBehaviour
     public Animator _paintingAnimation;
     public GameObject _plantTouchBorder;
     public GameObject _uiCue;
+    public GameObject _paintings;
 
     public float _timeToStop;
 
@@ -57,7 +58,7 @@ public class PaintingPlay : MonoBehaviour
 
         yield return new WaitForSeconds(_timeToStop);
 
-        Destroy(_paintingAnimation);
+        _paintings.SetActive(false);
 
         _lightAnimations.SetTrigger("canMove");
         
