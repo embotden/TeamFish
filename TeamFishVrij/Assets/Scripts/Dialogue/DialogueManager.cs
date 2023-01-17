@@ -40,6 +40,10 @@ public class DialogueManager : MonoBehaviour
     //private bool _submitSkip;
 
     private GameObject _Fhinn;
+    private GameObject _Steevin;
+
+    public Animator _FhinnAnimator;
+    public Animator _SteevinAnimator;
 
 
     private void Awake()
@@ -51,6 +55,9 @@ public class DialogueManager : MonoBehaviour
         _instance = this;
 
         _Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");
+        _Steevin = GameObject.Find("/Characters/Shark/MOD_Steefin");
+
+        
     }
 
     public static DialogueManager GetInstance()
@@ -82,6 +89,7 @@ public class DialogueManager : MonoBehaviour
             _ContinueButtonAnimations.SetBool("isClicked", false);
             _buttonClicked = false;
         }
+
     }
 
     public void EnterDialogueMode(TextAsset _inkJSON)
@@ -117,15 +125,20 @@ public class DialogueManager : MonoBehaviour
         _SteevinNametag.SetBool("canLeave", false);
 
         ContinueStory();
+
     }
 
     private void ContinueStory()
     {
         //Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
 
+        //Animator _SteevinAnimator = _Steevin.GetComponent<Animator>();
+
         if (_currentStory.canContinue || _justStarted)
         {
             //_FhinnAnimator.SetBool("IsTalking", true);
+
+            //_SteevinAnimator.SetBool("IsTalking", true);
 
             _dialogueText.text = _currentStory.Continue();
 
@@ -143,12 +156,17 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(ExitDialogueMode());
 
             //_FhinnAnimator.SetBool("IsTalking", false);
+
+            //_SteevinAnimator.SetBool("IsTalking", false);
+
         }
         
     }
 
     private void HandleTags(List<string> currentTags)
     {
+        
+
         //loop through each tag and handle it accordingly
         foreach (string tag in currentTags)
         {
@@ -180,6 +198,28 @@ public class DialogueManager : MonoBehaviour
                     break;
             }
         }
+
+        if (_displayNameTag.text == "Fhinn") 
+        {
+            _FhinnAnimator.SetBool("IsTalking", true);
+        }
+
+        else
+        {
+            _FhinnAnimator.SetBool("IsTalking", false);
+        }
+
+
+        if (_displayNameTag.text == "Steevin")
+        {
+            _SteevinAnimator.SetBool("IsTalking", true);
+        }
+
+        else
+        {
+            _SteevinAnimator.SetBool("IsTalking", false);
+        }
+
     }
 
     private IEnumerator ExitDialogueMode()
@@ -221,6 +261,12 @@ public class DialogueManager : MonoBehaviour
         else if(_SteevinNametag)
         {
             _SteevinNametag.SetBool("canLeave", true);
+        }
+
+        if (_displayNameTag.text == "")
+        {
+            _SteevinAnimator.SetBool("IsTalking", false);
+            _FhinnAnimator.SetBool("IsTalking", false);
         }
 
         yield return new WaitForSeconds(1f);
