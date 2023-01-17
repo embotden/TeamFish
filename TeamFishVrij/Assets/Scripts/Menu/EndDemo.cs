@@ -19,6 +19,9 @@ public class EndDemo : MonoBehaviour
 
     [SerializeField] private float _crossfadeAnimationDuration = 0.5f;
 
+    [Header("Player")]
+    public PlayerController _characterMovements;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +30,7 @@ public class EndDemo : MonoBehaviour
             //Invoke("EndGameDemo", 3f);
 
             Debug.Log("End Triggered");
+            StartCoroutine(DemoEnding());
         }
     }
 
@@ -49,6 +53,9 @@ public class EndDemo : MonoBehaviour
 
     private IEnumerator DemoEnding()
     {
+        //turn off player movement
+        _characterMovements._canIMove = false;
+
         //wait for camera to finish rotating
         yield return new WaitForSeconds(2f);
 
@@ -62,6 +69,8 @@ public class EndDemo : MonoBehaviour
 
         //transition where Steevin gets "unstuck"
         _HelpingSteevinUI.Play("AN_HelpSteevin_Play");
+
+        //positie switch characters
 
         yield return new WaitForSeconds(3f);
 
