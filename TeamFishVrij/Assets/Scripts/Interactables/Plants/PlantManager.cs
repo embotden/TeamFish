@@ -30,7 +30,7 @@ public class PlantManager : MonoBehaviour
         _Steevin = GameObject.Find("/Characters/Shark/MOD_Steefin");
         _SteevinPlant = GameObject.Find("Environment/Zone 3: Meeting the Shark/Plant Interactable Meeting Steevin/Toxic Plants (1)/Plants");
     }
-    private void Update()
+    /*private void Update()
     {
         Animator _SteevinAnimator = _Steevin.GetComponent<Animator>();
         Animator _SteevinPlantAnimator = _SteevinPlant.GetComponent<Animator>();
@@ -44,7 +44,7 @@ public class PlantManager : MonoBehaviour
         {
             _SteevinAnimator.SetBool("IsStuck", true);
         }
-    }
+    }*/
 
     public void PlantGrowing()
     {

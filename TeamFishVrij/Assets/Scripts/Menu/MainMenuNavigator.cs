@@ -50,6 +50,9 @@ public class MainMenuNavigator : MonoBehaviour
     [Header("Triggers")]
     public GameObject _windowViewTrigger;
 
+    public GameObject _Fhinn;
+    public PlayerController CanFhinnMove;
+
 
     void Start()
     {
@@ -64,6 +67,7 @@ public class MainMenuNavigator : MonoBehaviour
 
         _windowVolume.SetBool("viewActive", true);
         StartCoroutine(OpeningDialogue());
+        //_Fhinn = GameObject.Find("/Characters/MC/MOD_Fhinn");
 
     }
 
@@ -147,9 +151,12 @@ public class MainMenuNavigator : MonoBehaviour
 
     public IEnumerator StartGame(int levelIndex)
     {
+        CanFhinnMove._canIMove = false;
+        
         //_isStart = true;
         _isWatching = true;
         //_canShow = false;
+        Animator _FhinnAnimator = _Fhinn.GetComponent<Animator>();
 
         _menuAnimator.Play("Start camera");
         _mainCamera = !_mainCamera;
@@ -164,7 +171,12 @@ public class MainMenuNavigator : MonoBehaviour
             yield return null;
         }
 
-        
+        // Fhinn going to sleep
+        yield return new WaitForSeconds(0.1f);
+        _FhinnAnimator.SetBool("IsSleeping", true);
+
+
+        yield return new WaitForSeconds(9.3f);
         
         //screen dip to black
         _crossfadeTransition.SetTrigger("Start");
