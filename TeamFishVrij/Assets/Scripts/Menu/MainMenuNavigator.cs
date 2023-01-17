@@ -17,6 +17,7 @@ public class MainMenuNavigator : MonoBehaviour
     //public Animator _startHeader;
     public Animator _lightCue;
     public GameObject _godRay;
+    public BforBack _b_UI;
 
     [Header("Transition")]
     public Animator _menuAnimator;
@@ -31,6 +32,7 @@ public class MainMenuNavigator : MonoBehaviour
     private bool _canStart;
     private bool _canSwitch;
     public bool _canShow;
+    private bool _canGoBack;
 
     [Header("Options")]
     [SerializeField] private bool _isOptions;
@@ -73,6 +75,7 @@ public class MainMenuNavigator : MonoBehaviour
         {
             _startTrigger.SetActive(true);
         }
+        if (_isWatching && _canSwitch) _b_UI._canBeShown = true;
     }
     
 
@@ -142,6 +145,7 @@ public class MainMenuNavigator : MonoBehaviour
         _mainCamera = !_mainCamera;
 
         _isWatching = true;
+        _canSwitch = true;
 
     }
 
@@ -243,6 +247,8 @@ public class MainMenuNavigator : MonoBehaviour
             }
         }
 
+
+
     }
 
     void OnBack()
@@ -252,7 +258,7 @@ public class MainMenuNavigator : MonoBehaviour
             if (_canSwitch)
             {
                 StartCoroutine(SwitchToMainState());
-
+                _canSwitch = false;
             }
         }
     }
