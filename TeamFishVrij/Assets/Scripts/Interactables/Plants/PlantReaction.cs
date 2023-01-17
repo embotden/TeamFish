@@ -26,6 +26,10 @@ public class PlantReaction : MonoBehaviour
 
         _plantCollider.GetComponent<BoxCollider>().enabled = false;
 
+        //Play Plant Sound
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Plant");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChimesToMoon");
+
         //Turn off visual cue
         //gameObject.GetComponent<MeshRenderer>().enabled = false;
 

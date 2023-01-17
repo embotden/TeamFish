@@ -24,6 +24,7 @@ TagManager:
   - statue
   - light beam
   - toxic1
+  - waterbal
   layers:
   - Default
   - TransparentFX
