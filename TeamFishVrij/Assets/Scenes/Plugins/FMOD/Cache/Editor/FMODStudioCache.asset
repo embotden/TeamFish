@@ -1,29 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9136895751912835412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/GuidingLight/GuidingLightLoudness
-  m_EditorClassIdentifier: 
-  Name: GuidingLightLoudness
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 4193421751
-    data2: 1619482672
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &-8148585420124355772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,59 +24,6 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-8116475648963441690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/GuidingLight/GuidingLightOnOff
-  m_EditorClassIdentifier: 
-  Name: GuidingLightOnOff
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2140593540
-    data2: 233685607
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - On
-  - Off
-  Exists: 1
---- !u!114 &-7843046652105320666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TEST/TEST sound
-  m_EditorClassIdentifier: 
-  Path: event:/TEST/TEST sound
-  Guid:
-    Data1: 114297402
-    Data2: 1309143750
-    Data3: -1708013937
-    Data4: 43358680
-  Banks:
-  - {fileID: 6516684243659585763}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
 --- !u!114 &-7660691641021850595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,33 +127,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 296
---- !u!114 &-5567554171418176197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TEST/TEST music
-  m_EditorClassIdentifier: 
-  Path: event:/TEST/TEST music
-  Guid:
-    Data1: 1115371361
-    Data2: 1170540710
-    Data3: -1265344361
-    Data4: -1530718842
-  Banks:
-  - {fileID: 6516684243659585763}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 136615
 --- !u!114 &-5315088685061271115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +149,30 @@ MonoBehaviour:
     data2: 2834819418
   Type: 0
   IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5021346887745912761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ChimesLoudnessGlobal
+  m_EditorClassIdentifier: 
+  Name: ChimesLoudnessGlobal
+  StudioPath: parameter:/ChimesLoudnessGlobal
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1991612549
+    data2: 319598537
+  Type: 0
+  IsGlobal: 1
   Labels: []
   Exists: 1
 --- !u!114 &-4956799861092254520
@@ -318,7 +238,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Fhlin.bank
   Name: Fhlin
   StudioPath: bank:/SFX/Fhlin
-  lastModified: 638095867015364676
+  lastModified: 638096371036285754
   FileSizes: []
   Exists: 1
 --- !u!114 &-4036465025095384608
@@ -398,7 +318,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Envirement.bank
   Name: Envirement
   StudioPath: bank:/SFX/Envirement
-  lastModified: 638095867015006641
+  lastModified: 638096371035607557
   FileSizes: []
   Exists: 1
 --- !u!114 &-2155278723668571197
@@ -469,18 +389,13 @@ MonoBehaviour:
   - {fileID: 1662646182641298243}
   - {fileID: -4848978197478812664}
   - {fileID: 747429132326156625}
-  - {fileID: 6516684243659585763}
   - {fileID: -2285300689912374131}
   - {fileID: 4109666831386148579}
-  - {fileID: 2475588746370348886}
   - {fileID: 753190450317499616}
   EditorEvents:
   - {fileID: 3427356095401749186}
-  - {fileID: -7843046652105320666}
-  - {fileID: -5567554171418176197}
   - {fileID: 8684792271789160307}
   - {fileID: 5750388114703611173}
-  - {fileID: 564738662371476978}
   - {fileID: 3101149108772771073}
   - {fileID: 5992877266450379653}
   - {fileID: 6383715460941416726}
@@ -489,41 +404,13 @@ MonoBehaviour:
   - {fileID: -6310414291550331522}
   EditorParameters:
   - {fileID: 579610833887980601}
+  - {fileID: -5021346887745912761}
   MasterBanks:
   - {fileID: 747429132326156625}
   StringsBanks:
   - {fileID: 1662646182641298243}
-  cacheTime: 638095867015996371
+  cacheTime: 638096371036565015
   cacheVersion: 131592
---- !u!114 &564738662371476978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/GuidingLight
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/GuidingLight
-  Guid:
-    Data1: -3530956
-    Data2: 1207485656
-    Data3: 1522061494
-    Data4: -1888684959
-  Banks:
-  - {fileID: -2285300689912374131}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -9136895751912835412}
-  - {fileID: -8116475648963441690}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 44000
 --- !u!114 &579610833887980601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,7 +468,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638095867012623696
+  lastModified: 638096371032612737
   FileSizes: []
   Exists: 1
 --- !u!114 &753190450317499616
@@ -599,7 +486,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/SFX/UI
-  lastModified: 638095867015614001
+  lastModified: 638096371036565015
   FileSizes: []
   Exists: 1
 --- !u!114 &1190479583808923142
@@ -641,10 +528,10 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638095867012653635
+  lastModified: 638096371032662609
   FileSizes:
   - Name: 
-    Value: 2550
+    Value: 2312
   Exists: 1
 --- !u!114 &1725416732142984351
 MonoBehaviour:
@@ -751,24 +638,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
---- !u!114 &2475588746370348886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/MusicTitlescreen.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Systems/FMODbanks/Banks/Desktop/MusicTitlescreen.bank
-  Name: MusicTitlescreen
-  StudioPath: bank:/Music/MusicTitlescreen
-  lastModified: 638095867014188849
-  FileSizes: []
-  Exists: 1
 --- !u!114 &2647114742582083023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,7 +798,7 @@ MonoBehaviour:
   Path: Assets/Systems/FMODbanks/Banks/Desktop/musicScene02.bank
   Name: musicScene02
   StudioPath: bank:/Music/musicScene02
-  lastModified: 638095867014168893
+  lastModified: 638096371034610227
   FileSizes: []
   Exists: 1
 --- !u!114 &5036986973107015072
@@ -1049,6 +918,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 1190479583808923142}
   - {fileID: -2614714102190928825}
+  - {fileID: 8477611637425791099}
   MinDistance: 1
   MaxDistance: 20
   Length: 39807
@@ -1096,7 +966,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 85
-  Length: 136000
+  Length: 69419
 --- !u!114 &6422016817386730787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,24 +994,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 82348
---- !u!114 &6516684243659585763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/TEST.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Systems/FMODbanks/Banks/Desktop/TEST.bank
-  Name: TEST
-  StudioPath: bank:/TEST/TEST
-  lastModified: 638095867015996371
-  FileSizes: []
-  Exists: 1
 --- !u!114 &7723308631716841893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,6 +1016,30 @@ MonoBehaviour:
     data2: 4247877431
   Type: 0
   IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8477611637425791099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ChimesToMoon/ChimesLoudnessGlobal
+  m_EditorClassIdentifier: 
+  Name: ChimesLoudnessGlobal
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1991612549
+    data2: 319598537
+  Type: 0
+  IsGlobal: 1
   Labels: []
   Exists: 1
 --- !u!114 &8684792271789160307
@@ -1192,7 +1068,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 5824
+  Length: 5699
 --- !u!114 &8861363180696578085
 MonoBehaviour:
   m_ObjectHideFlags: 0

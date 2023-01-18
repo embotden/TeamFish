@@ -321,8 +321,6 @@ MonoBehaviour:
   - Envirement
   - Fhlin
   - musicScene02
-  - MusicTitlescreen
-  - TEST
   - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
